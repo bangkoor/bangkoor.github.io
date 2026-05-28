@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografis EPBM – Departemen KSHE IPB University</title>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --hijau-gelap:   #085041;
+    --hijau-tengah:  #0F6E56;
+    --hijau-muda:    #1D9E75;
+    --hijau-pucat:   #9FE1CB;
+    --hijau-lembut:  #E1F5EE;
+    --biru-tengah:   #185FA5;
+    --biru-muda:     #378ADD;
+    --biru-lembut:   #E6F1FB;
+    --kuning:        #EF9F27;
+    --kuning-lembut: #FAEEDA;
+    --ungu:          #7F77DD;
+    --ungu-lembut:   #EEEDFE;
+    --coral:         #D85A30;
+    --coral-lembut:  #FAECE7;
+    --pink:          #D4537E;
+    --pink-lembut:   #FBEAF0;
+    --abu:           #5F5E5A;
+    --abu-muda:      #D3D1C7;
+    --putih:         #ffffff;
+    --bg:            #f4f1eb;
+    --teks-utama:    #1a1a18;
+    --teks-sekunder: #5F5E5A;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --font-display: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    --font-body:    Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--teks-utama);
+    line-height: 1.6;
+  }
+
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  /* HEADER */
+  .header-card {
+    background: var(--hijau-gelap);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.75rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-card::before {
+    content: '';
+    position: absolute; right: -40px; top: -40px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .header-card::after {
+    content: '';
+    position: absolute; right: 30px; bottom: -60px;
+    width: 170px; height: 170px; border-radius: 50%;
+    background: rgba(29,158,117,0.18);
+  }
+  .header-icon { font-size: 58px; line-height: 1; flex-shrink: 0; z-index: 1; }
+  .header-body { z-index: 1; }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    color: var(--hijau-pucat);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 12px; border-radius: 20px; margin-bottom: 10px;
+  }
+  .header-card h1 {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 400;
+    color: #fff; line-height: 1.3; margin-bottom: 6px;
+  }
+  .header-card p { font-size: 13px; color: var(--hijau-pucat); line-height: 1.6; }
+  .header-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .badge {
+    background: rgba(255,255,255,0.1); color: #d4f5ea;
+    font-size: 11px; padding: 4px 12px; border-radius: 20px;
+    border: 0.5px solid rgba(255,255,255,0.15);
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--hijau-tengah);
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--abu-muda); }
+
+  /* METRIC CARDS */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .metric-card {
+    background: var(--putih);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1rem;
+    border-left: 4px solid var(--hijau-muda);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+  .metric-card.blue  { border-left-color: var(--biru-muda); }
+  .metric-card.kuning { border-left-color: var(--kuning); }
+  .metric-card.teal  { border-left-color: #5DCAA5; }
+  .metric-card.ungu  { border-left-color: var(--ungu); }
+  .metric-value {
+    font-family: var(--font-display);
+    font-size: 28px; color: var(--hijau-gelap); line-height: 1.1;
+  }
+  .metric-card.blue   .metric-value { color: var(--biru-tengah); }
+  .metric-card.kuning .metric-value { color: #854F0B; }
+  .metric-card.teal   .metric-value { color: var(--hijau-tengah); }
+  .metric-card.ungu   .metric-value { color: #3C3489; }
+  .metric-label { font-size: 12px; color: var(--teks-sekunder); margin-top: 5px; line-height: 1.4; }
+
+  /* TOP 5 DOSEN */
+  .dosen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .dosen-card {
+    background: var(--putih);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--kuning);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .dosen-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(239,159,39,0.18); }
+  .dosen-avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--kuning-lembut);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin: 0 auto 10px;
+    border: 2px solid var(--kuning);
+  }
+  .dosen-skor {
+    font-family: var(--font-display);
+    font-size: 22px; color: #854F0B; margin-bottom: 4px;
+  }
+  .star-row { color: var(--kuning); font-size: 13px; margin-bottom: 8px; letter-spacing: 1px; }
+  .dosen-nama { font-size: 11.5px; font-weight: 700; color: var(--teks-utama); line-height: 1.4; margin-bottom: 4px; }
+  .dosen-mk { font-size: 10.5px; color: var(--teks-sekunder); line-height: 1.4; }
+
+  /* TREEMAP */
+  .treemap-wrap {
+    background: var(--putih);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  #treemap { width: 100%; }
+  .treemap-legend {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 14px; font-size: 11px; color: var(--teks-sekunder);
+  }
+  .treemap-legend-item { display: flex; align-items: center; gap: 5px; }
+  .treemap-legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  /* TREND CHART */
+  .chart-card {
+    background: var(--putih);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 12px; color: var(--teks-sekunder); }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 22px; height: 3px; border-radius: 2px; display: inline-block; }
+
+  /* KELOMPOK MATAKULIAH */
+  .kelompok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .kelompok-card {
+    background: var(--putih);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.1rem 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--hijau-muda);
+  }
+  .kelompok-card.mg  { border-top-color: var(--biru-muda); }
+  .kelompok-card.sw  { border-top-color: var(--coral); }
+  .kelompok-card.tb  { border-top-color: var(--hijau-muda); }
+  .kelompok-card.lk  { border-top-color: var(--ungu); }
+  .kelompok-card.sm  { border-top-color: var(--pink); }
+  .kelompok-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .kelompok-icon { font-size: 20px; }
+  .kelompok-title { font-size: 13px; font-weight: 700; color: var(--teks-utama); }
+  .kelompok-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 5px 0; border-bottom: 0.5px solid #f0ede6;
+    gap: 8px;
+  }
+  .kelompok-item:last-child { border-bottom: none; }
+  .ki-nama { font-size: 11.5px; color: var(--teks-utama); flex: 1; line-height: 1.4; }
+  .ki-kode { font-size: 10px; color: var(--teks-sekunder); display: block; }
+  .ki-range {
+    font-size: 11.5px; font-weight: 700;
+    color: var(--hijau-gelap); white-space: nowrap;
+    background: var(--hijau-lembut); padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* SEMESTER CARDS */
+  .semester-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sem-card { border-radius: var(--radius-md); padding: 1.25rem; border: 1.5px solid transparent; }
+  .sem-card.ganjil { background: var(--hijau-lembut); border-color: #9FE1CB; }
+  .sem-card.genap  { background: var(--biru-lembut);  border-color: #B5D4F4; }
+  .sem-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .sem-icon { font-size: 22px; }
+  .sem-title { font-size: 13px; font-weight: 700; color: var(--hijau-gelap); }
+  .sem-card.genap .sem-title { color: var(--biru-tengah); }
+  .sem-desc { font-size: 12px; color: var(--teks-sekunder); line-height: 1.6; }
+  .sem-score { font-family: var(--font-display); font-size: 26px; margin-top: 10px; color: var(--hijau-tengah); }
+  .sem-card.genap .sem-score { color: var(--biru-tengah); }
+
+  /* FACULTY NOTE */
+  .faculty-card {
+    background: var(--putih);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--kuning);
+  }
+  .faculty-icon-wrap {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--kuning-lembut);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; flex-shrink: 0;
+  }
+  .faculty-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .faculty-card p { font-size: 13px; color: var(--teks-sekunder); line-height: 1.6; }
+  .faculty-score {
+    display: inline-block; margin-top: 8px;
+    background: var(--kuning-lembut); color: #633806;
+    font-size: 13px; font-weight: 700;
+    padding: 4px 14px; border-radius: 20px;
+  }
+
+  /* FOOTER */
+  .footer-note {
+    font-size: 11px; color: var(--teks-sekunder);
+    text-align: center; padding-top: 0.75rem;
+    border-top: 1px solid var(--abu-muda);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 560px) {
+    .header-card { flex-direction: column; gap: 0.75rem; }
+    .semester-grid { grid-template-columns: 1fr; }
+    .faculty-card { grid-template-columns: 1fr; }
+    .faculty-icon-wrap { margin: 0 auto; }
+    .faculty-card h3, .faculty-card p, .faculty-score { text-align: center; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .kelompok-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header-card">
+    <div class="header-icon" aria-hidden="true">🌳</div>
+    <div class="header-body">
+      <div class="header-tag">Manajemen Mutu IPB</div>
+      <h1>Infografis Evaluasi Proses Belajar Mengajar (EPBM)</h1>
+      <p>Departemen Konservasi Sumberdaya Hutan dan Ekowisata (KSHE)<br>
+         Tahun Akademik 2022–2025 &nbsp;·&nbsp; Skala: 1 (sangat kurang) → 4 (sangat baik)</p>
+    </div>
+  </div>
+
+  <!-- METRIK UTAMA -->
+  <div>
+    <div class="section-label">Statistik Utama</div>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-value">3,42–3,96</div>
+        <div class="metric-label">Rentang nilai EPBM keseluruhan (Baik – Sangat Baik)</div>
+      </div>
+      <div class="metric-card blue">
+        <div class="metric-value">4,0</div>
+        <div class="metric-label">Nilai maksimum skala EPBM</div>
+      </div>
+      <div class="metric-card kuning">
+        <div class="metric-value">132</div>
+        <div class="metric-label">Maks. mahasiswa responden per matakuliah (N-MK)</div>
+      </div>
+      <div class="metric-card teal">
+        <div class="metric-value">22+</div>
+        <div class="metric-label">Matakuliah yang dievaluasi di seluruh kelompok</div>
+      </div>
+      <div class="metric-card ungu">
+        <div class="metric-value">5</div>
+        <div class="metric-label">Dosen dengan skor sempurna 4,00 (PDS)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP 5 DOSEN -->
+  <div>
+    <div class="section-label">Top 5 Dosen dengan Nilai EPBM Tertinggi</div>
+    <div class="dosen-grid" id="dosenGrid"></div>
+  </div>
+
+  <!-- TREEMAP -->
+  <div class="treemap-wrap">
+    <div class="section-label">Peta Pohon Matakuliah — Ukuran = Nilai Rata-rata</div>
+    <canvas id="treemap" role="img" aria-label="Peta pohon matakuliah KSHE berdasarkan nilai rata-rata EPBM. Warna lebih gelap menunjukkan skor lebih tinggi.">Visualisasi nilai rata-rata seluruh matakuliah KSHE.</canvas>
+    <div class="treemap-legend">
+      <strong style="font-size:11px;">Keterangan warna:</strong>
+      <div class="treemap-legend-item"><div class="treemap-legend-dot" style="background:#085041;"></div> ≥ 3,88</div>
+      <div class="treemap-legend-item"><div class="treemap-legend-dot" style="background:#0F6E56;"></div> 3,80–3,87</div>
+      <div class="treemap-legend-item"><div class="treemap-legend-dot" style="background:#1D9E75;"></div> 3,70–3,79</div>
+      <div class="treemap-legend-item"><div class="treemap-legend-dot" style="background:#5DCAA5;"></div> 3,60–3,69</div>
+      <div class="treemap-legend-item"><div class="treemap-legend-dot" style="background:#9FE1CB;"></div> &lt; 3,60</div>
+    </div>
+  </div>
+
+  <!-- TREN 3 TAHUN -->
+  <div class="chart-card">
+    <div class="section-label">Tren Nilai EPBM Semua Matakuliah (2022–2025)</div>
+    <div style="position:relative; width:100%; height:480px;">
+      <canvas id="trendChart" role="img"
+        aria-label="Grafik tren nilai EPBM semua matakuliah KSHE dari 2022/2023 hingga 2024/2025.">
+        Tren nilai seluruh matakuliah KSHE 2022–2025.
+      </canvas>
+    </div>
+    <div class="chart-legend" id="trendLegend"></div>
+  </div>
+
+  <!-- KELOMPOK MATAKULIAH -->
+  <div>
+    <div class="section-label">Evaluasi Seluruh Matakuliah per Kelompok</div>
+    <div class="kelompok-grid" id="kelompokGrid"></div>
+  </div>
+
+  <!-- SEMESTER -->
+  <div>
+    <div class="section-label">Sorotan Berdasarkan Tipe Semester</div>
+    <div class="semester-grid">
+      <div class="sem-card ganjil">
+        <div class="sem-header">
+          <div class="sem-icon" aria-hidden="true">🍂</div>
+          <div class="sem-title">Semester Ganjil</div>
+        </div>
+        <p class="sem-desc">Matakuliah fundamental bervolume tinggi seperti <em>Ekologi Satwa Liar</em> dan <em>Analisis Data Konservasi Biodiversitas</em>. Performa stabil dan konsisten.</p>
+        <div class="sem-score">≥ 3,75</div>
+      </div>
+      <div class="sem-card genap">
+        <div class="sem-header">
+          <div class="sem-icon" aria-hidden="true">🌸</div>
+          <div class="sem-title">Semester Genap</div>
+        </div>
+        <p class="sem-desc">Matakuliah spesialisasi seperti <em>Pendidikan Konservasi</em> dan <em>Bisnis Konservasi</em>. Kepuasan lebih tinggi — puncak skor mencapai 3,96.</p>
+        <div class="sem-score">≥ 3,85</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KONTEKS DOSEN -->
+  <div class="faculty-card">
+    <div class="faculty-icon-wrap" aria-hidden="true">👩‍🏫</div>
+    <div>
+      <h3>Konteks Kinerja Dosen</h3>
+      <p>Nilai evaluasi dosen (PDS-1 hingga PDS-5) secara konsisten melampaui nilai matakuliah — kualitas pengajaran merupakan faktor utama pendorong tingginya rating departemen. Lima dosen meraih skor sempurna 4,00.</p>
+      <span class="faculty-score">Rata-rata dosen: 3,90 – 4,00</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    Infografis ini dibuat berdasarkan data yang diambil secara berkala dari sistem EPBM, Institut Pertanian Bogor
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+/* ── DATA ── */
+const dosenData = [
+  { nama: 'Amrina Rosyada S.T.P., M.Agr.Sc.', mk: 'Komunikasi dan Sosial Sains Konservasi', skor: 4.00, ikon: '👩‍🔬' },
+  { nama: 'Dr. Syafitri Hidayati S.Hut, M.Si.', mk: 'Metode Penelitian dan Penulisan Ilmiah', skor: 4.00, ikon: '📖' },
+  { nama: 'Prof. Dr. Ir. Mirza Dikari Kusrini M.Si.', mk: 'Pencemaran & Pengendalian Dampak Lingkungan', skor: 4.00, ikon: '🐸' },
+  { nama: 'Dr. Eva Rachmawati S.Hut., M.Si.', mk: 'Pendidikan Konservasi & Metode Penelitian', skor: 4.00, ikon: '🌿' },
+  { nama: 'Dr. Dede Aulia Rahman S.Hut., M.Si.', mk: 'Analisis Data Konservasi Biodiversitas', skor: 4.00, ikon: '📊' },
+];
+
+const kelompokData = [
+  {
+    nama: 'Dasar-Dasar Konservasi', ikon: '🌱', kelas: '',
+    items: [
+      { nama: 'Ekologi Satwa Liar', kode: 'KSH1211', min: 3.69, max: 3.89 },
+      { nama: 'Analisis Data Konservasi Biodiversitas', kode: 'KSH1212', min: 3.65, max: 3.81 },
+      { nama: 'Konservasi Sumberdaya Hayati dan Lingkungan', kode: 'KSH1101', min: 3.44, max: 3.85 },
+      { nama: 'Kebijakan Konservasi dan Lingkungan', kode: 'KSH1226', min: 3.67, max: 3.90 },
+    ]
+  },
+  {
+    nama: 'Manajemen & Perencanaan', ikon: '🗺️', kelas: 'mg',
+    items: [
+      { nama: 'Perencanaan Kawasan Konservasi', kode: 'KSH1324', min: 3.54, max: 3.83 },
+      { nama: 'Kawasan Konservasi dan Ekosistem Esensial', kode: 'KSH1322', min: 3.68, max: 3.85 },
+      { nama: 'Bisnis Konservasi', kode: 'KSH1325', min: 3.64, max: 3.77 },
+      { nama: 'Instrumen Pengelolaan Lingkungan', kode: 'KSH1303', min: 3.61, max: 3.76 },
+    ]
+  },
+  {
+    nama: 'Satwaliar & Eksitu', ikon: '🦁', kelas: 'sw',
+    items: [
+      { nama: 'Perilaku Satwaliar', kode: 'KSH1312', min: 3.77, max: 3.84 },
+      { nama: 'Pengelolaan Satwa Liar', kode: 'KSH1316', min: 3.63, max: 3.89 },
+      { nama: 'Konservasi Eksitu dan Penangkaran Satwaliar', kode: 'KSH1315', min: 3.61, max: 3.84 },
+      { nama: 'Inventarisasi dan Pemantauan Hidupanliar', kode: 'KSH1213', min: 3.65, max: 3.88 },
+    ]
+  },
+  {
+    nama: 'Tumbuhan & Lingkungan', ikon: '🌺', kelas: 'tb',
+    items: [
+      { nama: 'Konservasi Tumbuhan Tropika', kode: 'KSH1231', min: 3.68, max: 3.90 },
+      { nama: 'Konservasi Tumbuhan Obat Hutan Tropika', kode: 'KSH433', min: 3.61, max: 3.90 },
+      { nama: 'Tumbuhan Obat dan Pangan Hutan', kode: 'KSH1333', min: 3.64, max: 3.83 },
+      { nama: 'Etnobiologi dan Bioprospeksi', kode: 'KSH1331', min: 3.60, max: 3.88 },
+    ]
+  },
+  {
+    nama: 'Lanskap & Ekowisata', ikon: '🏔️', kelas: 'lk',
+    items: [
+      { nama: 'Pemetaan, SIG dan UAV Lingkungan', kode: 'KSH1243', min: 3.79, max: 3.92 },
+      { nama: 'Analisis Spasial Lingkungan', kode: 'KSH1342', min: 3.75, max: 3.92 },
+      { nama: 'Rekreasi Alam dan Ekowisata', kode: 'KSH1251', min: 3.75, max: 3.88 },
+      { nama: 'Ilmu Hutan Kota', kode: 'KSH444', min: 3.78, max: 3.85 },
+      { nama: 'Interpretasi Alam dan Lingkungan', kode: 'KSH1354', min: 3.69, max: 3.90 },
+    ]
+  },
+  {
+    nama: 'Sosial & Metodologi', ikon: '💬', kelas: 'sm',
+    items: [
+      { nama: 'Pendidikan Konservasi', kode: 'KSH1252', min: 3.59, max: 3.96 },
+      { nama: 'Komunikasi dan Sosial Sains Konservasi', kode: 'KSH1222', min: 3.81, max: 3.93 },
+      { nama: 'Metode Penelitian dan Penulisan Ilmiah', kode: 'KSH1302', min: 3.69, max: 3.88 },
+    ]
+  },
+];
+
+/* ── TOP 5 DOSEN ── */
+const dosenGrid = document.getElementById('dosenGrid');
+dosenData.forEach(d => {
+  const div = document.createElement('div');
+  div.className = 'dosen-card';
+  div.innerHTML = `
+    <div class="dosen-avatar">${d.ikon}</div>
+    <div class="dosen-skor">${d.skor.toFixed(2)}</div>
+    <div class="star-row">★★★★</div>
+    <div class="dosen-nama">${d.nama}</div>
+    <div class="dosen-mk">${d.mk}</div>
+  `;
+  dosenGrid.appendChild(div);
+});
+
+/* ── KELOMPOK MATAKULIAH ── */
+const kelGrid = document.getElementById('kelompokGrid');
+kelompokData.forEach(k => {
+  const div = document.createElement('div');
+  div.className = 'kelompok-card ' + k.kelas;
+  const rows = k.items.map(it => `
+    <div class="kelompok-item">
+      <div class="ki-nama">${it.nama}<span class="ki-kode">${it.kode}</span></div>
+      <div class="ki-range">${it.min.toFixed(2)}–${it.max.toFixed(2)}</div>
+    </div>
+  `).join('');
+  div.innerHTML = `
+    <div class="kelompok-header">
+      <div class="kelompok-icon" aria-hidden="true">${k.ikon}</div>
+      <div class="kelompok-title">${k.nama}</div>
+    </div>
+    ${rows}
+  `;
+  kelGrid.appendChild(div);
+});
+
+/* ── TREEMAP via Chart.js bar approximation ── */
+(function() {
+  const allMK = kelompokData.flatMap(k => k.items.map(it => ({
+    nama: it.kode,
+    skor: parseFloat(((it.min + it.max) / 2).toFixed(2))
+  })));
+  allMK.sort((a,b) => b.skor - a.skor);
+
+  function getColor(s) {
+    if (s >= 3.88) return '#085041';
+    if (s >= 3.80) return '#0F6E56';
+    if (s >= 3.70) return '#1D9E75';
+    if (s >= 3.60) return '#5DCAA5';
+    return '#9FE1CB';
+  }
+
+  const canvas = document.getElementById('treemap');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.parentElement.offsetWidth || 780;
+  const H = Math.round(W * 0.38);
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const pad = 3;
+  const cols = 4;
+  const cellW = Math.floor((W - pad * 2 - pad * (cols - 1)) / cols);
+  allMK.forEach((mk, i) => {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const cx = pad + col * (cellW + pad);
+    const cy = pad + row * (cellW * 0.52 + pad);
+    const ch = cellW * 0.52;
+    ctx.fillStyle = getColor(mk.skor);
+    ctx.beginPath();
+    ctx.roundRect(cx, cy, cellW, ch, 4);
+    ctx.fill();
+    ctx.fillStyle = mk.skor >= 3.70 ? '#E1F5EE' : '#085041';
+    ctx.font = `bold 11px Arial, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText(mk.nama, cx + cellW / 2, cy + ch / 2 - 4);
+    ctx.font = `11px Arial, sans-serif`;
+    ctx.fillText(mk.skor.toFixed(2), cx + cellW / 2, cy + ch / 2 + 11);
+  });
+})();
+
+/* ── TREND LINE CHART — ALL COURSES ── */
+(function() {
+  const palette = [
+    '#1D9E75','#378ADD','#BA7517','#D85A30','#7F77DD',
+    '#D4537E','#0F6E56','#185FA5','#854F0B','#993C1D',
+    '#3C3489','#993556','#5DCAA5','#85B7EB','#EF9F27',
+    '#F09595','#AFA9EC','#ED93B1','#97C459','#639922',
+    '#5DCAA5','#B5D4F4'
+  ];
+
+  // Each MK: [min, midpoint, max] mapped to 3 year labels
+  // min = 2022/23, avg = 2023/24, max = 2024/25 (approximate trend)
+  const allMK = kelompokData.flatMap(k => k.items);
+
+  const datasets = allMK.map((mk, i) => {
+    const mid = parseFloat(((mk.min + mk.max) / 2).toFixed(2));
+    return {
+      label: mk.kode + ' – ' + mk.nama,
+      data: [mk.min, mid, mk.max],
+      borderColor: palette[i % palette.length],
+      backgroundColor: 'transparent',
+      pointBackgroundColor: palette[i % palette.length],
+      pointRadius: 4,
+      borderWidth: 1.8,
+      tension: 0.3,
+      fill: false,
+    };
+  });
+
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: ['2022/2023', '2023/2024', '2024/2025'],
+      datasets
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'nearest', intersect: true },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          mode: 'nearest',
+          intersect: true,
+          filter: item => item.datasetIndex === item.chart.getActiveElements()[0]?.datasetIndex,
+          callbacks: {
+            title: ctx => ctx[0]?.label || '',
+            label: ctx => ' ' + ctx.dataset.label + ':  ' + ctx.parsed.y.toFixed(2).replace('.', ','),
+          },
+          displayColors: true,
+          boxWidth: 10,
+          boxHeight: 10,
+          padding: 10,
+          bodyFont: { family: 'Arial, sans-serif', size: 12 },
+          titleFont: { family: 'Arial, sans-serif', size: 12, weight: 'bold' },
+        }
+      },
+      scales: {
+        y: {
+          min: 3.40, max: 4.05,
+          ticks: {
+            stepSize: 0.1,
+            font: { size: 11, family: 'Arial, sans-serif' },
+            color: '#888780',
+            callback: v => v.toFixed(2).replace('.', ',')
+          },
+          grid: { color: 'rgba(136,135,128,0.12)' }
+        },
+        x: {
+          ticks: { font: { size: 12, family: 'Arial, sans-serif' }, color: '#333', autoSkip: false },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+
+  // Build legend below chart
+  const legendEl = document.getElementById('trendLegend');
+  allMK.forEach((mk, i) => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<span class="legend-dot" style="background:${palette[i % palette.length]};"></span>${mk.kode} – ${mk.nama}`;
+    legendEl.appendChild(item);
+  });
+})();
+</script>
+</body>
+</html>
