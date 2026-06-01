@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { Moon, Sun, ArrowRight, ExternalLink, Mail, MapPin, Phone, Linkedin, Github, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const RSS_URL = "https://www.akwijayanto.com/feeds/posts/default?alt=rss";
+const RSS_URL = "https://akwijayanto.com/feeds/posts/default?alt=rss";
+const CORS_PROXY = "https://api.allorigins.win/raw?url=";
 
 interface BlogPost {
   title: string;
@@ -13,23 +13,11 @@ interface BlogPost {
   description: string;
 }
 
-const fetchRSS = async (): Promise<BlogPost[]> => {
-  const response = await fetch(RSS_URL);
-  const text = await response.text();
-  const parser = new DOMParser();
-  const xml = parser.parseFromString(text, "text/xml");
-  const items = xml.querySelectorAll("item");
-  
-  return Array.from(items).slice(0, 5).map((item) => ({
-    title: item.querySelector("title")?.textContent || "",
-    link: item.querySelector("link")?.textContent || "",
-    pubDate: item.querySelector("pubDate")?.textContent || "",
-    description: item.querySelector("description")?.textContent || "",
-  }));
-};
-
 const Index = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("blog-theme") as "light" | "dark";
@@ -37,6 +25,45 @@ const Index = () => {
       setTheme(savedTheme);
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
     }
+
+    const fetchRSS = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(CORS_PROXY + encodeURIComponent(RSS_URL));
+        if (!response.ok) throw new Error("Network response was not ok");
+        const text = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, "text/xml");
+        
+        const items = xml.querySelectorAll("item");
+        let fetchedPosts: BlogPost[] = [];
+
+        if (items.length === 0) {
+          const entries = xml.querySelectorAll("entry");
+          fetchedPosts = Array.from(entries).slice(0, 5).map((entry) => ({
+            title: entry.querySelector("title")?.textContent || "No Title",
+            link: entry.querySelector("link[rel='alternate']")?.getAttribute("href") || entry.querySelector("link")?.getAttribute("href") || "",
+            pubDate: entry.querySelector("published")?.textContent || entry.querySelector("updated")?.textContent || new Date().toISOString(),
+            description: entry.querySelector("content")?.textContent || entry.querySelector("summary")?.textContent || "",
+          }));
+        } else {
+          fetchedPosts = Array.from(items).slice(0, 5).map((item) => ({
+            title: item.querySelector("title")?.textContent || "No Title",
+            link: item.querySelector("link")?.textContent || "",
+            pubDate: item.querySelector("pubDate")?.textContent || new Date().toISOString(),
+            description: item.querySelector("description")?.textContent || "",
+          }));
+        }
+        setPosts(fetchedPosts);
+      } catch (error) {
+        console.error("RSS Fetch Error:", error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchRSS();
   }, []);
 
   const toggleTheme = () => {
@@ -45,11 +72,6 @@ const Index = () => {
     localStorage.setItem("blog-theme", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
-
-  const { data: posts, isLoading, isError } = useQuery({
-    queryKey: ["blog-posts"],
-    queryFn: fetchRSS,
-  });
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
