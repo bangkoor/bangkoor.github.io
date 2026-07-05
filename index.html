@@ -242,16 +242,14 @@
 
     </div>
 <script>
-    // Ganti dengan URL blog Blogger Anda sendiri
-    const BLOG_URL = "https://akwijayanto.com"; 
-    // Jumlah postingan yang ingin ditampilkan
-    const POST_COUNT = 3; 
+    // Gunakan URL feed lengkap yang sudah terbukti sukses
+    const FEED_URL = "https://www.akwijayanto.com/feeds/posts/default?alt=json&max-results=3"; 
 
     async function fetchRecentPosts() {
         const container = document.getElementById('blogger-posts');
         try {
-            // Memanggil Blogger Feed API dengan format JSON
-            const response = await fetch(`${BLOG_URL}/feeds/posts/default?alt=json&max-results=${POST_COUNT}`);
+            // Langsung memanggil FEED_URL tanpa modifikasi string tambahan
+            const response = await fetch(FEED_URL);
             if (!response.ok) throw new Error('Network response was not ok');
             
             const data = await response.json();
@@ -262,13 +260,13 @@
                 return;
             }
 
-            // Bersihkan loader
+            // Bersihkan teks "Loading..."
             container.innerHTML = '';
 
-            // Looping untuk mengambil judul dan link alternatif
+            // Melakukan perulangan untuk menampilkan judul artikel
             entries.forEach(entry => {
                 const title = entry.title.$t;
-                // Mencari link post yang mengarah ke halaman artikel asli
+                // Mencari URL asli artikel di Blogger
                 const alternateLink = entry.link.find(l => l.rel === 'alternate').href;
 
                 const listItem = document.createElement('li');
@@ -283,7 +281,7 @@
         }
     }
 
-    // Jalankan fungsi setelah dokumen selesai dimuat
+    // Jalankan fungsi saat halaman selesai dimuat
     document.addEventListener('DOMContentLoaded', fetchRecentPosts);
 </script>
 </body>
