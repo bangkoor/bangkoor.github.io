@@ -242,56 +242,38 @@
 
     </div>
 <script>
-    // URL Feed resmi dari blog Anda
-    const FEED_URL = "https://www.akwijayanto.com/feeds/posts/default?alt=json&max-results=3"; 
+    // Ganti dengan URL domain produksi dari Vercel Anda sendiri
+    const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
 
     async function fetchRecentPosts() {
         const container = document.getElementById('blogger-posts');
         try {
-            const response = await fetch(FEED_URL);
-            if (!response.ok) throw new Error('Network response was not ok');
+            const response = await fetch(VERCEL_WORKER_URL);
+            if (!response.ok) throw new Error('Gagal memuat data dari Worker Vercel');
             
-            const data = await response.json();
-            
-            // Mengambil array entri berdasarkan struktur JSON Blogger Anda
-            const entries = data.feed.entry;
+            // Data yang diterima dari Vercel sudah berupa array bersih [{title, url}, ...]
+            const posts = await response.json();
 
-            if (!entries || entries.length === 0) {
+            if (posts.length === 0) {
                 container.innerHTML = '<li class="text-slate-500 italic list-none">No recent posts found.</li>';
                 return;
             }
 
-            // Bersihkan teks "Loading..."
             container.innerHTML = '';
 
-            // Memproses setiap artikel
-            entries.forEach(entry => {
-                // 1. Mengambil Judul menggunakan .$t sesuai struktur JSON Anda
-                const title = entry.title.$t;
-                
-                // 2. Mencari URL artikel asli dari array link dengan rel="alternate"
-                let postUrl = "#";
-                if (entry.link && entry.link.length > 0) {
-                    const alternateLink = entry.link.find(l => l.rel === 'alternate');
-                    if (alternateLink) {
-                        postUrl = alternateLink.href;
-                    }
-                }
-
-                // 3. Render ke dalam komponen HTML list
+            posts.forEach(post => {
                 const listItem = document.createElement('li');
                 listItem.className = "hover:text-emerald-800 transition-colors";
-                listItem.innerHTML = `<a href="${postUrl}" target="_blank" class="font-medium hover:underline">${title}</a>`;
+                listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;[cite: 1]
                 container.appendChild(listItem);
             });
 
         } catch (error) {
-            console.error('Error fetching Blogger feed:', error);
-            container.innerHTML = '<li class="text-red-500 italic list-none">Failed to load blog posts. Ensure the URL is correct and CORS is permitted.</li>';
+            console.error('Error:', error);
+            container.innerHTML = '<li class="text-red-500 italic list-none">Failed to load blog posts.</li>';
         }
     }
 
-    // Jalankan fungsi saat seluruh DOM selesai dimuat
     document.addEventListener('DOMContentLoaded', fetchRecentPosts);
 </script>
 </body>
