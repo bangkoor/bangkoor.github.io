@@ -226,6 +226,14 @@
                 </ul>
             </div>
         </section>
+		
+		<!-- Section: Recent Blog Posts -->
+		<section class="mb-10">
+			<h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Recent Blog Posts</h2>
+			<ul id="blogger-posts" class="space-y-3 text-sm text-slate-700 list-disc pl-5">
+				<li class="text-slate-400 italic animate-pulse list-none pl-0">Loading recent posts...</li>
+			</ul>
+		</section>
 
         <!-- Footer -->
         <footer class="border-t border-slate-200 mt-12 pt-6 text-center text-xs text-slate-400 font-mono">
@@ -233,6 +241,50 @@
         </footer>
 
     </div>
+<script>
+    // Ganti dengan URL blog Blogger Anda sendiri
+    const BLOG_URL = "https://akwijayanto.com"; 
+    // Jumlah postingan yang ingin ditampilkan
+    const POST_COUNT = 3; 
 
+    async function fetchRecentPosts() {
+        const container = document.getElementById('blogger-posts');
+        try {
+            // Memanggil Blogger Feed API dengan format JSON
+            const response = await fetch(`${BLOG_URL}/feeds/posts/default?alt=json&max-results=${POST_COUNT}`);
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.json();
+            const entries = data.feed.entry;
+
+            if (!entries || entries.length === 0) {
+                container.innerHTML = '<li class="text-slate-500 italic list-none">No recent posts found.</li>';
+                return;
+            }
+
+            // Bersihkan loader
+            container.innerHTML = '';
+
+            // Looping untuk mengambil judul dan link alternatif
+            entries.forEach(entry => {
+                const title = entry.title.$t;
+                // Mencari link post yang mengarah ke halaman artikel asli
+                const alternateLink = entry.link.find(l => l.rel === 'alternate').href;
+
+                const listItem = document.createElement('li');
+                listItem.className = "hover:text-emerald-800 transition-colors";
+                listItem.innerHTML = `<a href="${alternateLink}" target="_blank" class="font-medium hover:underline">${title}</a>`;
+                container.appendChild(listItem);
+            });
+
+        } catch (error) {
+            console.error('Error fetching Blogger feed:', error);
+            container.innerHTML = '<li class="text-red-500 italic list-none">Failed to load blog posts. Ensure the URL is correct and CORS is permitted.</li>';
+        }
+    }
+
+    // Jalankan fungsi setelah dokumen selesai dimuat
+    document.addEventListener('DOMContentLoaded', fetchRecentPosts);
+</script>
 </body>
 </html>
