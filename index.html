@@ -242,17 +242,18 @@
 
     </div>
 <script>
-    // Gunakan URL feed lengkap yang sudah terbukti sukses
+    // URL Feed resmi dari blog Anda
     const FEED_URL = "https://www.akwijayanto.com/feeds/posts/default?alt=json&max-results=3"; 
 
     async function fetchRecentPosts() {
         const container = document.getElementById('blogger-posts');
         try {
-            // Langsung memanggil FEED_URL tanpa modifikasi string tambahan
             const response = await fetch(FEED_URL);
             if (!response.ok) throw new Error('Network response was not ok');
             
             const data = await response.json();
+            
+            // Mengambil array entri berdasarkan struktur JSON Blogger Anda
             const entries = data.feed.entry;
 
             if (!entries || entries.length === 0) {
@@ -263,15 +264,24 @@
             // Bersihkan teks "Loading..."
             container.innerHTML = '';
 
-            // Melakukan perulangan untuk menampilkan judul artikel
+            // Memproses setiap artikel
             entries.forEach(entry => {
+                // 1. Mengambil Judul menggunakan .$t sesuai struktur JSON Anda
                 const title = entry.title.$t;
-                // Mencari URL asli artikel di Blogger
-                const alternateLink = entry.link.find(l => l.rel === 'alternate').href;
+                
+                // 2. Mencari URL artikel asli dari array link dengan rel="alternate"
+                let postUrl = "#";
+                if (entry.link && entry.link.length > 0) {
+                    const alternateLink = entry.link.find(l => l.rel === 'alternate');
+                    if (alternateLink) {
+                        postUrl = alternateLink.href;
+                    }
+                }
 
+                // 3. Render ke dalam komponen HTML list
                 const listItem = document.createElement('li');
                 listItem.className = "hover:text-emerald-800 transition-colors";
-                listItem.innerHTML = `<a href="${alternateLink}" target="_blank" class="font-medium hover:underline">${title}</a>`;
+                listItem.innerHTML = `<a href="${postUrl}" target="_blank" class="font-medium hover:underline">${title}</a>`;
                 container.appendChild(listItem);
             });
 
@@ -281,7 +291,7 @@
         }
     }
 
-    // Jalankan fungsi saat halaman selesai dimuat
+    // Jalankan fungsi saat seluruh DOM selesai dimuat
     document.addEventListener('DOMContentLoaded', fetchRecentPosts);
 </script>
 </body>
