@@ -46,10 +46,10 @@
                 <i class="fa-brands fa-linkedin"></i>
             </a>
 			<a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" class="hover:text-orange-500 transition-colors" title="Google Scholar">
-                <i class="fa-solid fa-google"></i>
+                <i class="fa-brands fa-google"></i>
             </a>
             <a href="https://www.akwijayanto.com" target="_blank" class="hover:text-orange-500 transition-colors" title="Blogger Blog">
-                <i class="fa-solid fa-blogger"></i>
+                <i class="fa-solid fa-blog"></i>
             </a>
         </div>
     </div>
@@ -258,39 +258,47 @@
 
     </div>
 <script>
-    // Ganti dengan URL domain produksi dari Vercel Anda sendiri
-    const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
+    // PASTIKAN URL ini sesuai dengan domain Vercel Anda (bisa dicoba buka dulu di browser)
+const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
 
-    async function fetchRecentPosts() {
-        const container = document.getElementById('blogger-posts');
-        try {
-            const response = await fetch(VERCEL_WORKER_URL);
-            if (!response.ok) throw new Error('Gagal memuat data dari Worker Vercel');
-            
-            // Data yang diterima dari Vercel sudah berupa array bersih [{title, url}, ...]
-            const posts = await response.json();
+async function fetchRecentPosts() {
+    const container = document.getElementById('blogger-posts');
+    if (!container) return;
 
-            if (posts.length === 0) {
-                container.innerHTML = '<li class="text-slate-500 italic list-none">No recent posts found.</li>';
-                return;
-            }
-
-            container.innerHTML = '';
-
-            posts.forEach(post => {
-                const listItem = document.createElement('li');
-                listItem.className = "hover:text-emerald-800 transition-colors";
-                listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;[cite: 1]
-                container.appendChild(listItem);
-            });
-
-        } catch (error) {
-            console.error('Error:', error);
-            container.innerHTML = '<li class="text-red-500 italic list-none">Failed to load blog posts.</li>';
+    try {
+        const response = await fetch(VERCEL_WORKER_URL);
+        
+        // Jika Vercel melempar error (404 / 500)
+        if (!response.ok) {
+            throw new Error(`Worker returned status: ${response.status}`);
         }
-    }
+        
+        const posts = await response.json();
 
-    document.addEventListener('DOMContentLoaded', fetchRecentPosts);
+        // Jika data kosong atau bukan berbentuk array
+        if (!posts || !Array.isArray(posts) || posts.length === 0) {
+            container.innerHTML = '<li class="text-slate-500 italic list-none pl-0">No recent posts found.</li>';
+            return;
+        }
+
+        // Hapus teks "Loading recent posts..." jika sukses
+        container.innerHTML = '';
+
+        posts.forEach(post => {
+            const listItem = document.createElement('li');
+            listItem.className = "hover:text-emerald-800 transition-colors";
+            listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;
+            container.appendChild(listItem);
+        });
+
+    } catch (error) {
+        console.error('Error detail:', error);
+        // Jika terjadi error, langsung ganti teks loading dengan pesan error agar tidak menggantung
+        container.innerHTML = `<li class="text-red-500 italic list-none pl-0">Failed to load blog posts (${error.message}).</li>`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchRecentPosts);
 </script>
 </body>
 </html>
