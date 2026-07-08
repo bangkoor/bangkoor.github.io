@@ -54,6 +54,8 @@
                 <i class="fa-solid fa-blog"></i>
             </a>
         </div>
+        
+        
     </div>
     <!-- Profile Photo Container -->
     <div class="w-32 h-32 shrink-0 border border-slate-200 p-1 bg-slate-50 rounded-md shadow-xs overflow-hidden">
@@ -63,23 +65,41 @@
     </div>
 </header>
 
-        <!-- Contact & Quick Links Section -->
-        <section class="mb-10 text-sm grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-600 bg-slate-50 p-4 rounded-sm border border-slate-100">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-envelope text-slate-400 w-5"></i>
-                <a href="mailto:akwijayanto@apps.ipb.ac.id" class="hover:text-emerald-700 transition">akwijayanto@apps.ipb.ac.id</a>
+        <!-- Contact, Quick Links & Citation Metrics Section -->
+        <section class="mb-10 text-sm grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-5 rounded-sm border border-slate-100">
+            <!-- Kolom Kiri: Kontak Tradisional -->
+            <div class="space-y-3 text-slate-600">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-envelope text-slate-400 w-5"></i>
+                    <a href="mailto:akwijayanto@apps.ipb.ac.id" class="hover:text-emerald-700 transition">akwijayanto@apps.ipb.ac.id</a>[cite: 1]
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-building text-slate-400 w-5"></i>
+                    <span>Faculty of Forestry and Environment, IPB University</span>[cite: 1]
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-graduation-cap text-slate-400 w-5"></i>
+                    <a href="#" class="hover:text-emerald-700 transition font-medium">Google Scholar Profile</a>[cite: 1]
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-bookmark text-slate-400 w-5"></i>
+                    <a href="#" class="hover:text-emerald-700 transition font-medium">Scopus Author ID</a>[cite: 1]
+                </div>
             </div>
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-building text-slate-400 w-5"></i>
-                <span>Faculty of Forestry and Environment, IPB University</span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-graduation-cap text-slate-400 w-5"></i>
-                <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" class="hover:text-emerald-700 transition font-medium">Google Scholar Profile</a>
-            </div>
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-bookmark text-slate-400 w-5"></i>
-                <a href="https://www.scopus.com/authid/detail.uri?authorId=57188697141" class="hover:text-emerald-700 transition font-medium">Scopus Profile</a>
+
+            <!-- Kolom Kanan: Live Citation Metrics Dashboard -->
+            <div class="border-t sm:border-t-0 sm:border-l border-slate-200 pt-3 sm:pt-0 sm:pl-5 flex flex-col justify-center">
+                <span class="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-2">Verified Scopus Metrics</span>
+                <div class="grid grid-cols-2 gap-2 text-center">
+                    <div class="bg-white p-2.5 rounded border border-slate-200/60 shadow-2xs">
+                        <div id="scopus-citations" class="text-xl font-bold text-emerald-800 font-mono">...</div>
+                        <div class="text-[10px] uppercase tracking-wide text-slate-500 font-medium mt-0.5">Total Citations</div>
+                    </div>
+                    <div class="bg-white p-2.5 rounded border border-slate-200/60 shadow-2xs">
+                        <div id="scopus-hindex" class="text-xl font-bold text-blue-800 font-mono">...</div>
+                        <div class="text-[10px] uppercase tracking-wide text-slate-500 font-medium mt-0.5">h-index</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -257,7 +277,18 @@
     </div>
 <script>
     // PASTIKAN URL ini sesuai dengan domain Vercel Anda (bisa dicoba buka dulu di browser)
-const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
+const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts";
+
+const response = await fetch(VERCEL_WORKER_URL);
+const data = await response.json();
+
+// 1. Tampilkan data blog seperti biasa
+const posts = data.posts;
+// ... logika render loop posts ...
+
+// 2. Tampilkan data statistik Scopus ke elemen HTML penampung
+document.getElementById('scopus-citations').innerText = data.stats.citationCount;
+document.getElementById('scopus-hindex').innerText = data.stats.hIndex; 
 
 async function fetchRecentPosts() {
     const container = document.getElementById('blogger-posts');
