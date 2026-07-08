@@ -272,58 +272,54 @@
 
     </div>
 <script>
-    // PASTIKAN URL ini sesuai dengan domain Vercel Anda (bisa dicoba buka dulu di browser)
-const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts";
+    const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
 
-const response = await fetch(VERCEL_WORKER_URL);
-const data = await response.json();
+    async function fetchDashboardData() {
+        const blogContainer = document.getElementById('blogger-posts');
+        const citationElem = document.getElementById('scopus-citations');
+        const hIndexElem = document.getElementById('scopus-hindex');
 
-// 1. Tampilkan data blog seperti biasa
-const posts = data.posts;
-// ... logika render loop posts ...
+        try {
+            const response = await fetch(VERCEL_WORKER_URL);
+            if (!response.ok) throw new Error(`Worker status: ${response.status}`);
+            
+            const data = await response.json();
 
-// 2. Tampilkan data statistik Scopus ke elemen HTML penampung
-document.getElementById('scopus-citations').innerText = data.stats.citationCount;
-document.getElementById('scopus-hindex').innerText = data.stats.hIndex; 
+            // 1. Suntik Data Statistik Scopus ke Elemen HTML
+            if (data.stats) {
+                if (citationElem) citationElem.innerText = data.stats.citationCount || "0";
+                if (hIndexElem) hIndexElem.innerText = data.stats.hIndex || "0";
+            }
 
-async function fetchRecentPosts() {
-    const container = document.getElementById('blogger-posts');
-    if (!container) return;
+            // 2. Tampilkan Data Postingan Blogger
+            if (blogContainer) {
+                const posts = data.posts || [];
+                if (posts.length === 0) {
+                    blogContainer.innerHTML = '<li class="text-slate-500 italic list-none pl-0">No recent posts found.</li>';
+                    return;
+                }
 
-    try {
-        const response = await fetch(VERCEL_WORKER_URL);
-        
-        // Jika Vercel melempar error (404 / 500)
-        if (!response.ok) {
-            throw new Error(`Worker returned status: ${response.status}`);
+                blogContainer.innerHTML = ''; // Hapus teks loading
+                posts.forEach(post => {
+                    const listItem = document.createElement('li');
+                    listItem.className = "hover:text-emerald-800 transition-colors";
+                    listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;
+                    blogContainer.appendChild(listItem);
+                });
+            }
+
+        } catch (error) {
+            console.error('Error loading dashboard data:', error);
+            // Penanganan jika worker gagal merespon
+            if (citationElem) citationElem.innerText = "N/A";
+            if (hIndexElem) hIndexElem.innerText = "N/A";
+            if (blogContainer) {
+                blogContainer.innerHTML = `<li class="text-red-500 italic list-none pl-0">Failed to load blog posts.</li>`;
+            }
         }
-        
-        const posts = await response.json();
-
-        // Jika data kosong atau bukan berbentuk array
-        if (!posts || !Array.isArray(posts) || posts.length === 0) {
-            container.innerHTML = '<li class="text-slate-500 italic list-none pl-0">No recent posts found.</li>';
-            return;
-        }
-
-        // Hapus teks "Loading recent posts..." jika sukses
-        container.innerHTML = '';
-
-        posts.forEach(post => {
-            const listItem = document.createElement('li');
-            listItem.className = "hover:text-emerald-800 transition-colors";
-            listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;
-            container.appendChild(listItem);
-        });
-
-    } catch (error) {
-        console.error('Error detail:', error);
-        // Jika terjadi error, langsung ganti teks loading dengan pesan error agar tidak menggantung
-        container.innerHTML = `<li class="text-red-500 italic list-none pl-0">Failed to load blog posts (${error.message}).</li>`;
     }
-}
 
-document.addEventListener('DOMContentLoaded', fetchRecentPosts);
+    document.addEventListener('DOMContentLoaded', fetchDashboardData);
 </script>
 </body>
 </html>
