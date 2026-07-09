@@ -291,11 +291,15 @@
 
     </div>
 <script>
+    // Gunakan URL endpoint tunggal Vercel Anda sendiri
     const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
 
-    async function fetchDashboardData() {
+    async function fetchAllDashboardData() {
         const blogContainer = document.getElementById('blogger-posts');
+        const githubContainer = document.getElementById('github-pinned');
+        
         const citationElem = document.getElementById('scopus-citations');
+        const docElem = document.getElementById('scopus-documents');
         const hIndexElem = document.getElementById('scopus-hindex');
 
         try {
@@ -304,105 +308,76 @@
             
             const data = await response.json();
 
-            // 1. Suntik Data Statistik Scopus ke Elemen HTML
+            // 1. RENDER STATISTIK SCOPUS
             if (data.stats) {
-                if (document.getElementById('scopus-citations')) document.getElementById('scopus-citations').innerText = data.stats.citationCount || "170";
-                if (document.getElementById('scopus-documents')) document.getElementById('scopus-documents').innerText = data.stats.documentCount || "28";
-                if (document.getElementById('scopus-hindex')) document.getElementById('scopus-hindex').innerText = data.stats.hIndex || "9";
+                if (citationElem) citationElem.innerText = data.stats.citationCount;
+                if (docElem) docElem.innerText = data.stats.documentCount;
+                if (hIndexElem) hIndexElem.innerText = data.stats.hIndex;
             }
 
-            // 2. Tampilkan Data Postingan Blogger
+            // 2. RENDER PINNED GITHUB REPOSITORIES
+            if (githubContainer) {
+                const repos = data.pinned || [];
+                if (repos.length === 0) {
+                    githubContainer.innerHTML = '<p class="text-slate-500 italic text-sm col-span-2">No pinned repositories found.</p>';
+                } else {
+                    githubContainer.innerHTML = ''; // Bersihkan loading
+                    repos.forEach(repo => {
+                        const card = document.createElement('div');
+                        card.className = "bg-white p-4 rounded border border-slate-200 shadow-2xs hover:border-emerald-600 transition flex flex-col justify-between";
+                        card.innerHTML = `
+                            <div>
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <i class="fa-regular fa-bookmark text-slate-400 text-xs"></i>
+                                    <a href="${repo.link}" target="_blank" class="font-bold text-slate-900 hover:text-emerald-800 hover:underline text-sm break-all">
+                                        ${repo.repo}
+                                    </a>
+                                </div>
+                                <p class="text-xs text-slate-600 line-clamp-2 mb-4">${repo.description || 'No description provided.'}</p>
+                            </div>
+                            <div class="flex items-center space-x-4 text-[11px] text-slate-500 font-medium">
+                                <div class="flex items-center space-x-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${repo.languageColor}"></span>
+                                    <span>${repo.language}</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <i class="fa-regular fa-star"></i>
+                                    <span>${repo.stars}</span>
+                                </div>
+                            </div>
+                        `;
+                        githubContainer.appendChild(card);
+                    });
+                }
+            }
+
+            // 3. RENDER POSTINGAN BLOGGER
             if (blogContainer) {
                 const posts = data.posts || [];
                 if (posts.length === 0) {
                     blogContainer.innerHTML = '<li class="text-slate-500 italic list-none pl-0">No recent posts found.</li>';
-                    return;
+                } else {
+                    blogContainer.innerHTML = '';
+                    posts.forEach(post => {
+                        const listItem = document.createElement('li');
+                        listItem.className = "hover:text-emerald-800 transition-colors";
+                        listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;
+                        blogContainer.appendChild(listItem);
+                    });
                 }
-
-                blogContainer.innerHTML = ''; // Hapus teks loading
-                posts.forEach(post => {
-                    const listItem = document.createElement('li');
-                    listItem.className = "hover:text-emerald-800 transition-colors";
-                    listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;
-                    blogContainer.appendChild(listItem);
-                });
             }
 
         } catch (error) {
-            console.error('Error loading dashboard data:', error);
-            // Penanganan jika worker gagal merespon
+            console.error('Error fetching dashboard data:', error);
             if (citationElem) citationElem.innerText = "N/A";
+            if (docElem) docElem.innerText = "N/A";
             if (hIndexElem) hIndexElem.innerText = "N/A";
-            if (blogContainer) {
-                blogContainer.innerHTML = `<li class="text-red-500 italic list-none pl-0">Failed to load blog posts.</li>`;
-            }
+            if (blogContainer) blogContainer.innerHTML = '<li class="text-red-500 italic list-none pl-0">Failed to load blog posts.</li>';
+            if (githubContainer) githubContainer.innerHTML = '<p class="text-red-500 italic text-sm col-span-2">Failed to load GitHub projects.</p>';
         }
     }
 
-    document.addEventListener('DOMContentLoaded', fetchDashboardData);
-    async function fetchGitHubPinned() {
-    const container = document.getElementById('github-pinned');
-    if (!container) return;
-
-    // GANTI dengan username GitHub asli Anda
-    const GITHUB_USERNAME = "username-anda"; 
-    const API_URL = `https://gh-pinned-repos.vrapan.workers.dev/?user=${GITHUB_USERNAME}`;
-
-    try {
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('Gagal memuat repositori');
-        
-        const repos = await response.json();
-
-        if (repos.length === 0) {
-            container.innerHTML = '<p class="text-slate-500 italic text-sm col-span-2">No pinned repositories found.</p>';
-            return;
-        }
-
-        container.innerHTML = ''; // Bersihkan teks loading
-
-        repos.forEach(repo => {
-            const card = document.createElement('div');
-            card.className = "bg-white p-4 rounded border border-slate-200 shadow-2xs hover:border-emerald-600 transition flex flex-col justify-between";
-            
-            // Tentukan warna dot bahasa pemrograman secara acak/sederhana
-            const langColor = repo.languageColor || "#64748b";
-
-            card.innerHTML = `
-                <div>
-                    <div class="flex items-center space-x-2 mb-1">
-                        <i class="fa-regular fa-repository text-slate-400 text-xs"></i>
-                        <a href="${repo.link}" target="_blank" class="font-bold text-slate-900 hover:text-emerald-800 hover:underline text-sm break-all">
-                            ${repo.repo}
-                        </a>
-                    </div>
-                    <p class="text-xs text-slate-600 line-clamp-2 mb-4">${repo.description || 'No description provided.'}</p>
-                </div>
-                <div class="flex items-center space-x-4 text-[11px] text-slate-500 font-medium">
-                    <div class="flex items-center space-x-1.5">
-                        <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${langColor}"></span>
-                        <span>${repo.language || 'Misc'}</span>
-                    </div>
-                    <div class="flex items-center space-x-1">
-                        <i class="fa-regular fa-star"></i>
-                        <span>${repo.stars || 0}</span>
-                    </div>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-
-    } catch (error) {
-        console.error('Error GitHub:', error);
-        container.innerHTML = '<p class="text-red-500 italic text-sm col-span-2">Failed to load GitHub projects.</p>';
-    }
-}
-
-// Jalankan fungsi bersamaan dengan data dashboard lainnya
-document.addEventListener('DOMContentLoaded', () => {
-    fetchDashboardData(); // Fungsi Blogger & Scopus Anda sebelumnya
-    fetchGitHubPinned();  // Fungsi baru ini
-});
+    document.addEventListener('DOMContentLoaded', fetchAllDashboardData);
 </script>
 </body>
 </html>
