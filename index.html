@@ -260,7 +260,19 @@
                 </ul>
             </div>
         </section>
+        
+        <!-- Berikan pembatas horizontal (hr) dan margin yang cukup -->
+        <hr class="border-slate-200 my-10" />
 		
+        <!-- Section: Pinned Repositories -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Featured Projects</h2>
+            <div id="github-pinned" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Text loading awal -->
+                <p class="text-slate-500 italic text-sm col-span-2">Loading pinned repositories...</p>
+            </div>
+        </section>
+        
 		<!-- Berikan pembatas horizontal (hr) dan margin yang cukup -->
         <hr class="border-slate-200 my-10" />
 
@@ -328,6 +340,69 @@
     }
 
     document.addEventListener('DOMContentLoaded', fetchDashboardData);
+    async function fetchGitHubPinned() {
+    const container = document.getElementById('github-pinned');
+    if (!container) return;
+
+    // GANTI dengan username GitHub asli Anda
+    const GITHUB_USERNAME = "username-anda"; 
+    const API_URL = `https://gh-pinned-repos.vrapan.workers.dev/?user=${GITHUB_USERNAME}`;
+
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Gagal memuat repositori');
+        
+        const repos = await response.json();
+
+        if (repos.length === 0) {
+            container.innerHTML = '<p class="text-slate-500 italic text-sm col-span-2">No pinned repositories found.</p>';
+            return;
+        }
+
+        container.innerHTML = ''; // Bersihkan teks loading
+
+        repos.forEach(repo => {
+            const card = document.createElement('div');
+            card.className = "bg-white p-4 rounded border border-slate-200 shadow-2xs hover:border-emerald-600 transition flex flex-col justify-between";
+            
+            // Tentukan warna dot bahasa pemrograman secara acak/sederhana
+            const langColor = repo.languageColor || "#64748b";
+
+            card.innerHTML = `
+                <div>
+                    <div class="flex items-center space-x-2 mb-1">
+                        <i class="fa-regular fa-repository text-slate-400 text-xs"></i>
+                        <a href="${repo.link}" target="_blank" class="font-bold text-slate-900 hover:text-emerald-800 hover:underline text-sm break-all">
+                            ${repo.repo}
+                        </a>
+                    </div>
+                    <p class="text-xs text-slate-600 line-clamp-2 mb-4">${repo.description || 'No description provided.'}</p>
+                </div>
+                <div class="flex items-center space-x-4 text-[11px] text-slate-500 font-medium">
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${langColor}"></span>
+                        <span>${repo.language || 'Misc'}</span>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <i class="fa-regular fa-star"></i>
+                        <span>${repo.stars || 0}</span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error('Error GitHub:', error);
+        container.innerHTML = '<p class="text-red-500 italic text-sm col-span-2">Failed to load GitHub projects.</p>';
+    }
+}
+
+// Jalankan fungsi bersamaan dengan data dashboard lainnya
+document.addEventListener('DOMContentLoaded', () => {
+    fetchDashboardData(); // Fungsi Blogger & Scopus Anda sebelumnya
+    fetchGitHubPinned();  // Fungsi baru ini
+});
 </script>
 </body>
 </html>
