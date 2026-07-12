@@ -65,10 +65,11 @@
     </div>
 </header>
 
-        <!-- Contact, Quick Links & Citation Metrics Section -->
-        <section class="mb-10 text-sm grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-5 rounded-sm border border-slate-100">
-            <!-- Kolom Kiri: Kontak Tradisional -->
-            <div class="space-y-3 text-slate-600">
+        <!-- Contact & Academic Metrics Section -->
+        <section class="mb-10 text-sm grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-50 p-6 rounded-sm border border-slate-100">
+            
+            <!-- Kolom Kiri: Informasi Kontak (Porsi 5/12) -->
+            <div class="space-y-3 text-slate-600 lg:col-span-5 flex flex-col justify-center">
                 <div class="flex items-center space-x-2">
                     <i class="fa-solid fa-envelope text-slate-400 w-5"></i>
                     <a href="mailto:akwijayanto@apps.ipb.ac.id" class="hover:text-emerald-700 transition">akwijayanto@apps.ipb.ac.id</a>
@@ -78,31 +79,52 @@
                     <span>Faculty of Forestry and Environment, IPB University</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-bookmark text-slate-400 w-5"></i>
-                    Scopus Author ID: <a href="https://www.scopus.com/authid/detail.uri?authorId=57188697141" class="hover:text-emerald-700 transition font-medium">57188697141</a>
+                    <i class="fa-solid fa-graduation-cap text-slate-400 w-5"></i>
+                    <a href="https://sinta.kemdikbud.go.id/authors/profile/6728108" target="_blank" class="hover:text-emerald-700 transition font-medium">SINTA Profile (ID: 6728108)</a>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Live Citation Metrics Dashboard (3 Kolom) -->
-            <div class="border-t sm:border-t-0 sm:border-l border-slate-200 pt-3 sm:pt-0 sm:pl-5 flex flex-col justify-center col-span-1">
-                <span class="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-2">Verified Scopus Metrics</span>
-                <div class="grid grid-cols-3 gap-2 text-center">
-                    <!-- Citations -->
-                    <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
-                        <div id="scopus-citations" class="text-lg font-bold text-emerald-800 font-mono">...</div>
-                        <div class="text-[9px] uppercase tracking-wide text-slate-500 font-medium mt-0.5">Citations</div>
-                    </div>
-                    <!-- Total Documents -->
-                    <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
-                        <div id="scopus-documents" class="text-lg font-bold text-slate-800 font-mono">...</div>
-                        <div class="text-[9px] uppercase tracking-wide text-slate-500 font-medium mt-0.5">Documents</div>
-                    </div>
-                    <!-- h-index -->
-                    <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
-                        <div id="scopus-hindex" class="text-lg font-bold text-blue-800 font-mono">...</div>
-                        <div class="text-[9px] uppercase tracking-wide text-slate-500 font-medium mt-0.5">h-index</div>
+            <!-- Kolom Kanan: Dua Dasbor Berdampingan (Porsi 7/12) -->
+            <div class="border-t lg:border-t-0 lg:border-l border-slate-200 pt-4 lg:pt-0 lg:pl-6 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:col-span-7">
+                
+                <!-- Sub-Grup 1: SCOPUS -->
+                <div>
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2 font-bold flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Scopus Metrics
+                    </span>
+                    <div class="grid grid-cols-3 gap-1.5 text-center">
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
+                            <div id="scopus-citations" class="text-base font-bold text-emerald-800 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Citations</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
+                            <div id="scopus-documents" class="text-base font-bold text-slate-800 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Papers</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
+                            <div id="scopus-hindex" class="text-base font-bold text-blue-800 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">h-index</div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Sub-Grup 2: SINTA -->
+                <div>
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2 font-bold flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>SINTA Scores
+                    </span>
+                    <div class="grid grid-cols-2 gap-1.5 text-center">
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs flex flex-col justify-center">
+                            <div id="sinta-overall" class="text-base font-bold text-slate-900 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Score Overall</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs flex flex-col justify-center">
+                            <div id="sinta-3yr" class="text-base font-bold text-amber-700 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Score 3Yr</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -365,6 +387,12 @@
                         blogContainer.appendChild(listItem);
                     });
                 }
+            }
+            
+            // 4. RENDER STATISTIK SINTA
+            if (data.sinta) {
+                if (document.getElementById('sinta-overall')) document.getElementById('sinta-overall').innerText = data.sinta.scoreOverall || "674";
+                if (document.getElementById('sinta-3yr')) document.getElementById('sinta-3yr').innerText = data.sinta.score3Yr || "190";
             }
 
         } catch (error) {
