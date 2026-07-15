@@ -113,9 +113,31 @@
     <div class="max-w-5xl mx-auto bg-white p-8 sm:p-12 shadow-xs border border-slate-100 rounded-sm">
         
         <!-- Header: Joel Glovier Style Layout with Profile Photo & Social Icons -->
-        <header class="border-b-2 border-slate-800 pb-8 mb-8 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
-            <div class="flex-1 w-full text-center sm:text-left">
-                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Dr. Arif Kurnia Wijayanto, M.Sc.</h1>
+        <header class="relative border-b-2 border-slate-800 pb-8 mb-8 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 overflow-hidden">
+    
+            <!-- 1. Efek Lapisan Gradasi Abstrak (Aurora Glow di Sudut Kanan) -->
+            <div class="absolute right-0 top-0 w-[350px] h-[350px] opacity-20 pointer-events-none filter blur-3xl rounded-full translate-x-12 -translate-y-12 z-0"
+                 style="background: radial-gradient(circle at 70% 30%, #10b981 0%, #3b82f6 50%, transparent 70%);">
+            </div>
+            
+            <!-- 2. Pattern Topografi Menyeluruh (Memudar Halus ke Arah Kiri) -->
+            <div class="absolute right-0 top-0 w-full h-full pointer-events-none z-0 opacity-[0.12] sm:opacity-[0.15]"
+                 style="mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="w-full h-full stroke-slate-400 fill-none" stroke-width="0.25" stroke-dasharray="1 0.7">
+                    <!-- Garis Kontur Topografi Kontinu Mengalir hingga ke Kiri -->
+                    <path d="M 30,-10 C 25,20 15,35 -5,55 C -25,75 -15,90 20,110" />
+                    <path d="M 60,-10 C 52,22 38,40 22,62 C 6,84 18,98 50,110" />
+                    <path d="M 90,-10 C 80,25 65,45 52,70 C 39,95 50,102 80,110" />
+                    <path d="M 120,-10 C 110,28 95,50 82,78 C 69,106 82,105 110,110" />
+                    <path d="M 150,-10 C 142,30 128,55 115,82 C 102,109 115,106 140,110" />
+                    <path d="M 180,-10 C 172,32 158,60 148,88 C 138,116 148,108 170,110" />
+                    <path d="M 210,-10 C 202,35 188,65 180,92 C 172,119 180,110 200,110" />
+                </svg>
+            </div>
+
+            <!-- 3. Konten Teks Biodata (Diberi relative z-10 agar tetap stand out) -->
+            <div class="relative flex-1 w-full text-center sm:text-left z-10">
+                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Dr. Arif Kurnia Wijayanto, M.Sc.</h1>
                 <p class="text-emerald-800 font-medium text-lg mt-1">Researcher & Academician</p>
                 <p class="text-sm text-slate-500 mt-4 leading-relaxed max-w-xl mx-auto sm:mx-0">
                     Specializing in Spatial Modeling, Environmental Remote Sensing, and UAV (Unmanned Aerial Vehicle) technology applications for Precision Agriculture and Ecosystem Conservation.
@@ -127,9 +149,9 @@
                     <span class="status-text">Currently working on: <strong>Gakkum Tools: Plugin QGIS untuk Forestry Crime dengan MaxEnt</strong></span>
                 </div>
                 
-                <!-- Baris Ikon & Tombol PDF (Lebar Penuh & Mendorong ke Ujung Kanan) -->
+                <!-- Baris Ikon & Tombol PDF -->
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 w-full">
-                    <!-- Social Media Icons (Joel Glovier Style) -->
+                    <!-- Social Media Icons -->
                     <div class="flex justify-center sm:justify-start gap-4 text-xl text-slate-600">
                         <a href="https://github.com/bangkoor" target="_blank" class="hover:text-slate-900 transition-colors" title="GitHub">
                             <i class="fa-brands fa-github"></i>
@@ -145,43 +167,19 @@
                         </a>
                     </div>
 
-                    <!-- Tombol Download PDF (Tergeser Maksimal ke Kanan) -->
-                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded-md text-xs font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-2xs" title="Download CV as PDF">
+                    <!-- Tombol Download PDF -->
+                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 bg-white/80 backdrop-blur-xs rounded-md text-xs font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-2xs" title="Download CV as PDF">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                         Download CV (PDF)
                     </a>
                 </div>
-                
             </div>
-            <!-- Profile Photo Container dengan Topografi & Ambient Background -->
-            <div class="relative shrink-0 flex items-center justify-center p-8 sm:p-12 overflow-visible">
-                
-                <!-- 1. Efek Lapisan Gradasi Abstrak (Aurora Glow) -->
-                <div class="absolute inset-0 opacity-20 pointer-events-none filter blur-3xl rounded-full translate-x-8 -translate-y-4 z-0"
-                     style="background: radial-gradient(circle at 70% 40%, #10b981 0%, #3b82f6 50%, transparent 40%);">
-                </div>
-                
-                <!-- 2. Pattern Topografi Vektor dengan Efek Transparan Ke Kiri -->
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[350px] h-[200px] pointer-events-none z-0 opacity-25"
-                     style="mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full stroke-slate-400 fill-none" stroke-width="0.3" stroke-dasharray="1 0.5">
-                        <!-- Garis Kontur Topografi Abstrak -->
-                        <path d="M 50,-10 C 45,15 30,20 20,40 C 10,60 25,85 50,110" />
-                        <path d="M 60,-10 C 55,18 42,25 35,45 C 28,65 38,88 60,110" />
-                        <path d="M 70,-10 C 68,20 58,32 52,52 C 46,72 54,92 70,110" />
-                        <path d="M 80,-10 C 78,22 72,38 68,58 C 64,78 72,95 80,110" />
-                        <path d="M 90,-10 C 88,25 85,42 82,62 C 79,82 86,98 90,110" />
-                        <path d="M 100,-10 C 98,28 95,48 92,68 C 89,88 95,102 100,110" />
-                    </svg>
-                </div>
-                
-                <!-- 3. Bingkai & Foto Profil Utama -->
-                <div class="relative w-32 h-32 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10">
-                    <img src="img/profile-image.jpg" 
-                         alt="Dr. Arif Kurnia Wijayanto" 
-                         class="w-full h-full object-cover rounded-full">
-                </div>
-                
+
+            <!-- 4. Profile Photo Container (Ukuran Dikunci Kembali) -->
+            <div class="relative w-32 h-32 shrink-0 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10 my-auto">
+                <img src="img/profile-image.jpg" 
+                     alt="Dr. Arif Kurnia Wijayanto" 
+                     class="w-full h-full object-cover rounded-full">
             </div>
         </header>
 
