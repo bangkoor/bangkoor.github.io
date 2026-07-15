@@ -153,15 +153,29 @@
                 </div>
                 
             </div>
-            <!-- Profile Photo Container dengan Abstract Ambient Background -->
-            <div class="relative shrink-0 flex items-center justify-center p-8 sm:p-12">
+            <!-- Profile Photo Container dengan Topografi & Ambient Background -->
+            <div class="relative shrink-0 flex items-center justify-center p-8 sm:p-12 overflow-visible">
                 
-                <!-- Efek Lapisan Gradasi Abstrak di Belakang Foto -->
-                <div class="absolute inset-0 opacity-20 pointer-events-none filter blur-2xl rounded-full translate-x-4 -translate-y-4"
-                     style="background: radial-gradient(circle at 60% 40%, #10b981 0%, #3b82f6 50%, transparent 70%);">
+                <!-- 1. Efek Lapisan Gradasi Abstrak (Aurora Glow) -->
+                <div class="absolute inset-0 opacity-20 pointer-events-none filter blur-3xl rounded-full translate-x-8 -translate-y-4 z-0"
+                     style="background: radial-gradient(circle at 70% 40%, #10b981 0%, #3b82f6 50%, transparent 70%);">
                 </div>
                 
-                <!-- Bingkai & Foto Profil Utama -->
+                <!-- 2. Pattern Topografi Vektor dengan Efek Transparan Ke Kiri -->
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[250px] sm:w-[350px] h-[200px] pointer-events-none z-0 opacity-25"
+                     style="mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full stroke-slate-400 fill-none" stroke-width="0.3" stroke-dasharray="1 0.5">
+                        <!-- Garis Kontur Topografi Abstrak -->
+                        <path d="M 50,-10 C 45,15 30,20 20,40 C 10,60 25,85 50,110" />
+                        <path d="M 60,-10 C 55,18 42,25 35,45 C 28,65 38,88 60,110" />
+                        <path d="M 70,-10 C 68,20 58,32 52,52 C 46,72 54,92 70,110" />
+                        <path d="M 80,-10 C 78,22 72,38 68,58 C 64,78 72,95 80,110" />
+                        <path d="M 90,-10 C 88,25 85,42 82,62 C 79,82 86,98 90,110" />
+                        <path d="M 100,-10 C 98,28 95,48 92,68 C 89,88 95,102 100,110" />
+                    </svg>
+                </div>
+                
+                <!-- 3. Bingkai & Foto Profil Utama -->
                 <div class="relative w-32 h-32 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10">
                     <img src="img/profile-image.jpg" 
                          alt="Dr. Arif Kurnia Wijayanto" 
