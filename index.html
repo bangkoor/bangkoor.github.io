@@ -509,7 +509,7 @@ async function loadBibTeX() {
         let html = '<ul style="list-style: none; padding: 0;">';
         
         // Ambil kunci entri BibTeX
-        const keys = Object.keys(entries);
+        const keys = Object.keys(entries).slice(0, 5);;
         
         keys.forEach(key => {
             const entry = entries[key];
