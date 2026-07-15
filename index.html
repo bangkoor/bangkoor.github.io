@@ -515,7 +515,30 @@ async function loadBibTeX() {
             const entry = entries[key];
             const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
             
-            // 1 & 2. Format ulang nama penulis (Nama Belakang, Nama Depan & pisahkan dengan koma)
+            function formatAuthorName(authorString) {
+                if (!authorString) return "Unknown Author";
+
+                // BibTeX memisahkan antar-penulis dengan kata "and"
+                const authors = authorString.split(/\s+and\s+/i);
+                
+                const formattedAuthors = authors.map(author => {
+                    let cleanAuthor = author.trim();
+                    
+                    // Jika format bawaan BibTeX menggunakan koma (Belakang, Depan)
+                    if (cleanAuthor.includes(',')) {
+                        const parts = cleanAuthor.split(',');
+                        const lastName = parts[0].trim();
+                        const firstName = parts.slice(1).join(' ').trim();
+                        return `${firstName} ${lastName}`;
+                    }
+                    
+                    // Jika sudah berupa "Nama Depan Nama Belakang" tanpa koma
+                    return cleanAuthor;
+                });
+
+                // Gabungkan semua penulis hanya dengan pemisah koma (tanpa kata "and")
+                return formattedAuthors.join(', ');
+            }
             const authors = formatAuthorName(entry.AUTHOR);
             
             const year = entry.YEAR ? entry.YEAR : "N/A";
