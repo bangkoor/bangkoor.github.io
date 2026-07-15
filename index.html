@@ -273,10 +273,10 @@
         </section>
 
         <!-- Section: Publications -->
-        <div class="publications-section">
+        <section class="mb-10">
             <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Recent Publications</h2>
             <div id="bibtex-publications">Memuat publikasi dari Mendeley...</div>
-        </div>
+        </section>
 
         <!-- Section: Intellectual Property & Books -->
         <section class="mb-10">
@@ -466,48 +466,96 @@
 
     document.addEventListener('DOMContentLoaded', fetchAllDashboardData);
     
-    // Fungsi untuk memparsing file .bib Mendeley menjadi HTML
-    async function loadBibTeX() {
-        try {
-            const response = await fetch('./publications.bib');
-            const bibtexData = await response.text();
-            
-            // Memanfaatkan parser sederhana
-            const parser = new BibtexParser();
-            parser.setInput(bibtexData);
-            parser.bibtex();
-            const entries = parser.getEntries();
-            
-            let html = '<ul style="list-style: none; padding: 0;">';
-            
-            // Ambil 5 publikasi terbaru
-            const keys = Object.keys(entries).slice(0, 5);
-            keys.forEach(key => {
-                const entry = entries[key];
-                const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
-                const author = entry.AUTHOR ? entry.AUTHOR : "Unknown Author";
-                const year = entry.YEAR ? entry.YEAR : "N/A";
-                const journal = entry.JOURNAL ? entry.JOURNAL : "Journal";
-                const url = entry.URL ? entry.URL : "#";
+    // Fungsi untuk mengubah format nama penulis menjadi: Nama Belakang, Nama Depan
+function formatAuthorName(authorString) {
+    if (!authorString) return "Unknown Author";
 
-                html += `
-                    <li style="margin-bottom: 12px; border-left: 3px solid #10b981; padding-left: 12px;">
-                        <strong style="color: #1e293b;">
-                            <a href="${url}" target="_blank" style="color: inherit; text-decoration: none;">${title}</a>
-                        </strong><br>
-                        <span style="font-size: 0.85rem; color: #64748b;">${author}</span><br>
-                        <span style="font-size: 0.8rem; color: #94a3b8; font-style: italic;">${journal} (${year})</span>
-                    </li>
-                `;
-            });
-            html += '</ul>';
-            document.getElementById('bibtex-publications').innerHTML = html;
-        } catch (error) {
-            document.getElementById('bibtex-publications').innerHTML = "<p>Gagal memuat publikasi Mendeley.</p>";
+    // BibTeX biasanya memisahkan antar penulis dengan kata "and"
+    const authors = authorString.split(/\s+and\s+/i);
+    
+    const formattedAuthors = authors.map(author => {
+        let cleanAuthor = author.trim();
+        
+        // Jika nama sudah memiliki koma (format Mendeley bawaan: Belakang, Depan)
+        if (cleanAuthor.includes(',')) {
+            return cleanAuthor;
         }
-    }
+        
+        // Jika formatnya masih "Depan Belakang", kita balik
+        const nameParts = cleanAuthor.split(/\s+/);
+        if (nameParts.length > 1) {
+            const lastName = nameParts.pop(); // Ambil nama terakhir
+            const firstName = nameParts.join(' '); // Ambil sisanya sebagai nama depan
+            return `${lastName}, ${firstName}`;
+        }
+        
+        return cleanAuthor;
+    });
 
-    document.addEventListener("DOMContentLoaded", loadBibTeX);
+    // Gabungkan semua penulis dengan koma (tanpa kata "and")
+    return formattedAuthors.join(', ');
+}
+
+async function loadBibTeX() {
+    try {
+        const response = await fetch('./publications.bib');
+        const bibtexData = await response.text();
+        
+        const parser = new BibtexParser();
+        parser.setInput(bibtexData);
+        parser.bibtex();
+        const entries = parser.getEntries();
+        
+        let html = '<ul style="list-style: none; padding: 0;">';
+        
+        // Ambil kunci entri BibTeX
+        const keys = Object.keys(entries);
+        
+        keys.forEach(key => {
+            const entry = entries[key];
+            const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
+            
+            // 1 & 2. Format ulang nama penulis (Nama Belakang, Nama Depan & pisahkan dengan koma)
+            const authors = formatAuthorName(entry.AUTHOR);
+            
+            const year = entry.YEAR ? entry.YEAR : "N/A";
+            const journal = entry.JOURNAL ? entry.JOURNAL.replace(/[{}]/g, "") : "Journal";
+            
+            // 3. Set link ke DOI jika tersedia, jika tidak ada gunakan URL alternatif atau '#'
+            let targetUrl = "#";
+            if (entry.DOI) {
+                // Bersihkan teks DOI dari karakter kurung kurawal bawaan BibTeX jika ada
+                const cleanDoi = entry.DOI.replace(/[{}]/g, "").trim();
+                targetUrl = `https://dx.doi.org/${cleanDoi}`;
+            } else if (entry.URL) {
+                targetUrl = entry.URL.replace(/[{}]/g, "").trim();
+            }
+
+            html += `
+                <li style="margin-bottom: 16px; border-left: 3px solid #10b981; padding-left: 12px; font-family: 'Open Sans', sans-serif;">
+                    <strong style="color: #1e293b; font-size: 0.95rem;">
+                        <a href="${targetUrl}" target="_blank" style="color: #1e293b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#1e293b'">
+                            ${title}
+                        </a>
+                    </strong><br>
+                    <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 4px;">${authors}</span>
+                    <span style="font-size: 0.8rem; color: #94a3b8; font-style: italic; display: block; margin-top: 2px;">${journal} (${year})</span>
+                </li>
+            `;
+        });
+        
+        html += '</ul>';
+        document.getElementById('bibtex-publications').innerHTML = html;
+    } catch (error) {
+        console.error(error);
+        document.getElementById('bibtex-publications').innerHTML = `
+            <p style="font-size: 0.9rem; color: #64748b;">
+                Gagal memuat publikasi secara otomatis. Silakan periksa file <code>publications.bib</code> Anda.
+            </p>`;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadBibTeX);
 </script>
 </body>
 </html>
