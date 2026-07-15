@@ -112,8 +112,7 @@
 
     <div class="max-w-5xl mx-auto bg-white p-8 sm:p-12 shadow-xs border border-slate-100 rounded-sm">
         
-        <!-- Header: Joel Glovier Style Layout with Profile Photo & Social Icons -->
-        <header class="relative border-b-2 border-slate-800 pb-8 mb-8 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 overflow-hidden">
+        <header class="relative border-b-2 border-slate-800 pb-8 mb-8 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-6 overflow-hidden">
     
             <!-- 1. Efek Lapisan Gradasi Abstrak (Aurora Glow di Sudut Kanan) -->
             <div class="absolute right-0 top-0 w-[350px] h-[350px] opacity-20 pointer-events-none filter blur-3xl rounded-full translate-x-12 -translate-y-12 z-0"
@@ -124,7 +123,6 @@
             <div class="absolute right-0 top-0 w-full h-full pointer-events-none z-0 opacity-[0.12] sm:opacity-[0.15]"
                  style="mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%);">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="w-full h-full stroke-slate-400 fill-none" stroke-width="0.25" stroke-dasharray="1 0.7">
-                    <!-- Garis Kontur Topografi Kontinu Mengalir hingga ke Kiri -->
                     <path d="M 30,-10 C 25,20 15,35 -5,55 C -25,75 -15,90 20,110" />
                     <path d="M 60,-10 C 52,22 38,40 22,62 C 6,84 18,98 50,110" />
                     <path d="M 90,-10 C 80,25 65,45 52,70 C 39,95 50,102 80,110" />
@@ -135,7 +133,7 @@
                 </svg>
             </div>
 
-            <!-- 3. Konten Teks Biodata (Diberi relative z-10 agar tetap stand out) -->
+            <!-- 3. Konten Teks Biodata -->
             <div class="relative flex-1 w-full text-center sm:text-left z-10">
                 <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Dr. Arif Kurnia Wijayanto, M.Sc.</h1>
                 <p class="text-emerald-800 font-medium text-lg mt-1">Researcher & Academician</p>
@@ -151,7 +149,6 @@
                 
                 <!-- Baris Ikon & Tombol PDF -->
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 w-full">
-                    <!-- Social Media Icons -->
                     <div class="flex justify-center sm:justify-start gap-4 text-xl text-slate-600">
                         <a href="https://github.com/bangkoor" target="_blank" class="hover:text-slate-900 transition-colors" title="GitHub">
                             <i class="fa-brands fa-github"></i>
@@ -167,7 +164,6 @@
                         </a>
                     </div>
 
-                    <!-- Tombol Download PDF -->
                     <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 bg-white/80 backdrop-blur-xs rounded-md text-xs font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-2xs" title="Download CV as PDF">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                         Download CV (PDF)
@@ -175,8 +171,8 @@
                 </div>
             </div>
 
-            <!-- 4. Profile Photo Container (Ukuran Dikunci Kembali) -->
-            <div class="relative w-32 h-32 shrink-0 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10 my-auto">
+            <!-- 4. Profile Photo Container (Penyesuaian Posisi dengan Margin Kanan) -->
+            <div class="relative w-32 h-32 shrink-0 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10 sm:mr-8 md:mr-12">
                 <img src="img/profile-image.jpg" 
                      alt="Dr. Arif Kurnia Wijayanto" 
                      class="w-full h-full object-cover rounded-full">
