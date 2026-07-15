@@ -115,10 +115,10 @@
         <!-- Header: Joel Glovier Style Layout with Profile Photo -->
         <!-- Header: Joel Glovier Style Layout with Profile Photo & Social Icons -->
 <header class="border-b-2 border-slate-800 pb-8 mb-8 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
-    <div class="flex-1 text-center sm:text-left">
+    <div class="flex-1 w-full text-center sm:text-left">
         <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Dr. Arif Kurnia Wijayanto, M.Sc.</h1>
         <p class="text-emerald-800 font-medium text-lg mt-1">Researcher & Academician</p>
-        <p class="text-sm text-slate-500 mt-4 leading-relaxed max-w-xl">
+        <p class="text-sm text-slate-500 mt-4 leading-relaxed max-w-xl mx-auto sm:mx-0">
             Specializing in Spatial Modeling, Environmental Remote Sensing, and UAV (Unmanned Aerial Vehicle) technology applications for Precision Agriculture and Ecosystem Conservation.
         </p>
         
@@ -128,22 +128,30 @@
             <span class="status-text">Currently working on: <strong>Gakkum Tools: Plugin QGIS untuk Forestry Crime dengan MaxEnt</strong></span>
         </div>
         
-        <!-- Social Media Icons (Joel Glovier Style) -->
-        <div class="flex justify-center sm:justify-start gap-4 mt-6 text-xl text-slate-600">
-            <a href="https://github.com/bangkoor" target="_blank" class="hover:text-slate-900 transition-colors" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" class="hover:text-blue-700 transition-colors" title="LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-			<a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" class="hover:text-orange-500 transition-colors" title="Google Scholar">
-                <i class="fa-brands fa-google"></i>
-            </a>
-            <a href="https://blog.akwijayanto.my.id" target="_blank" class="hover:text-orange-500 transition-colors" title="Blogger Blog">
-                <i class="fa-solid fa-blog"></i>
+        <!-- Baris Ikon & Tombol PDF (Flexbox Container) -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 w-full max-w-xl">
+            <!-- Social Media Icons (Joel Glovier Style) -->
+            <div class="flex justify-center sm:justify-start gap-4 text-xl text-slate-600">
+                <a href="https://github.com/bangkoor" target="_blank" class="hover:text-slate-900 transition-colors" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" class="hover:text-blue-700 transition-colors" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" class="hover:text-orange-500 transition-colors" title="Google Scholar">
+                    <i class="fa-brands fa-google"></i>
+                </a>
+                <a href="https://blog.akwijayanto.my.id" target="_blank" class="hover:text-orange-500 transition-colors" title="Blogger Blog">
+                    <i class="fa-solid fa-blog"></i>
+                </a>
+            </div>
+
+            <!-- Tombol Download PDF Simpel Minimalis -->
+            <a href="path-to-your-cv.pdf" download class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded-md text-xs font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-2xs" title="Download CV as PDF">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download CV (PDF)
             </a>
         </div>
-        
         
     </div>
     <!-- Profile Photo Container -->
