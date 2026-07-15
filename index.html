@@ -8,6 +8,8 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231e293b%22></rect><text y=%22.9em%22 x=%2250%%22 font-size=%2265%22 font-weight=%22bold%22 font-family=%22serif%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>A</text></svg>">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Pustaka parser BibTeX ringan dari CDN -->
+    <script src="https://cdn.jsdelivr.net/gh/pcookook/bibtex-js@master/src/bibtex_js.js"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts (Merriweather & Open Sans for Classic Resume Feel) -->
@@ -271,39 +273,10 @@
         </section>
 
         <!-- Section: Publications -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Scientific Publications</h2>
-            <ol class="list-decimal pl-5 space-y-4 text-sm text-slate-700">
-                <li>
-                    <strong>Spatio-temporal analysis of land surface temperature and biomass changes in Nusantara Capital City: Challenges for forest city planning.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>Ecological Engineering & Environmental Technology</em>, Vol. 26, No. 10, 2025.</span>
-                </li>
-                <li>
-                    <strong>Estimating Vegetation Density Dynamics, Tree Diversity, and Carbon Stock in the Agroforestry System of the Community Forest in Bogor Regency, Indonesia.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>Jurnal Sylva Lestari</em>, Vol. 13, No. 1, 2025.</span>
-                </li>
-                <li>
-                    <strong>Advanced BLB disease assessment in paddy fields using multispectral UAV data and patch fragmentation metrics.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>Smart Agricultural Technology</em>, Vol. 10, Art No. 10076, 2025.</span>
-                </li>
-                <li>
-                    <strong>Textural features for BLB disease damage assessment in paddy fields using drone data and machine learning: Enhancing disease detection accuracy.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>Smart Agricultural Technology</em>, Vol. 8, Art No. 100498, 2024.</span>
-                </li>
-                <li>
-                    <strong>PreciPalm: An Intelligent System for Calculating Macronutrient Status and Fertilizer Recommendations for Oil Palm on Mineral Soils Based on a Precision Agriculture Approach.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>The Scientific World Journal</em>, Vol. 2024, 2024.</span>
-                </li>
-                <li>
-                    <strong>Using Precision Agriculture (PA) Approach to Select Suitable Final Disposal Sites for Energy Generation.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>Information (Switzerland)</em>, 4(1), Art No. 14010008, 2023.</span>
-                </li>
-                <li>
-                    <strong>Machine Learning for Precise Rice Variety Classification in Tropical Environments Using UAV-Based Multispectral Sensing.</strong> 
-                    <br><span class="text-xs text-slate-500"><em>AgriEngineering</em>, 5(4), Art No. 5049123, 2023.</span>
-                </li>
-            </ol>
-        </section>
+        <div class="publications-section">
+            <h3>Recent Publications</h3>
+            <div id="bibtex-publications">Memuat publikasi dari Mendeley...</div>
+        </div>
 
         <!-- Section: Intellectual Property & Books -->
         <section class="mb-10">
@@ -492,6 +465,49 @@
     }
 
     document.addEventListener('DOMContentLoaded', fetchAllDashboardData);
+    
+    // Fungsi untuk memparsing file .bib Mendeley menjadi HTML
+    async function loadBibTeX() {
+        try {
+            const response = await fetch('./publications.bib');
+            const bibtexData = await response.text();
+            
+            // Memanfaatkan parser sederhana
+            const parser = new BibtexParser();
+            parser.setInput(bibtexData);
+            parser.bibtex();
+            const entries = parser.getEntries();
+            
+            let html = '<ul style="list-style: none; padding: 0;">';
+            
+            // Ambil 5 publikasi terbaru
+            const keys = Object.keys(entries).slice(0, 5);
+            keys.forEach(key => {
+                const entry = entries[key];
+                const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
+                const author = entry.AUTHOR ? entry.AUTHOR : "Unknown Author";
+                const year = entry.YEAR ? entry.YEAR : "N/A";
+                const journal = entry.JOURNAL ? entry.JOURNAL : "Journal";
+                const url = entry.URL ? entry.URL : "#";
+
+                html += `
+                    <li style="margin-bottom: 12px; border-left: 3px solid #10b981; padding-left: 12px;">
+                        <strong style="color: #1e293b;">
+                            <a href="${url}" target="_blank" style="color: inherit; text-decoration: none;">${title}</a>
+                        </strong><br>
+                        <span style="font-size: 0.85rem; color: #64748b;">${author}</span><br>
+                        <span style="font-size: 0.8rem; color: #94a3b8; font-style: italic;">${journal} (${year})</span>
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            document.getElementById('bibtex-publications').innerHTML = html;
+        } catch (error) {
+            document.getElementById('bibtex-publications').innerHTML = "<p>Gagal memuat publikasi Mendeley.</p>";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadBibTeX);
 </script>
 </body>
 </html>
