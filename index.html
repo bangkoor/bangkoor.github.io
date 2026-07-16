@@ -529,7 +529,7 @@
                 }
             }
 
-            // 5. RENDER POSTINGAN BLOGGER DENGAN EXCERPT & BADGE READ MORE
+            // 5. RENDER POSTINGAN BLOGGER DENGAN EXCERPT DARI WORKER API
             if (blogContainer) {
                 const posts = data.posts || [];
                 if (posts.length === 0) {
@@ -537,17 +537,9 @@
                 } else {
                     blogContainer.innerHTML = '';
                     posts.forEach(post => {
-                        // Hilangkan tag HTML bawaan konten tulisan blog agar didapatkan teks murni
-                        const rawContent = post.content || "";
-                        const cleanText = rawContent.replace(/<\/?[^>]+(>|$)/g, "").trim();
-                        
-                        // Membuat ringkasan sepanjang maksimal 160 karakter
-                        let excerpt = cleanText;
-                        if (cleanText.length > 160) {
-                            excerpt = cleanText.substring(0, 160).trim() + "...";
-                        } else if (cleanText.length === 0) {
-                            excerpt = "Klik baca selengkapnya untuk mengunjungi artikel lengkap di portal blog resmi kami.";
-                        }
+                        // Menggunakan data excerpt yang sudah dibersihkan dari Vercel Worker. 
+                        // Jika kosong, sediakan fallback teks default.
+                        const excerpt = post.excerpt || "Klik baca selengkapnya untuk mengunjungi artikel lengkap di portal blog resmi kami.";
 
                         // Formatisasi tanggal opsional apabila objek feed membawa data tanggal penerbitan
                         const postDate = post.date ? new Date(post.date).toLocaleDateString('id-ID', {
