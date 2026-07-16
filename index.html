@@ -20,15 +20,12 @@
         body {
             font-family: 'Open Sans', sans-serif;
             color: #333333;
-            /* 🛠️ Pengaturan Background SVG Statis */
-        background-image: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
-        background-attachment: fixed; /* Membuat gradasi tetap statis saat di-scroll */
-        background-size: cover;
-        
-        background-repeat: no-repeat;
-        background-size: cover;          /* Memaksa gambar SVG memenuhi layar secara proporsional */
-        background-position: center top; /* Memosisikan pola tepat di tengah bagian atas */
-        background-attachment: fixed;    /* KUNCI: Membuat background tetap statis saat di-scroll */
+            /* Pengaturan Background SVG Statis */
+            background-image: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background-attachment: fixed; /* Membuat gradasi tetap statis saat di-scroll */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top; /* Memosisikan pola tepat di tengah bagian atas */
         }
         h1, h2, h3, h4 {
             font-family: 'Merriweather', serif;
@@ -106,6 +103,28 @@
             margin-top: 0;
             color: #323377;
         }
+
+        /* CSS Tambahan untuk Badge Read More */
+        .badge-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            background-color: #f1f5f9; /* abu-abu sangat muda */
+            color: #475569; /* text slate */
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .badge-read-more:hover {
+            background-color: #e8f5e9; /* sentuhan hijau mint saat hover */
+            color: #065f46;
+            border-color: #a7f3d0;
+        }
     </style>
 </head>
 <body class="bg-[#fcfcfc] antialiased py-12 px-4 sm:px-6">
@@ -156,7 +175,7 @@
                         <a href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" class="hover:text-blue-700 transition-colors" title="LinkedIn">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
-                        <a href="https://www.youtube.com/channel/UCcDv_Se-EST0_iVF6NdYsPA/" target="_blank" class="hover:text-orange-500 transition-colors" title="YouTube">
+                        <a href="https://www.youtube.com/channel/UCcDv_Se-EST0_iVF6NdYsPA/" target="_blank" class="hover:text-red-600 transition-colors" title="YouTube Channel">
                             <i class="fa-brands fa-youtube"></i>
                         </a>
                         <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" class="hover:text-orange-500 transition-colors" title="Google Scholar">
@@ -174,7 +193,7 @@
                 </div>
             </div>
 
-            <!-- 4. Profile Photo Container (Penyesuaian Posisi dengan Margin Kanan) -->
+            <!-- 4. Profile Photo Container -->
             <div class="relative w-32 h-32 shrink-0 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10 sm:mr-8 md:mr-12">
                 <img src="img/profile-image.jpg" 
                      alt="Dr. Arif Kurnia Wijayanto" 
@@ -185,7 +204,7 @@
         <!-- Contact & Academic Metrics Section -->
         <section class="mb-10 text-sm grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-50 p-6 rounded-sm border border-slate-100">
             
-            <!-- Kolom Kiri: Informasi Kontak (Porsi 5/12) -->
+            <!-- Kolom Kiri: Informasi Kontak -->
             <div class="space-y-3 text-slate-600 lg:col-span-5 flex flex-col justify-center">
                 <div class="flex items-center space-x-2">
                     <i class="fa-solid fa-envelope text-slate-400 w-5"></i>
@@ -201,7 +220,7 @@
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Dua Dasbor Berdampingan (Porsi 7/12) -->
+            <!-- Kolom Kanan: Dua Dasbor Berdampingan -->
             <div class="border-t lg:border-t-0 lg:border-l border-slate-200 pt-4 lg:pt-0 lg:pl-6 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:col-span-7">
                 
                 <!-- Sub-Grup 1: SCOPUS -->
@@ -267,7 +286,6 @@
                     <p class="text-xs text-slate-400 italic mt-0.5">Sustainable Landscape Development Program</p>
                     <p class="text-xs text-slate-500 mt-1">Funding Source: UNDP</p>
                 </div>
-
 
                 <div>
                     <div class="flex justify-between items-baseline">
@@ -392,42 +410,45 @@
                 <p>n8n Workflow, Python Scripts, Telegram Bot Integration</p>
               </div>
               <!-- Box 4: Hardware / Field Gear -->
-              <div class="bento-item bento-medium">
+              <div class="bento-item">
                 <h4>🛸 Field Acquisition</h4>
                 <p>DJI UAV/Drones piloting, Multispectral Sensors, GNSS RTK</p>
               </div>
             </div>
         </section>
 		
-        <!-- Section: Pinned Repositories -->
+        <!-- Section: Featured Projects (Pinned Repos) -->
         <section class="mb-10">
             <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Featured Projects</h2>
             <div id="github-pinned" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Text loading awal -->
                 <p class="text-slate-500 italic text-sm col-span-2">Loading pinned repositories...</p>
             </div>
         </section>
         
-		<!-- Berikan pembatas horizontal (hr) dan margin yang cukup -->
         <hr class="border-slate-200 my-10" />
 
         <!-- Section: Recent Blog Posts -->
         <section class="mb-10">
-            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Recent Blog Posts</h2>
-            <ul id="blogger-posts" class="space-y-3 text-sm text-slate-700 list-disc pl-5">
-                <!-- Data terisi otomatis dari script Vercel -->
-            </ul>
+            <div class="blog-section">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i class="fa-brands fa-blogger text-orange-500"></i> Recent Blog Posts
+                </h2>
+                <div id="blogger-posts" class="space-y-6">
+                    <p class="text-sm text-slate-500 italic">Memuat postingan terbaru...</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Bagian Footer di index.html -->
-<footer class="text-center py-6 text-sm text-slate-500">
-    <p>© 2026 Arif Kurnia Wijayanto. All rights reserved.</p>
-    <p class="mt-1">Last Update: <span id="last-update" class="font-medium text-slate-700">Loading...</span></p>
-</footer>
+        <!-- Section: Footer -->
+        <footer class="text-center py-6 text-sm text-slate-500">
+            <p>© 2026 Arif Kurnia Wijayanto. All rights reserved.</p>
+            <p class="mt-1">Last Update: <span id="last-update" class="font-medium text-slate-700">Loading...</span></p>
+        </footer>
 
-<!-- JavaScript Pemroses Dashboard di index.html -->
+    </div>
+
+<!-- JavaScript Pemroses Dashboard Integrasi Data -->
 <script>
-    // GANTI dengan URL live deployment Worker Vercel Anda sendiri
     const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
 
     async function fetchAllDashboardData() {
@@ -461,10 +482,9 @@
                 if (sinta3yrElem) sinta3yrElem.innerText = data.sinta.score3Yr;
             }
 
-            // 3. RENDER TANGGAL COMMIT TERAKHIR (DINAMIS)
+            // 3. RENDER TANGGAL COMMIT TERAKHIR
             if (data.lastUpdate && lastUpdateElem) {
                 const dateObj = new Date(data.lastUpdate);
-                // Format Indonesia: d MMMM yyyy
                 const formattedDate = dateObj.toLocaleDateString('id-ID', {
                     day: 'numeric',
                     month: 'long',
@@ -509,18 +529,47 @@
                 }
             }
 
-            // 5. RENDER POSTINGAN BLOGGER
+            // 5. RENDER POSTINGAN BLOGGER DENGAN EXCERPT & BADGE READ MORE
             if (blogContainer) {
                 const posts = data.posts || [];
                 if (posts.length === 0) {
-                    blogContainer.innerHTML = '<li class="text-slate-500 italic list-none pl-0">No recent posts found.</li>';
+                    blogContainer.innerHTML = '<p class="text-slate-500 italic text-sm">No recent posts found.</p>';
                 } else {
                     blogContainer.innerHTML = '';
                     posts.forEach(post => {
-                        const listItem = document.createElement('li');
-                        listItem.className = "hover:text-emerald-800 transition-colors";
-                        listItem.innerHTML = `<a href="${post.url}" target="_blank" class="font-medium hover:underline">${post.title}</a>`;
-                        blogContainer.appendChild(listItem);
+                        // Hilangkan tag HTML bawaan konten tulisan blog agar didapatkan teks murni
+                        const rawContent = post.content || "";
+                        const cleanText = rawContent.replace(/<\/?[^>]+(>|$)/g, "").trim();
+                        
+                        // Membuat ringkasan sepanjang maksimal 160 karakter
+                        let excerpt = cleanText;
+                        if (cleanText.length > 160) {
+                            excerpt = cleanText.substring(0, 160).trim() + "...";
+                        } else if (cleanText.length === 0) {
+                            excerpt = "Klik baca selengkapnya untuk mengunjungi artikel lengkap di portal blog resmi kami.";
+                        }
+
+                        // Formatisasi tanggal opsional apabila objek feed membawa data tanggal penerbitan
+                        const postDate = post.date ? new Date(post.date).toLocaleDateString('id-ID', {
+                            year: 'numeric', month: 'long', day: 'numeric'
+                        }) : "";
+
+                        const article = document.createElement('article');
+                        article.className = "border-l-2 border-emerald-600 pl-4 py-1 group";
+                        article.innerHTML = `
+                            <h3 class="font-semibold text-slate-900 group-hover:text-emerald-800 transition-colors">
+                                <a href="${post.url}" target="_blank">${post.title}</a>
+                            </h3>
+                            ${postDate ? `<span class="text-xs text-slate-400 block mt-1">${postDate}</span>` : ''}
+                            <p class="text-sm text-slate-600 mt-2 mb-3 leading-relaxed">
+                                ${excerpt}
+                            </p>
+                            <a href="${post.url}" target="_blank" class="badge-read-more">
+                                Read More 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        `;
+                        blogContainer.appendChild(article);
                     });
                 }
             }
@@ -533,126 +582,81 @@
             if (sintaOverallElem) sintaOverallElem.innerText = "N/A";
             if (sinta3yrElem) sinta3yrElem.innerText = "N/A";
             if (lastUpdateElem) lastUpdateElem.innerText = "-";
-            if (blogContainer) blogContainer.innerHTML = '<li class="text-red-500 italic list-none pl-0">Failed to load blog posts.</li>';
+            if (blogContainer) blogContainer.innerHTML = '<p class="text-red-500 italic text-sm">Gagal memuat postingan blog terbaru.</p>';
             if (githubContainer) githubContainer.innerHTML = '<p class="text-red-500 italic text-sm col-span-2">Failed to load GitHub projects.</p>';
         }
     }
 
     document.addEventListener('DOMContentLoaded', fetchAllDashboardData);
-    
-    // Fungsi untuk mengubah format nama penulis menjadi: Nama Belakang, Nama Depan
-function formatAuthorName(authorString) {
-    if (!authorString) return "Unknown Author";
 
-    // BibTeX biasanya memisahkan antar penulis dengan kata "and"
-    const authors = authorString.split(/\s+and\s+/i);
-    
-    const formattedAuthors = authors.map(author => {
-        let cleanAuthor = author.trim();
-        
-        // Jika nama sudah memiliki koma (format Mendeley bawaan: Belakang, Depan)
-        if (cleanAuthor.includes(',')) {
-            return cleanAuthor;
-        }
-        
-        // Jika formatnya masih "Depan Belakang", kita balik
-        const nameParts = cleanAuthor.split(/\s+/);
-        if (nameParts.length > 1) {
-            const lastName = nameParts.pop(); // Ambil nama terakhir
-            const firstName = nameParts.join(' '); // Ambil sisanya sebagai nama depan
-            return `${lastName}, ${firstName}`;
-        }
-        
-        return cleanAuthor;
-    });
-
-    // Gabungkan semua penulis dengan koma (tanpa kata "and")
-    return formattedAuthors.join(', ');
-}
-
-async function loadBibTeX() {
-    try {
-        const response = await fetch('./publications.bib');
-        const bibtexData = await response.text();
-        
-        const parser = new BibtexParser();
-        parser.setInput(bibtexData);
-        parser.bibtex();
-        const entries = parser.getEntries();
-        
-        let html = '<ul style="list-style: none; padding: 0;">';
-        
-        // Ambil kunci entri BibTeX
-        const keys = Object.keys(entries).slice(0, 5);;
-        
-        keys.forEach(key => {
-            const entry = entries[key];
-            const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
+    // Fungsi Parser BibTeX untuk Daftar Publikasi
+    async function loadBibTeX() {
+        try {
+            const response = await fetch('./publications.bib');
+            const bibtexData = await response.text();
             
-            function formatAuthorName(authorString) {
-                if (!authorString) return "Unknown Author";
-
-                // BibTeX memisahkan antar-penulis dengan kata "and"
-                const authors = authorString.split(/\s+and\s+/i);
+            const parser = new BibtexParser();
+            parser.setInput(bibtexData);
+            parser.bibtex();
+            const entries = parser.getEntries();
+            
+            let html = '<ul style="list-style: none; padding: 0;">';
+            const keys = Object.keys(entries).slice(0, 5);
+            
+            keys.forEach(key => {
+                const entry = entries[key];
+                const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
                 
-                const formattedAuthors = authors.map(author => {
-                    let cleanAuthor = author.trim();
-                    
-                    // Jika format bawaan BibTeX menggunakan koma (Belakang, Depan)
-                    if (cleanAuthor.includes(',')) {
-                        const parts = cleanAuthor.split(',');
-                        const lastName = parts[0].trim();
-                        const firstName = parts.slice(1).join(' ').trim();
-                        return `${firstName} ${lastName}`;
-                    }
-                    
-                    // Jika sudah berupa "Nama Depan Nama Belakang" tanpa koma
-                    return cleanAuthor;
-                });
+                function formatAuthorName(authorString) {
+                    if (!authorString) return "Unknown Author";
+                    const authors = authorString.split(/\s+and\s+/i);
+                    const formattedAuthors = authors.map(author => {
+                        let cleanAuthor = author.trim();
+                        if (cleanAuthor.includes(',')) {
+                            const parts = cleanAuthor.split(',');
+                            return `${parts[1].trim()} ${parts[0].trim()}`;
+                        }
+                        return cleanAuthor;
+                    });
+                    return formattedAuthors.join(', ');
+                }
+                
+                const authors = formatAuthorName(entry.AUTHOR);
+                const year = entry.YEAR ? entry.YEAR : "N/A";
+                const journal = entry.JOURNAL ? entry.JOURNAL.replace(/[{}]/g, "") : "Journal";
+                
+                let targetUrl = "#";
+                if (entry.DOI) {
+                    targetUrl = `https://dx.doi.org/${entry.DOI.replace(/[{}]/g, "").trim()}`;
+                } else if (entry.URL) {
+                    targetUrl = entry.URL.replace(/[{}]/g, "").trim();
+                }
 
-                // Gabungkan semua penulis hanya dengan pemisah koma (tanpa kata "and")
-                return formattedAuthors.join(', ');
-            }
-            const authors = formatAuthorName(entry.AUTHOR);
+                html += `
+                    <li style="margin-bottom: 16px; border-left: 3px solid #10b981; padding-left: 12px; font-family: 'Open Sans', sans-serif;">
+                        <strong style="color: #1e293b; font-size: 0.95rem;">
+                            <a href="${targetUrl}" target="_blank" style="color: #1e293b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#1e293b'">
+                                ${title}
+                            </a>
+                        </strong><br>
+                        <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 4px;">${authors}</span>
+                        <span style="font-size: 0.8rem; color: #94a3b8; font-style: italic; display: block; margin-top: 2px;">${journal} (${year})</span>
+                    </li>
+                `;
+            });
             
-            const year = entry.YEAR ? entry.YEAR : "N/A";
-            const journal = entry.JOURNAL ? entry.JOURNAL.replace(/[{}]/g, "") : "Journal";
-            
-            // 3. Set link ke DOI jika tersedia, jika tidak ada gunakan URL alternatif atau '#'
-            let targetUrl = "#";
-            if (entry.DOI) {
-                // Bersihkan teks DOI dari karakter kurung kurawal bawaan BibTeX jika ada
-                const cleanDoi = entry.DOI.replace(/[{}]/g, "").trim();
-                targetUrl = `https://dx.doi.org/${cleanDoi}`;
-            } else if (entry.URL) {
-                targetUrl = entry.URL.replace(/[{}]/g, "").trim();
-            }
-
-            html += `
-                <li style="margin-bottom: 16px; border-left: 3px solid #10b981; padding-left: 12px; font-family: 'Open Sans', sans-serif;">
-                    <strong style="color: #1e293b; font-size: 0.95rem;">
-                        <a href="${targetUrl}" target="_blank" style="color: #1e293b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#1e293b'">
-                            ${title}
-                        </a>
-                    </strong><br>
-                    <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 4px;">${authors}</span>
-                    <span style="font-size: 0.8rem; color: #94a3b8; font-style: italic; display: block; margin-top: 2px;">${journal} (${year})</span>
-                </li>
-            `;
-        });
-        
-        html += '</ul>';
-        document.getElementById('bibtex-publications').innerHTML = html;
-    } catch (error) {
-        console.error(error);
-        document.getElementById('bibtex-publications').innerHTML = `
-            <p style="font-size: 0.9rem; color: #64748b;">
-                Gagal memuat publikasi secara otomatis. Silakan periksa file <code>publications.bib</code> Anda.
-            </p>`;
+            html += '</ul>';
+            document.getElementById('bibtex-publications').innerHTML = html;
+        } catch (error) {
+            console.error(error);
+            document.getElementById('bibtex-publications').innerHTML = `
+                <p style="font-size: 0.9rem; color: #64748b;">
+                    Gagal memuat publikasi secara otomatis. Silakan periksa file <code>publications.bib</code> Anda.
+                </p>`;
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", loadBibTeX);
+    document.addEventListener("DOMContentLoaded", loadBibTeX);
 </script>
 </body>
 </html>
