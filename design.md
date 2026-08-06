@@ -1,70 +1,67 @@
 ---
 version: "alpha"
-name: "Pastel Geometry"
-description: "Friendly, organized, modern landing page with pastel geometry. Ideal for apps de produtividade, educational platforms, saas friendly, health apps. AI-ready template."
+name: "Blueprint / Engineering"
+description: "Blueprint engineering interface. Ideal for landing pages, saas. AI-ready template."
 colors:
-  primary: "#c8d9e6"
-  secondary: "#faf9f7"
-  tertiary: "#1a1a1a"
-  neutral: "#f0b4d4"
-  surface: "#a8d4c4"
-  accent: "#5a7c6a"
+  primary: "#1E5DA2"
+  secondary: "#FFFFFF"
+  tertiary: "#A8D5FF"
+  neutral: "#5B9BD5"
+  surface: "#2E4053"
+  accent: "#E8E8E8"
 typography:
   h1:
-    fontFamily: Plus Jakarta Sans
-    fontSize: 2.5rem
+    fontFamily: monospace/technical
+    fontSize: 2.25rem
     fontWeight: 700
   body-md:
-    fontFamily: Plus Jakarta Sans
+    fontFamily: monospace/technical
     fontSize: 1rem
     fontWeight: 400
-rounded:
-  sm: 24px
-  md: 48px
-  lg: 72px
+  label-caps:
+    fontFamily: monospace/technical
+    fontSize: 0.75rem
+    fontWeight: 500
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.neutral}"
-    rounded: "{rounded.sm}"
     padding: 12px
 ---
 
 ## Overview
 
-Friendly, organized, modern landing page with pastel geometry. Ideal for apps de produtividade, educational platforms, saas friendly, health apps. AI-ready template. Pastel geometry didn't emerge from nowhere — it's the logical endpoint of two parallel movements colliding. On one side, you had the flat design revolution of 2012-2014 stripping interfaces down to pure color and shape. On the other, the wellness industry was quietly rejecting the clinical whites and sterile blues of healthcare UI, reaching instead for warmth. The merger happened around 2018 when apps like Calm and Headspace proved that soft color palettes could carry serious product experiences without feeling childish.
+Blueprint engineering interface. Ideal for landing pages, saas. AI-ready template. The blueprint is an accident of chemistry turned into an entire visual language. Cyanotype — invented by John Herschel in 1842 — was never meant to be beautiful. It was cheap reproduction: coat paper with iron salts, lay a translucent drawing on top, expose to sunlight, wash. White lines on Prussian blue. Architects and engineers used it for decades because it was fast and expendable. The originals stayed safe; the blueprints got marked up, folded, rained on.
 
-What makes this system interesting is its deliberate rejection of edge. Where material design gave us shadows and depth, pastel geometry insists on flatness as a philosophical stance — nothing here demands attention aggressively. The rounded pills and blob shapes aren't decorative; they're functional signals that say 'this space is safe, slow down.' It borrows from Scandinavian product design's obsession with approachable form, translated into pixels.
+What's interesting is how the constraints of the process created the aesthetic. No fills, no gradients — just line weight and annotation. Dimension markers, section cuts, leader lines pointing to callouts. Everything exists to communicate measurement and intent. The drawing isn't the building; it's the instruction set.
 
-The geometry part matters more than people think. Without structural rigor — consistent radii, mathematical spacing, repeating shape languages — pastels collapse into nursery aesthetics. The geometry is what gives it adult credibility.
+That's exactly why it works as a design style now. It signals process visibility — the idea that you're looking behind the curtain at how something gets made. There's an honesty to it. No decoration for its own sake. Every mark has a job. When brands adopt blueprint aesthetics, they're borrowing that credibility: we think precisely, we build deliberately, we show our work.
 
-- Density: 5/10 — Balanced
-- Variance: 4/10 — Moderate
-- Motion: 4/10 — Subtle
+- Density: 7/10 — Compact
+- Variance: 2/10 — Structured
+- Motion: 6/10 — Expressive
 
-- **Style:** Friendly, Organized, Modern, Approachable
-- **Keywords:** pastel, geometry, pills, vertical pills, Plus Jakarta Sans, friendly, organized, modern, approachable, soft shadow, rounded card
-- **Era:** 2024-2026 Friendly Modern
-- **Light/Dark:** ✓ Full / ✗ No
+- **Style:** Technical, Precise, Blueprint, Engineering
+- **Keywords:** Technical blueprint, white lines on blue, dimension markers, architectural symbols, drafting grid, semi-circular timeline, engineering precision
+- **Era:** Technical Engineering
+- **Light/Dark:** ✓ Full / ✓ Full
 
 ## Colors
 
-- **Pastel Blue BG** (#c8d9e6) — Primary background surface
-- **Card White** (#faf9f7) — Light surface, card backgrounds
-- **Text Dark** (#1a1a1a) — Dark surface, primary background
-- **Pill Pink** (#f0b4d4) — Primary text color
-- **Pill Mint** (#a8d4c4) — Extended palette, decorative use
-- **Pill Sage** (#5a7c6a) — Extended palette, decorative use
-- **Pill Lavender** (#9b8dc4) — Extended palette, decorative use
-- **Pill Violet** (#7c6aad) — Accent color, emphasis elements
+- **Blueprint Blue** (#1E5DA2) — Accent highlight, links and focus states
+- **White Lines** (#FFFFFF) — Light surface, card backgrounds
+- **Light Blue** (#A8D5FF) — Accent highlight, links and focus states
+- **Steel Blue** (#5B9BD5) — Accent highlight, links and focus states
+- **Dark Slate** (#2E4053) — Deep contrast surface
+- **Light Grey** (#E8E8E8) — Secondary text, borders, muted elements
 
 
 ## Typography
 
-- **Display / Hero:** Plus Jakarta Sans — Weight 700, tight tracking, used for headline impact
-- **Body:** Plus Jakarta Sans — Weight 400, 16px/1.6 line-height, max 72ch per line
-- **UI Labels / Captions:** Plus Jakarta Sans — 0.875rem, weight 500, slight letter-spacing
-- **Monospace:** JetBrains Mono — Used for code, metadata, and technical values
+- **Display / Hero:** monospace/technical — Weight 700, tight tracking, used for headline impact
+- **Body:** monospace/technical — Weight 400, 16px/1.6 line-height, max 72ch per line
+- **UI Labels / Captions:** monospace/technical — 0.875rem, weight 500, slight letter-spacing
+- **Monospace:** monospace/technical — Used for code, metadata, and technical values
 
 Scale:
 - Hero: clamp(2.5rem, 5vw, 4rem)
@@ -87,25 +84,25 @@ Scale:
 
 ## Elevation & Depth
 
-Rounded card with soft shadow, vertical pills on right edge with varying heights (short-medium-tall-medium-short), consistent pill width, download/action icon in corner, smooth hover 250ms
+Flat uniform technical lighting, line drawing animations (stroke-dasharray), dimension marker reveals, grid fade-in, technical precision transitions
 
-- **Physics:** Ease-out curves, 200-300ms duration. Smooth and predictable.
-- **Entry animations:** Fade + translate-Y (16px → 0) over 420ms ease-out. Staggered cascades for lists: 80ms between items.
-- **Hover states:** Subtle color shift + shadow adjustment over 200ms.
-- **Page transitions:** Fade only (200ms).
+- **Physics:** Spring — stiffness 120, damping 20. Confident, weighted transitions.
+- **Entry animations:** Fade + translate-Y (16px → 0) over 480ms ease-out. Staggered cascades for lists: 100ms between items.
+- **Hover states:** Scale(1.03) + shadow lift over 200ms.
+- **Page transitions:** Fade + slide (300ms).
 - **Performance:** Only transform and opacity animated. No layout-triggering properties.
 
 
 ## Shapes
 
-Base corner radius: 24px. See rounded tokens in front matter for the full scale.
+Base corner radius: 8px. See rounded tokens in front matter for the full scale.
 
 
 ## Components
 
-- **Primary Button:** Pill-shaped (9999px) shape. Accent color fill. Hover: 8% darken + subtle lift shadow. Active: -1px translate tactile press. Font weight 600. No outer glows.
+- **Primary Button:** Subtly rounded (0.5rem) shape. Accent color fill. Hover: 8% darken + subtle lift shadow. Active: -1px translate tactile press. Font weight 600. No outer glows.
 - **Secondary / Ghost Button:** Outline variant. 1.5px border in muted color. Text in primary color. Hover: subtle background fill.
-- **Cards:** Pill-shaped (9999px) corners. Surface background. Subtle shadow (0 2px 12px rgba(0,0,0,0.06)). 1px border stroke.
+- **Cards:** Subtly rounded (0.5rem) corners. Surface background. Subtle shadow (0 2px 12px rgba(0,0,0,0.06)). 1px border stroke.
 - **Inputs:** Label above input. 1px border stroke. Focus ring: 2px accent color offset 2px. Error text below in semantic red. No floating labels.
 - **Navigation:** Primary surface background. Active item: accent color indicator. Font weight 500 when active.
 - **Skeletons:** Shimmer animation matching component dimensions. No circular spinners.
@@ -123,17 +120,14 @@ Base corner radius: 24px. See rounded tokens in front matter for the full scale.
 - No broken external image links — use picsum.photos or inline SVG
 - No generic lorem ipsum in demos
 
-- Do Plus Jakarta Sans carregada
-- Do Pastel blue background #c8d9e6
-- Do White card com soft shadow
-- Do Vertical pills na borda direita
-- Do Pills com alturas variadas
-- Do Cores pastel consistentes
-- Do Responsivo mobile/tablet/desktop
+- Do Blueprint blue background
+- Do White technical lines
+- Do Grid overlay visible
+- Do Dimension markers
+- Do Engineering precision
+- Do Technical typography
 
 
 ## Use Case
 
-Apps de produtividade, Educational platforms, SaaS friendly, Health apps
-
-<!-- Source: https://designmd.app/library/pastel-geometry · designmd.app -->
+Landing pages, SaaS
