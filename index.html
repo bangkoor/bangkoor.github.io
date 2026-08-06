@@ -22,33 +22,33 @@
     <meta name="twitter:description" content="Research profile, publications, featured projects, blog posts, and academic highlights by Dr. Arif Kurnia Wijayanto.">
     <meta name="twitter:image" content="https://akwijayanto.my.id/img/profile-image.jpg">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231a1a1a'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Plus Jakarta Sans, sans-serif' font-size='34' font-weight='800' fill='%23faf9f7'%3EAK%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%231E5DA2'/%3E%3Cpath d='M16 72h68M24 60V28l26-12 26 12v32M42 72V50h16v22' fill='none' stroke='%23FFFFFF' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@1.0.0/src/bibtex_js.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-primary: #c8d9e6;
-            --card-bg: #faf9f7;
-            --text-dark: #1a1a1a;
-            --text-soft: #425160;
-            --pill-pink: #f0b4d4;
-            --pill-mint: #a8d4c4;
-            --pill-sage: #5a7c6a;
-            --pill-lavender: #9b8dc4;
-            --pill-violet: #7c6aad;
-            --font-primary: "Plus Jakarta Sans", sans-serif;
-            --font-mono: "JetBrains Mono", monospace;
-            --card-radius: 24px;
-            --card-radius-lg: 48px;
-            --pill-width: 24px;
-            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.12);
-            --border-soft: rgba(26, 26, 26, 0.08);
+            --blueprint-blue: #1e5da2;
+            --white-lines: #ffffff;
+            --light-blue: #a8d5ff;
+            --steel-blue: #5b9bd5;
+            --dark-slate: #2e4053;
+            --light-grey: #e8e8e8;
+            --ink: #eef6ff;
+            --ink-soft: rgba(232, 232, 232, 0.84);
+            --surface-1: rgba(46, 64, 83, 0.78);
+            --surface-2: rgba(26, 41, 59, 0.82);
+            --surface-3: rgba(18, 30, 46, 0.86);
+            --border: rgba(168, 213, 255, 0.26);
+            --border-strong: rgba(255, 255, 255, 0.4);
+            --shadow-soft: 0 12px 30px rgba(6, 14, 28, 0.3);
+            --shadow-hover: 0 18px 44px rgba(6, 14, 28, 0.36);
+            --radius: 8px;
+            --font-tech: "JetBrains Mono", monospace;
         }
 
         * {
@@ -62,30 +62,42 @@
         body {
             margin: 0;
             min-height: 100dvh;
-            font-family: var(--font-primary);
-            color: var(--text-dark);
+            font-family: var(--font-tech);
+            color: var(--ink);
             background:
-                radial-gradient(circle at top left, rgba(255, 255, 255, 0.4) 0%, transparent 30%),
-                linear-gradient(180deg, #d7e5ee 0%, var(--bg-primary) 35%, #c1d7e4 100%);
+                radial-gradient(circle at top left, rgba(168, 213, 255, 0.14), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(91, 155, 213, 0.14), transparent 28%),
+                linear-gradient(180deg, #174b82 0%, #173d68 34%, #153258 68%, #102644 100%);
         }
 
-        body::before {
+        body::before,
+        body::after {
             content: "";
             position: fixed;
             inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-            background-size: 32px 32px;
-            opacity: 0.35;
             pointer-events: none;
             z-index: 0;
         }
 
+        body::before {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.38;
+        }
+
+        body::after {
+            background:
+                linear-gradient(90deg, transparent 8%, rgba(255, 255, 255, 0.03) 8%, rgba(255, 255, 255, 0.03) 8.2%, transparent 8.2%),
+                linear-gradient(0deg, transparent 12%, rgba(255, 255, 255, 0.025) 12%, rgba(255, 255, 255, 0.025) 12.2%, transparent 12.2%);
+            opacity: 0.56;
+        }
+
         a,
         button {
-            cursor: pointer;
-            transition: all 250ms ease;
+            color: inherit;
+            transition: transform 200ms ease, opacity 200ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
         }
 
         img {
@@ -96,176 +108,134 @@
         .page-shell {
             position: relative;
             z-index: 1;
-            width: min(1200px, calc(100% - 32px));
+            width: min(1280px, calc(100% - 48px));
             margin: 0 auto;
-            padding: 24px 0 40px;
+            padding: 24px 0 56px;
         }
 
-        .surface-card {
+        .surface-card,
+        .mini-card,
+        .signal-card,
+        .timeline-item,
+        .stat-card,
+        .feature-panel,
+        .legal-card,
+        .feature-content {
             position: relative;
-            background: var(--card-bg);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--card-radius);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+                var(--surface-1);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             box-shadow: var(--shadow-soft);
             overflow: hidden;
         }
 
-        .section-card {
-            padding: 28px;
-            padding-right: 64px;
-        }
-
-        .section-card:hover,
-        .hero-card:hover,
-        .feature-card:hover,
-        .pricing-card:hover,
-        .quote-card:hover,
-        .mini-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .card-pills {
-            position: absolute;
-            right: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            pointer-events: none;
-        }
-
-        .pill {
-            width: var(--pill-width);
-            border-radius: 999px;
-            opacity: 0.95;
-        }
-
-        .pill-short {
-            height: 40px;
-        }
-
-        .pill-medium {
-            height: 60px;
-        }
-
-        .pill-tall {
-            height: 80px;
-        }
-
-        .pill-pink {
-            background: var(--pill-pink);
-        }
-
-        .pill-mint {
-            background: var(--pill-mint);
-        }
-
-        .pill-sage {
-            background: var(--pill-sage);
-        }
-
-        .pill-lavender {
-            background: var(--pill-lavender);
-        }
-
-        .pill-violet {
-            background: var(--pill-violet);
-        }
-
-        .corner-action {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            z-index: 2;
-            width: 46px;
-            height: 46px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 999px;
-            border: 1px solid rgba(26, 26, 26, 0.1);
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--text-dark);
-            text-decoration: none;
-            backdrop-filter: blur(8px);
-        }
-
-        .corner-action:hover {
-            transform: translateY(-2px) rotate(6deg);
-            background: white;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.62);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #324657;
-            backdrop-filter: blur(6px);
-        }
-
-        .status-dot {
-            position: relative;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #7cc793;
-        }
-
-        .status-dot::after {
+        .surface-card::before,
+        .mini-card::before,
+        .signal-card::before,
+        .timeline-item::before,
+        .feature-panel::before,
+        .legal-card::before,
+        .feature-content::before {
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: 50%;
-            background: rgba(124, 199, 147, 0.48);
-            animation: pulse-ring 1.8s ease-out infinite;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(2.6);
-                opacity: 0;
-            }
+        .surface-card:hover,
+        .mini-card:hover,
+        .signal-card:hover,
+        .timeline-item:hover,
+        .stat-card:hover,
+        .feature-panel:hover,
+        .legal-card:hover,
+        .feature-content:hover {
+            transform: scale(1.01) translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .section-card,
+        .footer-card {
+            padding: 28px;
         }
 
         .nav-card {
             position: sticky;
             top: 18px;
             z-index: 100;
-            padding: 16px 20px;
-            margin-bottom: 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 18px;
-            backdrop-filter: blur(12px);
-            background: rgba(250, 249, 247, 0.84);
+            gap: 24px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            background:
+                linear-gradient(180deg, rgba(16, 29, 43, 0.92), rgba(16, 29, 43, 0.78)),
+                var(--surface-3);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
 
         .brand-mark {
-            width: 52px;
-            height: 52px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, var(--pill-lavender), var(--pill-pink));
+            width: 54px;
+            height: 54px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-strong);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            color: white;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .brand-mark svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .kicker,
+        .meta-label,
+        .panel-label,
+        .timeline-year,
+        .badge-link,
+        .section-index,
+        .footer-link-group h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-weight: 500;
+        }
+
+        .brand-copy strong {
+            display: block;
+            font-size: 0.98rem;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-copy span,
+        .section-subtitle,
+        .muted-copy,
+        .footer-link-group a,
+        .legal-copy,
+        .mini-card p,
+        .timeline-item p,
+        #blogger-posts article p,
+        #bibtex-publications li,
+        .feature-copy,
+        .feature-list li,
+        .signal-list li {
+            color: var(--ink-soft);
         }
 
         .nav-links {
@@ -276,82 +246,120 @@
         }
 
         .nav-links a {
-            color: #314352;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
             padding: 10px 14px;
-            border-radius: 999px;
+            border-radius: var(--radius);
+            border: 1px solid transparent;
+            text-decoration: none;
         }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text-dark);
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            border-color: var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            outline: none;
         }
 
         .primary-button,
-        .secondary-button {
+        .secondary-button,
+        .badge-link,
+        .resource-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 14px 22px;
-            border-radius: 999px;
+            padding: 12px 16px;
+            border-radius: var(--radius);
             text-decoration: none;
-            font-weight: 700;
-            border: 1.5px solid transparent;
+            font-weight: 600;
         }
 
         .primary-button {
-            background: var(--text-dark);
-            color: white;
+            background: var(--blueprint-blue);
+            color: var(--white-lines);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        .primary-button:hover {
-            background: #2d2d2d;
-            transform: translateY(-2px);
+        .primary-button:hover,
+        .primary-button:focus-visible {
+            transform: translateY(-1px);
+            background: #174f8d;
+            outline: none;
+            box-shadow: 0 12px 24px rgba(10, 31, 57, 0.3);
         }
 
-        .secondary-button {
-            background: rgba(255, 255, 255, 0.55);
-            border-color: rgba(26, 26, 26, 0.12);
-            color: var(--text-dark);
+        .secondary-button,
+        .badge-link,
+        .resource-link {
+            border: 1.5px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .secondary-button:hover {
-            background: white;
-            transform: translateY(-2px);
+        .secondary-button:hover,
+        .badge-link:hover,
+        .resource-link:hover,
+        .secondary-button:focus-visible,
+        .badge-link:focus-visible,
+        .resource-link:focus-visible {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+        }
+
+        .inline-icon svg,
+        .icon-badge svg,
+        .icon-link svg,
+        .footer-social a svg {
+            width: 20px;
+            height: 20px;
         }
 
         .hero-card {
             display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+            grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
             gap: 28px;
             padding: 34px;
-            padding-right: 76px;
             margin-bottom: 24px;
         }
 
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            margin-bottom: 18px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--light-blue);
+            box-shadow: 0 0 0 4px rgba(168, 213, 255, 0.12);
+        }
+
         .hero-title {
-            margin: 16px 0 12px;
+            margin: 0 0 18px;
             font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.04;
-            font-weight: 800;
-            letter-spacing: -0.04em;
+            line-height: 1.08;
+            font-weight: 700;
+            max-width: 17ch;
         }
 
         .hero-copy {
-            max-width: 62ch;
-            color: var(--text-soft);
-            line-height: 1.7;
+            max-width: 72ch;
+            margin: 0;
             font-size: 1rem;
+            line-height: 1.7;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
-            margin: 28px 0 24px;
+            margin: 28px 0;
         }
 
         .hero-meta {
@@ -360,222 +368,209 @@
             gap: 14px;
         }
 
-        .meta-chip,
-        .mini-card,
-        .feature-card,
-        .quote-card,
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            border-radius: 22px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-        }
-
         .meta-chip {
-            padding: 16px 18px;
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .meta-chip span,
-        .section-subtitle,
-        .supporting-copy,
-        .list-muted,
-        .meta-label,
-        .footer-link-group a,
-        .legal-copy {
-            color: var(--text-soft);
-        }
-
-        .meta-label {
+        .meta-chip strong {
             display: block;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 6px;
+            margin-top: 8px;
+            line-height: 1.55;
+            font-size: 0.95rem;
         }
 
         .hero-visual {
             position: relative;
-            min-height: 440px;
-            border-radius: var(--card-radius-lg);
+            min-height: 520px;
+            padding: 22px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-strong);
             background:
-                radial-gradient(circle at 20% 20%, rgba(240, 180, 212, 0.82), transparent 28%),
-                radial-gradient(circle at 78% 22%, rgba(155, 141, 196, 0.76), transparent 24%),
-                radial-gradient(circle at 70% 78%, rgba(168, 212, 196, 0.9), transparent 24%),
-                linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.45));
-            border: 1px solid rgba(255, 255, 255, 0.65);
+                linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+                var(--surface-3);
             overflow: hidden;
-            padding: 28px;
-        }
-
-        .hero-visual::before,
-        .hero-visual::after {
-            content: "";
-            position: absolute;
-            border-radius: 999px;
-            filter: blur(2px);
         }
 
         .hero-visual::before {
-            width: 210px;
-            height: 210px;
-            right: -36px;
-            top: 34px;
-            background: rgba(124, 106, 173, 0.22);
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            pointer-events: none;
         }
 
         .hero-visual::after {
-            width: 160px;
-            height: 160px;
-            left: -18px;
-            bottom: 42px;
-            background: rgba(240, 180, 212, 0.26);
+            content: "";
+            position: absolute;
+            width: 164px;
+            height: 164px;
+            right: 18px;
+            top: 18px;
+            border-radius: 999px;
+            border: 1px dashed rgba(255, 255, 255, 0.22);
+            pointer-events: none;
         }
 
-        .profile-frame {
-            position: absolute;
-            bottom: 28px;
-            left: 28px;
-            right: 28px;
-            padding: 18px;
-            border-radius: 30px;
-            background: rgba(250, 249, 247, 0.8);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            backdrop-filter: blur(10px);
+        .panel-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 132px;
+            gap: 16px;
+        }
+
+        .portrait-panel,
+        .panel-stack {
+            display: grid;
+            gap: 16px;
         }
 
         .profile-photo {
-            width: min(100%, 280px);
             aspect-ratio: 1 / 1;
-            margin: 0 auto 16px;
-            border-radius: 34px;
+            border-radius: var(--radius);
             overflow: hidden;
-            background: white;
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .floating-shape {
-            position: absolute;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.62);
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(6px);
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.08);
         }
 
-        .shape-one {
-            width: 108px;
-            height: 58px;
-            top: 66px;
-            left: 34px;
+        .portrait-caption,
+        .signal-card,
+        .mini-card,
+        .timeline-item,
+        .feature-panel,
+        .feature-content,
+        .legal-card {
+            padding: 16px;
         }
 
-        .shape-two {
-            width: 138px;
-            height: 72px;
-            right: 34px;
-            top: 138px;
+        .portrait-caption strong,
+        .mini-card h3,
+        .timeline-item h3,
+        .signal-card h3,
+        .feature-panel h3,
+        .feature-content h3,
+        .legal-card h4,
+        #blogger-posts article h3,
+        #bibtex-publications h3 {
+            display: block;
+            margin: 0 0 10px;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        .shape-three {
-            width: 86px;
-            height: 44px;
-            left: 96px;
-            bottom: 180px;
+        .signal-card {
+            min-height: 132px;
         }
 
-        .grid-two {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-            margin-bottom: 24px;
+        .signal-card .signal-value {
+            display: block;
+            margin-top: 12px;
+            font-size: 1.35rem;
+            color: var(--white-lines);
+            font-weight: 700;
         }
 
-        .grid-three {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        .dimension-box {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px dashed rgba(255, 255, 255, 0.24);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .dimension-box svg {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .section-heading {
             display: flex;
-            align-items: end;
+            align-items: flex-end;
             justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 18px;
+            gap: 18px;
+            margin-bottom: 24px;
         }
 
-        .section-heading h2,
-        .section-heading h3 {
-            margin: 0;
-            font-size: 1.55rem;
-            line-height: 1.15;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+        .section-heading h2 {
+            margin: 8px 0 0;
+            font-size: 1.5rem;
+            line-height: 1.2;
         }
 
         .section-subtitle {
             margin: 8px 0 0;
-            max-width: 62ch;
-            line-height: 1.65;
-        }
-
-        .feature-card,
-        .quote-card,
-        .pricing-card,
-        .mini-card {
-            position: relative;
-            padding: 22px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .icon-badge {
-            width: 48px;
-            height: 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, rgba(240, 180, 212, 0.55), rgba(168, 212, 196, 0.55));
-            color: var(--text-dark);
-        }
-
-        .icon-badge svg,
-        .icon-link svg,
-        .footer-social a svg,
-        .inline-icon svg {
-            width: 22px;
-            height: 22px;
-        }
-
-        .feature-card h3,
-        .quote-card h3,
-        .pricing-card h3,
-        .mini-card h3 {
-            margin: 0 0 10px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .feature-card p,
-        .quote-card p,
-        .pricing-card p,
-        .mini-card p,
-        .timeline p,
-        .list-block li,
-        #blogger-posts article p,
-        #bibtex-publications li {
-            margin: 0;
-            color: var(--text-soft);
+            max-width: 72ch;
             line-height: 1.7;
         }
 
-        .metrics-grid {
+        .section-index {
+            color: var(--light-blue);
+        }
+
+        .signal-grid,
+        .experience-shell,
+        .publication-grid,
+        .work-grid,
+        .contact-grid,
+        .footer-grid,
+        .legal-grid,
+        .project-grid {
             display: grid;
-            grid-template-columns: 1.15fr 1fr;
-            gap: 22px;
+            gap: 20px;
+        }
+
+        .signal-grid {
+            grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+        }
+
+        .signal-stack,
+        .support-stack {
+            display: grid;
+            gap: 16px;
+        }
+
+        .signal-list,
+        .feature-list,
+        .list-block {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .signal-list li,
+        .feature-list li,
+        .list-block li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .list-code,
+        .bullet-dot,
+        .check-mark {
+            flex: 0 0 auto;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            color: var(--light-blue);
+            background: rgba(255, 255, 255, 0.04);
+            font-size: 0.72rem;
         }
 
         .stats-grid {
@@ -585,217 +580,129 @@
         }
 
         .stat-card {
-            padding: 18px;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 18px 12px;
             text-align: center;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+                rgba(12, 26, 40, 0.58);
         }
 
         .stat-value {
             display: block;
-            font-family: var(--font-mono);
+            margin-bottom: 8px;
             font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--text-dark);
+            color: var(--white-lines);
         }
 
         .stat-label {
-            font-size: 0.78rem;
+            display: block;
+            font-size: 0.74rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-soft);
+            color: var(--ink-soft);
         }
 
-        .quote-card blockquote {
-            margin: 0 0 16px;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #2e4050;
+        .feature-stack {
+            display: grid;
+            gap: 20px;
         }
 
-        .quote-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            font-size: 0.92rem;
+        .feature-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            gap: 20px;
+            align-items: stretch;
         }
 
-        .pricing-card.featured-tier {
-            background: linear-gradient(180deg, rgba(250, 249, 247, 0.98), rgba(240, 180, 212, 0.18));
-            border-color: rgba(124, 106, 173, 0.24);
-            transform: translateY(-8px);
+        .feature-row:nth-child(even) {
+            grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
         }
 
-        .tier-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 12px;
-            border-radius: 999px;
-            margin-bottom: 18px;
-            background: rgba(155, 141, 196, 0.14);
-            color: #4f3f84;
-            font-size: 0.8rem;
-            font-weight: 700;
+        .feature-row:nth-child(even) .feature-content {
+            order: 2;
         }
 
-        .tier-list,
-        .list-block {
-            list-style: none;
-            padding: 0;
-            margin: 16px 0 0;
+        .feature-row:nth-child(even) .feature-panel {
+            order: 1;
         }
 
-        .tier-list li,
-        .list-block li {
-            display: flex;
+        .feature-title {
+            margin: 10px 0 12px;
+            font-size: 1.25rem;
+        }
+
+        .feature-copy {
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .diag-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
-            align-items: flex-start;
-            margin-bottom: 12px;
+            margin-top: 16px;
         }
 
-        .check-mark,
-        .bullet-dot {
-            flex: 0 0 auto;
-            width: 20px;
-            height: 20px;
-            margin-top: 3px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 999px;
-            background: rgba(168, 212, 196, 0.4);
-            color: var(--text-dark);
+        .diag-cell {
+            padding: 14px 10px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--light-blue);
+            font-size: 0.76rem;
+            line-height: 1.5;
+        }
+
+        .experience-shell {
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
         }
 
         .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+            display: grid;
+            gap: 14px;
         }
 
         .timeline-item {
-            position: relative;
-            padding: 20px 20px 20px 24px;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.74);
-            border: 1px solid rgba(26, 26, 26, 0.08);
+            padding-left: 22px;
         }
 
-        .timeline-item::before {
+        .timeline-item::after {
             content: "";
             position: absolute;
-            left: 0;
-            top: 18px;
-            bottom: 18px;
-            width: 6px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, var(--pill-pink), var(--pill-violet));
+            left: 10px;
+            top: 14px;
+            bottom: 14px;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(168, 213, 255, 0.82), rgba(168, 213, 255, 0.12));
         }
 
         .timeline-top {
             display: flex;
-            align-items: start;
+            align-items: flex-start;
             justify-content: space-between;
-            gap: 18px;
-            margin-bottom: 6px;
-        }
-
-        .timeline-top h3 {
-            margin: 0;
-            font-size: 1.08rem;
-            font-weight: 700;
+            gap: 16px;
+            margin-bottom: 8px;
         }
 
         .timeline-year {
             flex: 0 0 auto;
-            font-family: var(--font-mono);
-            font-size: 0.84rem;
-            color: #56687a;
-            background: rgba(200, 217, 230, 0.65);
-            border-radius: 999px;
-            padding: 8px 12px;
+            padding: 6px 10px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: var(--light-blue);
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .subnote {
             margin: 0 0 8px;
-            font-size: 0.92rem;
-            color: #435665;
-            font-weight: 600;
+            color: var(--light-blue);
+            line-height: 1.6;
         }
 
-        .accent-note {
-            color: #5a7c6a;
-            font-weight: 700;
-        }
-
-        .split-card {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-        }
-
-        .list-surface {
-            padding: 22px;
-        }
-
-        .list-title {
-            margin: 0 0 16px;
-            font-size: 1.2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .skill-grid,
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .skill-card h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .icon-link-row,
-        .footer-social {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .icon-link,
-        .footer-social a {
-            width: 42px;
-            height: 42px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
-        .icon-link:hover,
-        .footer-social a:hover {
-            transform: translateY(-2px);
-            background: white;
-        }
-
-        .stack-space > * + * {
-            margin-top: 16px;
-        }
-
-        #bibtex-publications,
-        #github-pinned,
-        #blogger-posts {
-            margin-top: 18px;
+        .publication-grid {
+            grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
         }
 
         #bibtex-publications ul {
@@ -807,122 +714,111 @@
         }
 
         #bibtex-publications li,
-        #blogger-posts article {
-            padding: 18px 20px;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(26, 26, 26, 0.08);
+        #blogger-posts article,
+        .mini-card,
+        .project-grid .mini-card {
+            padding: 18px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .resource-link {
+        .icon-badge,
+        .icon-link,
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            color: var(--text-dark);
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .resource-link:hover {
-            color: #44586b;
+        .icon-badge {
+            margin-bottom: 14px;
+            color: var(--light-blue);
         }
 
-        .footer-card {
-            padding: 28px;
-            padding-right: 64px;
+        .icon-link-row,
+        .footer-social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .icon-link:hover,
+        .footer-social a:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .support-stack .mini-card article + article {
+            margin-top: 14px;
+        }
+
+        .work-grid,
+        .contact-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .footer-grid {
-            display: grid;
-            grid-template-columns: 1.1fr repeat(3, minmax(0, 1fr));
-            gap: 24px;
-        }
-
-        .footer-link-group h3 {
-            margin: 0 0 12px;
-            font-size: 1rem;
-            font-weight: 800;
+            grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
         }
 
         .footer-link-group a {
             display: block;
+            margin-top: 10px;
             text-decoration: none;
-            margin-bottom: 10px;
         }
 
         .footer-link-group a:hover {
-            color: var(--text-dark);
+            color: var(--white-lines);
         }
 
         .legal-grid {
-            display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 22px;
-        }
-
-        .legal-card {
-            padding: 18px 20px;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.68);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-        }
-
-        .legal-card h4 {
-            margin: 0 0 8px;
-            font-size: 1rem;
-        }
-
-        .badge-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .badge-link:hover {
-            background: white;
-            transform: translateY(-2px);
+            margin-top: 20px;
         }
 
         .loading-note,
         .error-note {
-            padding: 18px 20px;
-            border-radius: 22px;
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            background: rgba(255, 255, 255, 0.72);
-            color: var(--text-soft);
+            padding: 18px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .error-note {
-            color: #8a3e4e;
+            color: #ffd3d3;
         }
 
         @media (max-width: 1100px) {
             .hero-card,
-            .metrics-grid,
-            .split-card,
+            .signal-grid,
+            .experience-shell,
+            .publication-grid,
+            .work-grid,
+            .contact-grid,
             .footer-grid,
-            .grid-three,
-            .stats-grid,
-            .skill-grid,
-            .project-grid {
+            .project-grid,
+            .feature-row {
                 grid-template-columns: 1fr;
             }
 
-            .hero-meta {
-                grid-template-columns: 1fr;
+            .feature-row:nth-child(even) .feature-content,
+            .feature-row:nth-child(even) .feature-panel {
+                order: initial;
             }
 
-            .pricing-card.featured-tier {
-                transform: none;
+            .hero-meta,
+            .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
@@ -937,22 +833,18 @@
                 justify-content: center;
             }
 
-            .hero-card,
-            .section-card,
-            .footer-card {
-                padding: 22px;
-                padding-right: 54px;
-            }
-
-            .grid-two,
-            .split-card,
-            .legal-grid {
-                grid-template-columns: 1fr;
-            }
-
             .section-heading {
                 flex-direction: column;
-                align-items: start;
+                align-items: flex-start;
+            }
+
+            .panel-grid,
+            .hero-meta,
+            .stats-grid,
+            .work-grid,
+            .contact-grid,
+            .legal-grid {
+                grid-template-columns: 1fr;
             }
 
             .timeline-top {
@@ -962,7 +854,7 @@
 
         @media (max-width: 640px) {
             .page-shell {
-                width: min(100% - 20px, 1200px);
+                width: min(100% - 20px, 1280px);
                 padding-top: 12px;
             }
 
@@ -970,40 +862,14 @@
             .section-card,
             .footer-card {
                 padding: 20px;
-                padding-right: 48px;
             }
 
             .hero-visual {
-                min-height: 380px;
-                padding: 22px;
+                min-height: auto;
             }
 
-            .corner-action {
-                width: 42px;
-                height: 42px;
-                top: 14px;
-                right: 14px;
-            }
-
-            .card-pills {
-                gap: 8px;
-                right: -10px;
-            }
-
-            .pill {
-                width: 20px;
-            }
-
-            .pill-short {
-                height: 34px;
-            }
-
-            .pill-medium {
-                height: 48px;
-            }
-
-            .pill-tall {
-                height: 62px;
+            .diag-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1011,11 +877,17 @@
 <body>
     <div class="page-shell">
         <nav class="surface-card nav-card">
-            <div class="flex items-center gap-4">
-                <span class="brand-mark">AK</span>
-                <div>
-                    <div class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-600">Arif Kurnia Wijayanto</div>
-                    <div class="text-sm text-slate-500">Researcher, academician, and spatial analyst</div>
+            <div class="nav-brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 20h18"></path>
+                        <path d="M6 20V8l6-4 6 4v12"></path>
+                        <path d="M10 20v-5h4v5"></path>
+                    </svg>
+                </span>
+                <div class="brand-copy">
+                    <strong>ARIF K. WIJAYANTO // LAB</strong>
+                    <span>Spatial modeling, remote sensing, and UAV systems</span>
                 </div>
             </div>
             <div class="nav-links">
@@ -1039,23 +911,17 @@
         </nav>
 
         <header id="about" class="surface-card hero-card">
-            <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="corner-action" aria-label="Download CV">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M7 17 17 7"></path>
-                    <path d="M8 7h9v9"></path>
-                </svg>
-            </a>
-
             <div>
                 <span class="eyebrow">
-                    <span class="status-dot"></span>
-                    Currently working on: Gakkum Tools, a QGIS plugin for forestry crime analysis with MaxEnt
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Active line item: Gakkum Tools for forestry crime analysis with MaxEnt
                 </span>
-                <h1 class="hero-title">A friendly research profile for spatial modeling, remote sensing, and applied UAV innovation.</h1>
+                <div class="kicker">Blueprint Interface / Research Landing Page</div>
+                <h1 class="hero-title">Spatial intelligence, environmental sensing, and UAV workflows shown with engineering clarity.</h1>
                 <p class="hero-copy">
-                    I am <strong>Dr. Arif Kurnia Wijayanto, M.Sc.</strong>, a researcher and academician specializing in
-                    spatial modeling, environmental remote sensing, and UAV applications for precision agriculture and ecosystem conservation.
-                    This website brings together my publications, projects, academic background, and current research direction in one organized place.
+                    I am <strong>Dr. Arif Kurnia Wijayanto, M.Sc.</strong>, a researcher and academician working at the intersection of spatial modeling,
+                    environmental remote sensing, and UAV-based analysis. This page is organized as a technical blueprint: current focus,
+                    academic signals, publications, projects, and field-ready credentials in one deliberate structure.
                 </p>
 
                 <div class="hero-actions">
@@ -1066,7 +932,7 @@
                                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path>
                             </svg>
                         </span>
-                        Explore Publications
+                        Inspect Publications
                     </a>
                     <a href="#contact" class="secondary-button">
                         <span class="inline-icon">
@@ -1074,7 +940,7 @@
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.33 1.76.63 2.59a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.49-1.29a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.59.63A2 2 0 0 1 22 16.92Z"></path>
                             </svg>
                         </span>
-                        Get in Touch
+                        Open Contact Channel
                     </a>
                 </div>
 
@@ -1085,7 +951,7 @@
                     </div>
                     <div class="meta-chip">
                         <span class="meta-label">Research Themes</span>
-                        <strong>Spatial Modeling, Remote Sensing, UAV Applications</strong>
+                        <strong>Spatial modeling, remote sensing, UAV applications</strong>
                     </div>
                     <div class="meta-chip">
                         <span class="meta-label">Profile Signal</span>
@@ -1093,7 +959,7 @@
                     </div>
                 </div>
 
-                <div class="icon-link-row mt-6">
+                <div class="icon-link-row" style="margin-top:24px;">
                     <a class="icon-link" href="https://github.com/bangkoor" target="_blank" rel="noreferrer" aria-label="GitHub">
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.47 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.13 2.92.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.27-.45-1.33.1-2.78 0 0 .85-.28 2.78 1.06a9.4 9.4 0 0 1 5.06 0c1.93-1.34 2.78-1.06 2.78-1.06.55 1.45.2 2.51.1 2.78.64.72 1.03 1.64 1.03 2.77 0 3.97-2.35 4.83-4.59 5.08.36.32.69.94.69 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"></path></svg>
                     </a>
@@ -1121,59 +987,83 @@
             </div>
 
             <div class="hero-visual">
-                <div class="floating-shape shape-one"></div>
-                <div class="floating-shape shape-two"></div>
-                <div class="floating-shape shape-three"></div>
-                <div class="profile-frame">
-                    <div class="profile-photo">
-                        <img src="img/profile-image.jpg" alt="Portrait of Dr. Arif Kurnia Wijayanto">
+                <div class="panel-grid">
+                    <div class="portrait-panel">
+                        <div class="profile-photo">
+                            <img src="img/profile-image.jpg" alt="Portrait of Dr. Arif Kurnia Wijayanto">
+                        </div>
+                        <div class="surface-card portrait-caption">
+                            <div class="panel-label">Field Profile</div>
+                            <strong>Environmental Remote Sensing</strong>
+                            <div class="muted-copy">Precision agriculture, conservation, and spatial decision support.</div>
+                            <div class="dimension-box">
+                                <svg viewBox="0 0 320 120" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="16" y1="90" x2="304" y2="90"></line>
+                                    <line x1="46" y1="30" x2="46" y2="104"></line>
+                                    <line x1="274" y1="22" x2="274" y2="104"></line>
+                                    <rect x="88" y="30" width="144" height="44" rx="4"></rect>
+                                    <path d="M68 46h18"></path>
+                                    <path d="M234 46h18"></path>
+                                    <path d="M46 18v12"></path>
+                                    <path d="M274 10v12"></path>
+                                    <text x="150" y="58" text-anchor="middle" fill="currentColor" style="font: 14px JetBrains Mono, monospace;">UAV / RS / GIS</text>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <div class="text-sm uppercase tracking-[0.2em] text-slate-500">Researcher & Academician</div>
-                        <div class="mt-2 text-lg font-bold">Environmental Remote Sensing</div>
-                        <div class="mt-1 text-sm text-slate-600">Precision agriculture, conservation, and spatial decision support</div>
+                    <div class="panel-stack">
+                        <div class="signal-card">
+                            <div class="panel-label">Node A</div>
+                            <strong>Research</strong>
+                            <span class="signal-value">3</span>
+                        </div>
+                        <div class="signal-card">
+                            <div class="panel-label">Node B</div>
+                            <strong>Licenses</strong>
+                            <span class="signal-value">2</span>
+                        </div>
+                        <div class="signal-card">
+                            <div class="panel-label">Node C</div>
+                            <strong>Channels</strong>
+                            <span class="signal-value">5</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
             </div>
         </header>
 
         <section class="surface-card section-card">
             <div class="section-heading">
                 <div>
-                    <h2>Academic Highlights</h2>
-                    <p class="section-subtitle">A quick view of contact details, institutional affiliation, and the live academic indicators already present on the website.</p>
+                    <div class="section-index">Section 01 / Signal Board</div>
+                    <h2>Academic signal board and current operating context</h2>
+                    <p class="section-subtitle">The layout follows the blueprint brief with visible grid logic, technical labels, precise cards, and a compact readout of affiliation, contact, and live academic metrics.</p>
                 </div>
                 <a href="mailto:akwijayanto@apps.ipb.ac.id" class="badge-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M4 4h16v16H4z"></path>
                         <path d="m22 6-10 7L2 6"></path>
                     </svg>
-                    Contact by Email
+                    Direct Email
                 </a>
             </div>
 
-            <div class="metrics-grid">
-                <div class="stack-space">
-                    <div class="mini-card">
-                        <h3>Contact and Affiliation</h3>
-                        <ul class="list-block">
-                            <li><span class="bullet-dot">1</span><span>akwijayanto@apps.ipb.ac.id</span></li>
-                            <li><span class="bullet-dot">2</span><span>Faculty of Forestry and Environment, IPB University</span></li>
-                            <li><span class="bullet-dot">3</span><span>SINTA Profile ID: 6728108</span></li>
+            <div class="signal-grid">
+                <div class="signal-stack">
+                    <article class="signal-card">
+                        <div class="panel-label">Primary Contact Stack</div>
+                        <h3>Institution and profile links</h3>
+                        <ul class="signal-list">
+                            <li><span class="list-code">01</span><span>akwijayanto@apps.ipb.ac.id</span></li>
+                            <li><span class="list-code">02</span><span>Faculty of Forestry and Environment, IPB University</span></li>
+                            <li><span class="list-code">03</span><span>SINTA profile ID: 6728108</span></li>
                         </ul>
-                    </div>
-                    <div class="mini-card">
-                        <h3>Current Focus</h3>
-                        <p>Developing Gakkum Tools, a QGIS plugin for forestry crime workflows with MaxEnt, while continuing research in environmental monitoring, crop assessment, and conservation-oriented modeling.</p>
-                    </div>
+                    </article>
+                    <article class="signal-card">
+                        <div class="panel-label">Current Focus</div>
+                        <h3>Applied geospatial workflow development</h3>
+                        <p class="muted-copy">Developing Gakkum Tools for forestry crime workflows while continuing work in environmental monitoring, crop assessment, conservation planning, and UAV-driven analysis.</p>
+                    </article>
                 </div>
 
                 <div class="stats-grid">
@@ -1187,7 +1077,7 @@
                     </div>
                     <div class="stat-card">
                         <span id="scopus-hindex" class="stat-value">...</span>
-                        <span class="stat-label">Scopus h-index</span>
+                        <span class="stat-label">Scopus H-Index</span>
                     </div>
                     <div class="stat-card">
                         <span id="sinta-overall" class="stat-value">...</span>
@@ -1199,510 +1089,261 @@
                     </div>
                 </div>
             </div>
-
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
         </section>
 
-        <section class="surface-card section-card mt-6">
+        <section class="surface-card section-card" style="margin-top:24px;">
             <div class="section-heading">
                 <div>
-                    <h2>Core Research Features</h2>
-                    <p class="section-subtitle">The website now frames the same profile content as a clear landing page, starting with the three themes that define the research portfolio.</p>
+                    <div class="section-index">Section 02 / Research Systems</div>
+                    <h2>Three research systems presented as alternating blueprint rows</h2>
+                    <p class="section-subtitle">The design brief rejects equal three-column feature blocks, so the core strengths are displayed as alternating text-plus-panel rows with engineering-style readouts.</p>
                 </div>
             </div>
-            <div class="grid-three">
-                <article class="feature-card">
-                    <span class="icon-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M3 20h18"></path>
-                            <path d="M6 20V8l6-4 6 4v12"></path>
-                            <path d="M10 20v-5h4v5"></path>
-                        </svg>
-                    </span>
-                    <h3>Spatial Modeling</h3>
-                    <p>Decision-focused spatial analysis for forestry, agriculture, and landscape management, supported by experience in GIS workflows and environmental modeling.</p>
-                </article>
-                <article class="feature-card">
-                    <span class="icon-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M3 12h3"></path>
-                            <path d="M18 12h3"></path>
-                            <path d="M12 3v3"></path>
-                            <path d="M12 18v3"></path>
-                            <path d="m5.64 5.64 2.12 2.12"></path>
-                            <path d="m16.24 16.24 2.12 2.12"></path>
-                            <path d="m18.36 5.64-2.12 2.12"></path>
-                            <path d="m7.76 16.24-2.12 2.12"></path>
-                        </svg>
-                    </span>
-                    <h3>Environmental Remote Sensing</h3>
-                    <p>Research on crop disease detection, vegetation health, land cover monitoring, and ecosystem observation using satellite and UAV imagery.</p>
-                </article>
-                <article class="feature-card">
-                    <span class="icon-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M21 16v-2a4 4 0 0 0-4-4h-1"></path>
-                            <path d="M8 14H7a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                            <path d="M12 11v10"></path>
-                        </svg>
-                    </span>
-                    <h3>UAV and Field Applications</h3>
-                    <p>Applied work combining drone acquisition, multispectral sensors, and field-ready workflows for precision agriculture and ecosystem conservation.</p>
-                </article>
-            </div>
 
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
+            <div class="feature-stack">
+                <article class="feature-row">
+                    <div class="feature-content">
+                        <div class="panel-label">Module 01</div>
+                        <h3 class="feature-title">Spatial modeling for decisions across forestry, agriculture, and landscapes</h3>
+                        <p class="feature-copy">Research activities are structured around decision-focused spatial analysis, land suitability assessment, and environmental modeling that translate spatial data into operational recommendations.</p>
+                        <ul class="feature-list">
+                            <li><span class="bullet-dot">A</span><span>GIS workflow design for applied environmental systems</span></li>
+                            <li><span class="bullet-dot">B</span><span>Spatial recommender and decision support development</span></li>
+                            <li><span class="bullet-dot">C</span><span>Landscape-scale modeling for monitoring and planning</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-panel">
+                        <div class="panel-label">Drafting Grid</div>
+                        <h3>Operational sequence</h3>
+                        <div class="diag-grid">
+                            <div class="diag-cell">Acquire<br>spatial inputs</div>
+                            <div class="diag-cell">Model<br>relationships</div>
+                            <div class="diag-cell">Deliver<br>decision maps</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-row">
+                    <div class="feature-content">
+                        <div class="panel-label">Module 02</div>
+                        <h3 class="feature-title">Environmental remote sensing for crop, land cover, and ecosystem diagnostics</h3>
+                        <p class="feature-copy">Satellite and UAV imagery are used to observe vegetation condition, detect crop disease, assess land cover dynamics, and monitor environmental change using reproducible image analysis pipelines.</p>
+                        <ul class="feature-list">
+                            <li><span class="bullet-dot">A</span><span>Vegetation health and crop disease assessment</span></li>
+                            <li><span class="bullet-dot">B</span><span>Land cover and ecosystem monitoring workflows</span></li>
+                            <li><span class="bullet-dot">C</span><span>Remote sensing methods integrated with field evidence</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-panel">
+                        <div class="panel-label">Sensor Matrix</div>
+                        <h3>Observation channels</h3>
+                        <div class="diag-grid">
+                            <div class="diag-cell">Satellite<br>imagery</div>
+                            <div class="diag-cell">UAV<br>imaging</div>
+                            <div class="diag-cell">Field<br>validation</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature-row">
+                    <div class="feature-content">
+                        <div class="panel-label">Module 03</div>
+                        <h3 class="feature-title">UAV deployment and field-ready acquisition systems</h3>
+                        <p class="feature-copy">Drone operations, multispectral sensing, and GNSS-supported acquisition are combined with analytical workflows so field data can move directly into research-grade interpretation and decision support.</p>
+                        <ul class="feature-list">
+                            <li><span class="bullet-dot">A</span><span>Drone piloting and mission design for applied studies</span></li>
+                            <li><span class="bullet-dot">B</span><span>Multispectral and optical image acquisition</span></li>
+                            <li><span class="bullet-dot">C</span><span>Integrated field-to-analysis workflow execution</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-panel">
+                        <div class="panel-label">Field Chain</div>
+                        <h3>Execution path</h3>
+                        <div class="diag-grid">
+                            <div class="diag-cell">Plan<br>mission</div>
+                            <div class="diag-cell">Capture<br>imagery</div>
+                            <div class="diag-cell">Analyze<br>outputs</div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section class="surface-card section-card mt-6">
+        <section id="experience" class="surface-card section-card" style="margin-top:24px;">
             <div class="section-heading">
                 <div>
-                    <h2>Profile Testimonials</h2>
-                    <p class="section-subtitle">Presented as trust-building cards using existing information from the website: current work, institutional base, and professional credentials.</p>
+                    <div class="section-index">Section 03 / Timeline</div>
+                    <h2>Experience timeline with education, licenses, and teaching support</h2>
+                    <p class="section-subtitle">The timeline keeps the original academic content but reframes it as a drafting sequence with compact annotations instead of decorative cards.</p>
                 </div>
             </div>
-            <div class="grid-three">
-                <article class="quote-card">
-                    <blockquote>"Currently focused on Gakkum Tools, a QGIS plugin for forestry crime workflows with MaxEnt, alongside broader environmental monitoring research."</blockquote>
-                    <div class="quote-meta">
-                        <strong>Current Research Direction</strong>
-                        <span>Applied geospatial workflow development</span>
-                    </div>
-                </article>
-                <article class="quote-card">
-                    <blockquote>"Faculty of Forestry and Environment, IPB University, with an academic profile connected to publications, teaching, and institutional collaboration."</blockquote>
-                    <div class="quote-meta">
-                        <strong>Institutional Affiliation</strong>
-                        <span>IPB University</span>
-                    </div>
-                </article>
-                <article class="quote-card">
-                    <blockquote>"Remote Pilot License and GIS Analyst certification reflect the blend of field deployment and analytical capability across the portfolio."</blockquote>
-                    <div class="quote-meta">
-                        <strong>Professional Credentials</strong>
-                        <span>Licensed pilot and certified GIS analyst</span>
-                    </div>
-                </article>
-            </div>
 
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
-        </section>
-
-        <section class="surface-card section-card mt-6">
-            <div class="section-heading">
-                <div>
-                    <h2>Explore the Portfolio</h2>
-                    <p class="section-subtitle">This section uses the requested three-tier pricing layout, adapted for a personal academic website so visitors can move through the same content more easily.</p>
-                </div>
-            </div>
-            <div class="grid-three">
-                <article class="pricing-card">
-                    <span class="tier-badge">Profile</span>
-                    <h3>CV and Background</h3>
-                    <p>Best for visitors who want the concise overview: biography, education, licenses, and direct contact details.</p>
-                    <ul class="tier-list">
-                        <li><span class="check-mark">•</span><span>Downloadable CV in PDF format</span></li>
-                        <li><span class="check-mark">•</span><span>Education and academic background</span></li>
-                        <li><span class="check-mark">•</span><span>Direct email and institutional profile</span></li>
-                    </ul>
-                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="resource-link">
-                        Download CV
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M7 17 17 7"></path>
-                            <path d="M8 7h9v9"></path>
-                        </svg>
-                    </a>
-                </article>
-                <article class="pricing-card featured-tier">
-                    <span class="tier-badge">Most Complete View</span>
-                    <h3>Publications and Metrics</h3>
-                    <p>The central research record: recent publications, live academic metrics, intellectual property, and book outputs.</p>
-                    <ul class="tier-list">
-                        <li><span class="check-mark">•</span><span>Recent publication list from BibTeX</span></li>
-                        <li><span class="check-mark">•</span><span>Live Scopus and SINTA highlights</span></li>
-                        <li><span class="check-mark">•</span><span>Books, patents, and copyright entries</span></li>
-                    </ul>
-                    <a href="#publications" class="resource-link">
-                        Jump to Publications
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M7 17 17 7"></path>
-                            <path d="M8 7h9v9"></path>
-                        </svg>
-                    </a>
-                </article>
-                <article class="pricing-card">
-                    <span class="tier-badge">Updates</span>
-                    <h3>Projects and Writing</h3>
-                    <p>For visitors interested in active development work, pinned repositories, recent blog posts, and public channels.</p>
-                    <ul class="tier-list">
-                        <li><span class="check-mark">•</span><span>Featured GitHub repositories</span></li>
-                        <li><span class="check-mark">•</span><span>Recent Blogger posts</span></li>
-                        <li><span class="check-mark">•</span><span>GitHub, YouTube, and external links</span></li>
-                    </ul>
-                    <a href="#projects" class="resource-link">
-                        View Active Work
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M7 17 17 7"></path>
-                            <path d="M8 7h9v9"></path>
-                        </svg>
-                    </a>
-                </article>
-            </div>
-
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
-        </section>
-
-        <div class="grid-two mt-6">
-            <section id="experience" class="surface-card section-card">
-                <div class="section-heading">
-                    <div>
-                        <h2>Research Experience</h2>
-                        <p class="section-subtitle">Key funded research and development engagements, preserved from the original page and presented in a cleaner timeline.</p>
-                    </div>
-                </div>
+            <div class="experience-shell">
                 <div class="timeline">
                     <article class="timeline-item">
                         <div class="timeline-top">
                             <h3>SATREPS Project</h3>
-                            <span class="timeline-year">2019 — 2022</span>
+                            <span class="timeline-year">2019 - 2022</span>
                         </div>
-                        <p class="subnote accent-note">Damage Assessment Process in Agricultural Insurance as Adaptation to Climate Change for Food Security</p>
-                        <p>Funding source: JICA</p>
+                        <p class="subnote">Damage Assessment Process in Agricultural Insurance as Adaptation to Climate Change for Food Security</p>
+                        <p>Funding source: JICA.</p>
                     </article>
                     <article class="timeline-item">
                         <div class="timeline-top">
                             <h3>National Monitoring System for Forests Land Cover and Strategic Commodity</h3>
-                            <span class="timeline-year">2019 — 2020</span>
+                            <span class="timeline-year">2019 - 2020</span>
                         </div>
                         <p class="subnote">Sustainable Landscape Development Program</p>
-                        <p>Funding source: UNDP</p>
+                        <p>Funding source: UNDP.</p>
                     </article>
                     <article class="timeline-item">
                         <div class="timeline-top">
                             <h3>Development of Spatial-Based Recommender of Fertilizer for Oil Palm</h3>
-                            <span class="timeline-year">2018 — 2020</span>
+                            <span class="timeline-year">2018 - 2020</span>
                         </div>
-                        <p>Funding source: PT Pupuk Kaltim</p>
+                        <p>Funding source: PT Pupuk Kaltim.</p>
                     </article>
                     <article class="timeline-item">
                         <div class="timeline-top">
                             <h3>FORESTS 2020: Advancing Earth Observation Applications to Forests</h3>
-                            <span class="timeline-year">2017 — 2020</span>
+                            <span class="timeline-year">2017 - 2020</span>
                         </div>
-                        <p>Funding source: UK Space Agency</p>
+                        <p>Funding source: UK Space Agency.</p>
                     </article>
                 </div>
-                <div class="card-pills" aria-hidden="true">
-                    <span class="pill pill-short pill-pink"></span>
-                    <span class="pill pill-medium pill-mint"></span>
-                    <span class="pill pill-tall pill-sage"></span>
-                    <span class="pill pill-medium pill-lavender"></span>
-                    <span class="pill pill-short pill-violet"></span>
-                </div>
-            </section>
 
-            <section class="surface-card section-card">
-                <div class="section-heading">
-                    <div>
-                        <h2>Education</h2>
-                        <p class="section-subtitle">A complete academic path from undergraduate training to doctoral specialization in environmental remote sensing.</p>
-                    </div>
-                </div>
-                <div class="timeline">
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>Chiba University, Japan</h3>
-                            <span class="timeline-year">2020 — 2025</span>
-                        </div>
-                        <p class="subnote">Doctor of Philosophy (Ph.D.) in Environmental Remote Sensing</p>
-                        <p>Dissertation: <em>"Integrated Multidimensional UAV Imaging Analysis for Rice Bacterial Leaf Blight Disease Assessment"</em></p>
-                    </article>
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>Institut Pertanian Bogor (IPB University), Indonesia</h3>
-                            <span class="timeline-year">2013 — 2015</span>
-                        </div>
-                        <p class="subnote">Master of Science (M.Sc.) in Information Technology for Natural Resources Management</p>
-                        <p>Thesis: <em>"Development of Spatial-based Expert System for Selecting Broiler Closed House Farm Location"</em></p>
-                    </article>
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>Institut Pertanian Bogor (IPB University), Indonesia</h3>
-                            <span class="timeline-year">2008 — 2012</span>
-                        </div>
-                        <p class="subnote">Bachelor of Science (B.Sc.) in Agricultural Engineering</p>
-                        <p>Thesis: <em>"Studi Perilaku Ayam Broiler Berbasis Liputan Visual dalam Kandang Tertutup"</em></p>
-                    </article>
-                </div>
-                <div class="card-pills" aria-hidden="true">
-                    <span class="pill pill-short pill-pink"></span>
-                    <span class="pill pill-medium pill-mint"></span>
-                    <span class="pill pill-tall pill-sage"></span>
-                    <span class="pill pill-medium pill-lavender"></span>
-                    <span class="pill pill-short pill-violet"></span>
-                </div>
-            </section>
-        </div>
-
-        <section id="publications" class="surface-card section-card mt-6">
-            <div class="section-heading">
-                <div>
-                    <h2>Recent Publications</h2>
-                    <p class="section-subtitle">Recent entries are still loaded from the local BibTeX file, but the presentation now matches the new pastel card system.</p>
-                </div>
-                <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer" class="badge-link">
-                    View Google Scholar
-                </a>
-            </div>
-            <div id="bibtex-publications" class="loading-note">Loading publications from the BibTeX source...</div>
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
-        </section>
-
-        <div class="grid-two mt-6">
-            <section class="surface-card section-card">
-                <div class="section-heading">
-                    <div>
-                        <h2>Intellectual Property and Books</h2>
-                        <p class="section-subtitle">Patents, copyright registrations, and published books retained from the existing site.</p>
-                    </div>
-                </div>
-                <div class="stack-space">
+                <div class="support-stack">
                     <article class="mini-card">
-                        <h3>Copyright (2025)</h3>
-                        <p>Integrated Multidimensional Analysis Model Based on UAV Imaging for Bacterial Leaf Blight Assessment in Rice Crops (Reg: EC002025120706).</p>
-                    </article>
-                    <article class="mini-card">
-                        <h3>Patent (2022)</h3>
-                        <p>Rapid Detection System for Vegetation Cover Changes Based on Optical Satellite Image Data (Reg: S00202211691).</p>
-                    </article>
-                    <article class="mini-card">
-                        <h3>Patent (2021)</h3>
-                        <p>Topographic Correction Method for Satellite Imagery Based on Optical Sensors (Reg: S00202106657).</p>
-                    </article>
-                    <article class="mini-card">
-                        <h3>Book (2023)</h3>
-                        <p><em>Concepts and Approaches of Smart & Precision Agriculture in Energy Management for and From Agriculture</em>. IPB Press. 146 pages.</p>
-                    </article>
-                </div>
-                <div class="card-pills" aria-hidden="true">
-                    <span class="pill pill-short pill-pink"></span>
-                    <span class="pill pill-medium pill-mint"></span>
-                    <span class="pill pill-tall pill-sage"></span>
-                    <span class="pill pill-medium pill-lavender"></span>
-                    <span class="pill pill-short pill-violet"></span>
-                </div>
-            </section>
-
-            <section class="surface-card section-card">
-                <div class="section-heading">
-                    <div>
-                        <h2>Teaching and Professional Licenses</h2>
-                        <p class="section-subtitle">Teaching focus and field-ready certifications shown in companion cards for balance.</p>
-                    </div>
-                </div>
-                <div class="split-card">
-                    <div class="list-surface mini-card">
-                        <h3 class="list-title">Professional Licenses</h3>
-                        <div class="stack-space">
-                            <article>
-                                <strong>Remote Pilot License</strong>
-                                <p>Issued by the Directorate General of Civil Aviation, Ministry of Transportation (2024).</p>
-                            </article>
-                            <article>
-                                <strong>GIS Analyst (Level 6)</strong>
-                                <p>Certified by LSP Mapin (2017).</p>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="list-surface mini-card">
-                        <h3 class="list-title">Teaching Focus</h3>
+                        <div class="panel-label">Education Path</div>
+                        <h3>Formal academic trajectory</h3>
                         <ul class="list-block">
-                            <li><span class="bullet-dot">•</span><span>Conservation Spatial Modeling (2018 — 2025)</span></li>
-                            <li><span class="bullet-dot">•</span><span>Internet of Things (IoT) for Conservation (2022 — 2026)</span></li>
+                            <li><span class="bullet-dot">1</span><span>Chiba University, Japan. Ph.D. in Environmental Remote Sensing, 2020 - 2025.</span></li>
+                            <li><span class="bullet-dot">2</span><span>IPB University. M.Sc. in Information Technology for Natural Resources Management, 2013 - 2015.</span></li>
+                            <li><span class="bullet-dot">3</span><span>IPB University. B.Sc. in Agricultural Engineering, 2008 - 2012.</span></li>
                         </ul>
+                    </article>
+                    <article class="mini-card">
+                        <div class="panel-label">Professional Credentials</div>
+                        <h3>Licenses and teaching</h3>
+                        <ul class="list-block">
+                            <li><span class="bullet-dot">A</span><span>Remote Pilot License, Directorate General of Civil Aviation, 2024.</span></li>
+                            <li><span class="bullet-dot">B</span><span>GIS Analyst Level 6, LSP Mapin, 2017.</span></li>
+                            <li><span class="bullet-dot">C</span><span>Teaching focus: Conservation Spatial Modeling and IoT for Conservation.</span></li>
+                        </ul>
+                    </article>
+                    <article class="mini-card">
+                        <div class="panel-label">Research Output Support</div>
+                        <h3>Books and intellectual property</h3>
+                        <ul class="list-block">
+                            <li><span class="bullet-dot">1</span><span>Copyright registration for integrated UAV imaging analysis model, 2025.</span></li>
+                            <li><span class="bullet-dot">2</span><span>Patent for vegetation cover change detection based on optical satellite imagery, 2022.</span></li>
+                            <li><span class="bullet-dot">3</span><span>Book on smart and precision agriculture in energy management, 2023.</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="surface-card section-card" style="margin-top:24px;">
+            <div class="section-heading">
+                <div>
+                    <div class="section-index">Section 04 / Publications</div>
+                    <h2>Publication feed anchored by technical references and external profiles</h2>
+                    <p class="section-subtitle">The BibTeX source remains dynamic, but the presentation now sits inside a blueprint-style archive panel with adjacent academic reference blocks.</p>
+                </div>
+                <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer" class="badge-link">Google Scholar</a>
+            </div>
+
+            <div class="publication-grid">
+                <div id="bibtex-publications" class="loading-note">Loading publications from the BibTeX source...</div>
+                <div class="support-stack">
+                    <article class="mini-card">
+                        <div class="panel-label">Reference Channels</div>
+                        <h3>Academic endpoints</h3>
+                        <ul class="list-block">
+                            <li><span class="bullet-dot">A</span><span>Google Scholar for citation visibility and indexing.</span></li>
+                            <li><span class="bullet-dot">B</span><span>SINTA profile for national academic metrics.</span></li>
+                            <li><span class="bullet-dot">C</span><span>Local BibTeX archive for on-page publication rendering.</span></li>
+                        </ul>
+                    </article>
+                    <article class="mini-card">
+                        <div class="panel-label">Capability Stack</div>
+                        <h3>Supporting skills</h3>
+                        <ul class="list-block">
+                            <li><span class="bullet-dot">1</span><span>AI and deep learning for imagery analysis.</span></li>
+                            <li><span class="bullet-dot">2</span><span>GIS and remote sensing with QGIS, ArcGIS, GeoPandas, and R.</span></li>
+                            <li><span class="bullet-dot">3</span><span>Automation with Python, n8n, and workflow scripting.</span></li>
+                            <li><span class="bullet-dot">4</span><span>Field acquisition using DJI platforms, multispectral sensors, and GNSS RTK.</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="surface-card section-card" style="margin-top:24px;">
+            <div class="section-heading">
+                <div>
+                    <div class="section-index">Section 05 / Output Streams</div>
+                    <h2>Live repository feed and blog updates as asymmetric operational streams</h2>
+                    <p class="section-subtitle">Projects and writing are separated into two operational channels so the layout stays asymmetric and aligned with the engineering specification.</p>
+                </div>
+            </div>
+
+            <div class="work-grid">
+                <div id="projects" class="mini-card">
+                    <div class="section-heading" style="margin-bottom:18px;">
+                        <div>
+                            <div class="panel-label">Code Stream</div>
+                            <h3 style="margin:8px 0 0;">Featured projects</h3>
+                        </div>
+                        <a href="https://github.com/bangkoor" target="_blank" rel="noreferrer" class="badge-link">Visit GitHub</a>
+                    </div>
+                    <div id="github-pinned" class="project-grid">
+                        <p class="loading-note">Loading pinned repositories...</p>
                     </div>
                 </div>
-                <div class="card-pills" aria-hidden="true">
-                    <span class="pill pill-short pill-pink"></span>
-                    <span class="pill pill-medium pill-mint"></span>
-                    <span class="pill pill-tall pill-sage"></span>
-                    <span class="pill pill-medium pill-lavender"></span>
-                    <span class="pill pill-short pill-violet"></span>
-                </div>
-            </section>
-        </div>
 
-        <section class="surface-card section-card mt-6">
-            <div class="section-heading">
-                <div>
-                    <h2>Skills</h2>
-                    <p class="section-subtitle">The original skill categories remain, now presented as cleaner cards without emoji icons.</p>
+                <div id="blog" class="mini-card">
+                    <div class="section-heading" style="margin-bottom:18px;">
+                        <div>
+                            <div class="panel-label">Writing Stream</div>
+                            <h3 style="margin:8px 0 0;">Recent blog posts</h3>
+                        </div>
+                        <a href="https://blog.akwijayanto.my.id" target="_blank" rel="noreferrer" class="badge-link">Open Blog</a>
+                    </div>
+                    <div id="blogger-posts">
+                        <p class="loading-note">Loading the latest blog posts...</p>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-grid">
-                <article class="mini-card skill-card">
-                    <h3>
-                        <span class="icon-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M12 2v4"></path>
-                                <path d="M12 18v4"></path>
-                                <path d="m4.93 4.93 2.83 2.83"></path>
-                                <path d="m16.24 16.24 2.83 2.83"></path>
-                                <path d="M2 12h4"></path>
-                                <path d="M18 12h4"></path>
-                                <path d="m4.93 19.07 2.83-2.83"></path>
-                                <path d="m16.24 7.76 2.83-2.83"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </span>
-                        AI and Deep Learning
-                    </h3>
-                    <p>DeepForest AI, LSTM, PyTorch, model training, and UAV imagery analysis.</p>
-                </article>
-                <article class="mini-card skill-card">
-                    <h3>
-                        <span class="icon-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 6h18"></path>
-                                <path d="M3 12h18"></path>
-                                <path d="M3 18h18"></path>
-                                <path d="M6 3v18"></path>
-                                <path d="M12 3v18"></path>
-                                <path d="M18 3v18"></path>
-                            </svg>
-                        </span>
-                        GIS and Remote Sensing
-                    </h3>
-                    <p>QGIS, ArcGIS, GeoPandas, and R for environmental spatial analysis workflows.</p>
-                </article>
-                <article class="mini-card skill-card">
-                    <h3>
-                        <span class="icon-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M4 12h4l2-7 4 14 2-7h4"></path>
-                            </svg>
-                        </span>
-                        Automation
-                    </h3>
-                    <p>n8n workflow design, Python scripting, and Telegram bot integration for repeatable tasks.</p>
-                </article>
-                <article class="mini-card skill-card">
-                    <h3>
-                        <span class="icon-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="m22 12-4-2-6-6-6 6-4 2 4 2 6 6 6-6 4-2Z"></path>
-                                <path d="M12 10v4"></path>
-                            </svg>
-                        </span>
-                        Field Acquisition
-                    </h3>
-                    <p>DJI drone piloting, multispectral sensors, and GNSS RTK for field data capture.</p>
-                </article>
-            </div>
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
             </div>
         </section>
 
-        <section id="projects" class="surface-card section-card mt-6">
+        <section id="contact" class="surface-card section-card" style="margin-top:24px;">
             <div class="section-heading">
                 <div>
-                    <h2>Featured Projects</h2>
-                    <p class="section-subtitle">Pinned repositories are still loaded dynamically and styled to match the new surface system.</p>
+                    <div class="section-index">Section 06 / Contact</div>
+                    <h2>Research collaboration and public communication channels</h2>
+                    <p class="section-subtitle">The closing section preserves the same contact endpoints but presents them as a clean engineering handoff with direct actions and channel markers.</p>
                 </div>
-                <a href="https://github.com/bangkoor" target="_blank" rel="noreferrer" class="badge-link">Visit GitHub</a>
             </div>
-            <div id="github-pinned" class="project-grid">
-                <p class="loading-note">Loading pinned repositories...</p>
-            </div>
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
-        </section>
 
-        <section id="blog" class="surface-card section-card mt-6">
-            <div class="section-heading">
-                <div>
-                    <h2>Recent Blog Posts</h2>
-                    <p class="section-subtitle">Recent writing remains connected to the external blog feed and is now presented as editorial cards with softer hierarchy.</p>
-                </div>
-                <a href="https://blog.akwijayanto.my.id" target="_blank" rel="noreferrer" class="badge-link">Open Blog</a>
-            </div>
-            <div id="blogger-posts">
-                <p class="loading-note">Loading the latest blog posts...</p>
-            </div>
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
-        </section>
-
-        <section id="contact" class="surface-card section-card mt-6">
-            <div class="section-heading">
-                <div>
-                    <h2>Final Call to Connect</h2>
-                    <p class="section-subtitle">For academic collaboration, invited talks, research partnerships, or project discussions, the most direct route is still the same contact information already on the site.</p>
-                </div>
-            </div>
-            <div class="grid-two">
-                <article class="pricing-card">
-                    <span class="tier-badge">Primary Contact</span>
-                    <h3>Email and Institutional Link</h3>
-                    <p>Reach out for research collaboration, academic consultation, or interdisciplinary environmental modeling work.</p>
-                    <ul class="tier-list">
-                        <li><span class="check-mark">•</span><span><a href="mailto:akwijayanto@apps.ipb.ac.id" class="resource-link" style="margin-top:0">akwijayanto@apps.ipb.ac.id</a></span></li>
-                        <li><span class="check-mark">•</span><span>Faculty of Forestry and Environment, IPB University</span></li>
-                        <li><span class="check-mark">•</span><span>SINTA Profile ID: 6728108</span></li>
+            <div class="contact-grid">
+                <article class="mini-card">
+                    <div class="panel-label">Primary Contact</div>
+                    <h3>Email and institutional line</h3>
+                    <p class="muted-copy">Use the direct academic contact for collaboration, invited talks, consultation, and interdisciplinary environmental modeling work.</p>
+                    <ul class="list-block">
+                        <li><span class="check-mark">1</span><span><a href="mailto:akwijayanto@apps.ipb.ac.id" class="resource-link" style="margin-top:0;">akwijayanto@apps.ipb.ac.id</a></span></li>
+                        <li><span class="check-mark">2</span><span>Faculty of Forestry and Environment, IPB University.</span></li>
+                        <li><span class="check-mark">3</span><span>SINTA profile ID: 6728108.</span></li>
                     </ul>
                 </article>
-                <article class="pricing-card">
-                    <span class="tier-badge">Public Channels</span>
-                    <h3>Follow Ongoing Work</h3>
-                    <p>Use the external channels below to follow publications, code, educational content, and field updates.</p>
-                    <div class="icon-link-row mt-5">
+
+                <article class="mini-card">
+                    <div class="panel-label">Public Channels</div>
+                    <h3>Follow publications, code, and field updates</h3>
+                    <p class="muted-copy">External platforms remain available for publication tracking, source code, educational content, and continuing updates.</p>
+                    <div class="icon-link-row" style="margin-top:18px;">
                         <a class="icon-link" href="https://github.com/bangkoor" target="_blank" rel="noreferrer" aria-label="GitHub">
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.47 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.13 2.92.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.27-.45-1.33.1-2.78 0 0 .85-.28 2.78 1.06a9.4 9.4 0 0 1 5.06 0c1.93-1.34 2.78-1.06 2.78-1.06.55 1.45.2 2.51.1 2.78.64.72 1.03 1.64 1.03 2.77 0 3.97-2.35 4.83-4.59 5.08.36.32.69.94.69 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"></path></svg>
                         </a>
@@ -1726,23 +1367,22 @@
                     </div>
                 </article>
             </div>
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
-            </div>
         </section>
 
-        <footer class="surface-card footer-card mt-6">
+        <footer class="surface-card footer-card" style="margin-top:24px;">
             <div class="footer-grid">
                 <div>
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="brand-mark">AK</span>
-                        <div>
-                            <div class="font-bold text-lg">Arif Kurnia Wijayanto</div>
-                            <div class="legal-copy">Researcher and academician focused on spatial intelligence, environmental monitoring, and UAV-enabled analysis.</div>
+                    <div class="nav-brand" style="margin-bottom:16px;">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 20h18"></path>
+                                <path d="M6 20V8l6-4 6 4v12"></path>
+                                <path d="M10 20v-5h4v5"></path>
+                            </svg>
+                        </span>
+                        <div class="brand-copy">
+                            <strong>ARIF K. WIJAYANTO // LAB</strong>
+                            <span>Technical blueprint for research, publications, and active geospatial work.</span>
                         </div>
                     </div>
                     <div class="footer-social">
@@ -1764,11 +1404,11 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="mt-5 legal-copy">Copyright 2026. Last content update: <strong id="last-update">Loading...</strong></p>
+                    <p class="legal-copy" style="margin-top:18px;">Copyright 2026. Last content update: <strong id="last-update">Loading...</strong></p>
                 </div>
 
                 <div class="footer-link-group">
-                    <h3>Secondary Navigation</h3>
+                    <h3>Navigation</h3>
                     <a href="#about">About</a>
                     <a href="#experience">Experience</a>
                     <a href="#publications">Publications</a>
@@ -1777,15 +1417,15 @@
                 </div>
 
                 <div class="footer-link-group">
-                    <h3>Contact and Legal</h3>
+                    <h3>Contact</h3>
                     <a href="mailto:akwijayanto@apps.ipb.ac.id">Email Contact</a>
+                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download>Download CV</a>
                     <a href="#privacy-policy">Privacy Policy</a>
                     <a href="#terms-of-use">Terms of Use</a>
-                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download>Download CV</a>
                 </div>
 
                 <div class="footer-link-group">
-                    <h3>SEO and Academic Links</h3>
+                    <h3>Academic Links</h3>
                     <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
                     <a href="https://sinta.kemdikbud.go.id/authors/profile/6728108" target="_blank" rel="noreferrer">SINTA Profile</a>
                     <a href="https://github.com/bangkoor" target="_blank" rel="noreferrer">GitHub</a>
@@ -1802,14 +1442,6 @@
                     <h4>Terms of Use</h4>
                     <p class="legal-copy">Content is provided for informational and professional reference purposes. Please verify citation details directly through the linked publication or profile source when needed.</p>
                 </article>
-            </div>
-
-            <div class="card-pills" aria-hidden="true">
-                <span class="pill pill-short pill-pink"></span>
-                <span class="pill pill-medium pill-mint"></span>
-                <span class="pill pill-tall pill-sage"></span>
-                <span class="pill pill-medium pill-lavender"></span>
-                <span class="pill pill-short pill-violet"></span>
             </div>
         </footer>
     </div>
@@ -1904,7 +1536,7 @@
                                 </div>
                                 <h3>${repo.repo}</h3>
                                 <p>${repo.description || "No description provided."}</p>
-                                <div class="flex flex-wrap items-center gap-4 mt-5 text-sm text-slate-600">
+                                <div class="flex flex-wrap items-center gap-4 mt-5 text-sm text-slate-200">
                                     <span class="inline-flex items-center gap-2">
                                         <span style="width:12px;height:12px;border-radius:999px;background:${repo.languageColor || "#94a3b8"};display:inline-block"></span>
                                         ${repo.language || "Not specified"}
@@ -1940,11 +1572,11 @@
                                     <span class="icon-badge">${icons.post}</span>
                                     ${postDate ? `<span class="meta-label" style="margin-bottom:0">${postDate}</span>` : ""}
                                 </div>
-                                <h3 style="margin:0 0 12px;font-size:1.12rem;font-weight:800;letter-spacing:-0.02em;">
+                                <h3 style="margin:0 0 12px;font-size:1rem;font-weight:700;line-height:1.6;">
                                     <a href="${post.url}" target="_blank" rel="noreferrer" style="text-decoration:none;color:inherit;">${post.title}</a>
                                 </h3>
                                 <p>${excerpt}</p>
-                                <a href="${post.url}" target="_blank" rel="noreferrer" class="resource-link">
+                                <a href="${post.url}" target="_blank" rel="noreferrer" class="resource-link" style="margin-top:16px;">
                                     Read article
                                     ${icons.arrow}
                                 </a>
@@ -2012,11 +1644,11 @@
                                 <span class="icon-badge" style="margin-bottom:0">${icons.post}</span>
                                 <span class="meta-label" style="margin-bottom:0">${year}</span>
                             </div>
-                            <h3 style="margin:0 0 10px;font-size:1.08rem;font-weight:800;letter-spacing:-0.02em;">
+                            <h3 style="margin:0 0 10px;font-size:1rem;font-weight:700;line-height:1.6;">
                                 <a href="${targetUrl}" target="_blank" rel="noreferrer" style="text-decoration:none;color:inherit;">${title}</a>
                             </h3>
-                            <p style="margin-bottom:8px;">${authors}</p>
-                            <p style="font-weight:600;color:#56687a;">${journal}</p>
+                            <p style="margin:0 0 8px;color:var(--ink-soft);">${authors}</p>
+                            <p style="margin:0;color:var(--light-blue);">${journal}</p>
                         </li>
                     `;
                 });
