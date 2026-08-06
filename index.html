@@ -3,1512 +3,652 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Arif Kurnia Wijayanto, M.Sc. | Spatial Modeling and Remote Sensing</title>
-    <meta name="description" content="Official website of Dr. Arif Kurnia Wijayanto, M.Sc. Researcher and academician specializing in spatial modeling, environmental remote sensing, UAV applications, publications, projects, and academic updates.">
-    <meta name="keywords" content="Arif Kurnia Wijayanto, spatial modeling, remote sensing, UAV, precision agriculture, academic portfolio, publications, GIS, environmental monitoring">
-    <meta name="author" content="Arif Kurnia Wijayanto">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://akwijayanto.my.id/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Dr. Arif Kurnia Wijayanto, M.Sc. | Spatial Modeling and Remote Sensing">
-    <meta property="og:description" content="Research profile, publications, featured projects, blog posts, and academic highlights by Dr. Arif Kurnia Wijayanto.">
-    <meta property="og:url" content="https://akwijayanto.my.id/">
-    <meta property="og:image" content="https://akwijayanto.my.id/img/profile-image.jpg">
-    <meta property="og:site_name" content="Arif Kurnia Wijayanto">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dr. Arif Kurnia Wijayanto, M.Sc. | Spatial Modeling and Remote Sensing">
-    <meta name="twitter:description" content="Research profile, publications, featured projects, blog posts, and academic highlights by Dr. Arif Kurnia Wijayanto.">
-    <meta name="twitter:image" content="https://akwijayanto.my.id/img/profile-image.jpg">
-
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%231E5DA2'/%3E%3Cpath d='M16 72h68M24 60V28l26-12 26 12v32M42 72V50h16v22' fill='none' stroke='%23FFFFFF' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-
+    <title>Dr. Arif Kurnia Wijayanto, M.Sc. | Resume</title>
+    <!-- Favicon menggunakan Inisial Teks Minimalis -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231e293b%22></rect><text y=%22.9em%22 x=%2250%%22 font-size=%2265%22 font-weight=%22bold%22 font-family=%22serif%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>A</text></svg>">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Pustaka parser BibTeX ringan dari CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@1.0.0/src/bibtex_js.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Merriweather & Open Sans for Classic Resume Feel) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Palette berdasarkan design.md */
-            --blueprint-blue: #1E5DA2;
-            --white-lines: #FFFFFF;
-            --light-blue: #A8D5FF;
-            --steel-blue: #5B9BD5;
-            --dark-slate: #2E4053;
-            --light-grey: #E8E8E8;
-            
-            /* Spatial Surface Variants */
-            --bg-blueprint: #15457a;
-            --surface-card: rgba(30, 93, 162, 0.45);
-            --surface-card-hover: rgba(30, 93, 162, 0.65);
-            --surface-panel: rgba(46, 64, 83, 0.6);
-            --border-grid: rgba(255, 255, 255, 0.25);
-            --border-strong: rgba(255, 255, 255, 0.5);
-            
-            --radius: 8px;
-            --font-tech: "JetBrains Mono", monospace;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            margin: 0;
-            min-height: 100dvh;
-            font-family: var(--font-tech);
-            color: var(--white-lines);
-            background-color: var(--bg-blueprint);
-            background-image: 
-                linear-gradient(var(--border-grid) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border-grid) 1px, transparent 1px);
-            background-size: 32px 32px;
-            background-position: -1px -1px;
+            font-family: 'Open Sans', sans-serif;
+            color: #333333;
+            /* Pengaturan Background SVG Statis */
+            background-image: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background-attachment: fixed; /* Membuat gradasi tetap statis saat di-scroll */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top; /* Memosisikan pola tepat di tengah bagian atas */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            color: #222222;
+        }
+        
+        /* Styling Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparan agar menyatu dengan gradasi background */
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #475569; /* Abu-abu gelap netral */
+            border: 1px solid #e2e8f0; /* Border tipis halus */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            backdrop-filter: blur(4px); /* Efek blur kaca tipis */
+            margin: 15px 0;
+            font-family: 'Open Sans', sans-serif;
         }
 
-        a, button {
-            color: inherit;
-            transition: all 200ms ease;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        .page-shell {
+        /* Animasi Denyut Hijau Aktif */
+        .status-ping {
             position: relative;
-            z-index: 1;
-            width: min(1280px, calc(100% - 48px));
-            margin: 0 auto;
-            padding: 24px 0 56px;
-        }
-
-        /* Surface Card Style */
-        .surface-card,
-        .mini-card,
-        .signal-card,
-        .timeline-item,
-        .stat-card,
-        .feature-panel,
-        .legal-card,
-        .feature-content {
-            position: relative;
-            background: var(--surface-card);
-            border: 1px solid var(--border-grid);
-            border-radius: var(--radius);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .surface-card:hover,
-        .mini-card:hover,
-        .signal-card:hover,
-        .timeline-item:hover,
-        .stat-card:hover,
-        .feature-panel:hover,
-        .legal-card:hover,
-        .feature-content:hover {
-            transform: translateY(-2px);
-            border-color: var(--border-strong);
-            background: var(--surface-card-hover);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-        }
-
-        .section-card,
-        .footer-card {
-            padding: 28px;
-        }
-
-        /* Navigation */
-        .nav-card {
-            position: sticky;
-            top: 18px;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 14px 20px;
-            margin-bottom: 24px;
-            background: rgba(21, 69, 122, 0.9);
-            border: 1px solid var(--border-strong);
-            backdrop-filter: blur(12px);
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .brand-mark {
-            width: 44px;
-            height: 44px;
-            border-radius: var(--radius);
-            border: 1px solid var(--white-lines);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--blueprint-blue);
-        }
-
-        .brand-mark svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .kicker,
-        .meta-label,
-        .panel-label,
-        .timeline-year,
-        .badge-link,
-        .section-index,
-        .footer-link-group h3 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-weight: 600;
-            color: var(--light-blue);
-        }
-
-        .brand-copy strong {
-            display: block;
-            font-size: 0.95rem;
-            letter-spacing: 0.04em;
-            color: var(--white-lines);
-        }
-
-        .brand-copy span,
-        .section-subtitle,
-        .muted-copy,
-        .footer-link-group a,
-        .legal-copy,
-        .mini-card p,
-        .timeline-item p,
-        #blogger-posts article p,
-        #bibtex-publications li,
-        .feature-copy,
-        .feature-list li,
-        .signal-list li {
-            color: var(--light-grey);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .nav-links a {
-            padding: 8px 12px;
-            border-radius: var(--radius);
-            border: 1px solid transparent;
-            text-decoration: none;
-            font-size: 0.875rem;
-        }
-
-        .nav-links a:hover,
-        .nav-links a:focus-visible {
-            border-color: var(--border-grid);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Buttons */
-        .primary-button,
-        .secondary-button,
-        .badge-link,
-        .resource-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 10px 16px;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-
-        .primary-button {
-            background: var(--white-lines);
-            color: var(--blueprint-blue);
-            border: 1px solid var(--white-lines);
-        }
-
-        .primary-button:hover,
-        .primary-button:focus-visible {
-            background: var(--light-blue);
-            border-color: var(--light-blue);
-            transform: translateY(-1px);
-        }
-
-        .secondary-button,
-        .badge-link,
-        .resource-link {
-            border: 1px solid var(--border-strong);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--white-lines);
-        }
-
-        .secondary-button:hover,
-        .badge-link:hover,
-        .resource-link:hover {
-            border-color: var(--white-lines);
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .inline-icon svg,
-        .icon-badge svg,
-        .icon-link svg,
-        .footer-social a svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Hero */
-        .hero-card {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-            gap: 28px;
-            padding: 34px;
-            margin-bottom: 24px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            margin-bottom: 18px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-grid);
-            background: rgba(0, 0, 0, 0.15);
-            font-size: 0.8rem;
-        }
-
-        .status-dot {
             width: 8px;
             height: 8px;
-            border-radius: 999px;
-            background: var(--light-blue);
-            box-shadow: 0 0 8px var(--light-blue);
+            background-color: #10b981; /* Hijau Emerald */
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-block;
         }
 
-        .hero-title {
-            margin: 0 0 18px;
-            font-size: clamp(2.2rem, 4vw, 3.2rem);
-            line-height: 1.15;
-            font-weight: 700;
-            color: var(--white-lines);
-        }
-
-        .hero-copy {
-            max-width: 72ch;
-            margin: 0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin: 28px 0;
-        }
-
-        .hero-meta {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .meta-chip {
-            padding: 14px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-grid);
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .meta-chip strong {
-            display: block;
-            margin-top: 6px;
-            line-height: 1.4;
-            font-size: 0.875rem;
-            color: var(--white-lines);
-        }
-
-        .hero-visual {
-            position: relative;
-            padding: 20px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-strong);
-            background: var(--dark-slate);
-            overflow: hidden;
-        }
-
-        .panel-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) 180px;
-            gap: 16px;
-        }
-
-        .portrait-panel,
-        .panel-stack {
-            display: grid;
-            gap: 16px;
-        }
-
-        .profile-photo {
-            aspect-ratio: 1 / 1;
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--border-strong);
-        }
-
-        .profile-photo img {
+        /* Efek gelombang di luar titik hijau */
+        .status-ping::after {
+            content: '';
+            position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            background-color: #10b981;
+            border-radius: 50%;
+            animation: pulse-ring 1.8s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
         }
 
-        .portrait-caption,
-        .signal-card,
-        .mini-card,
-        .timeline-item,
-        .feature-panel,
-        .feature-content,
-        .legal-card {
-            padding: 18px;
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+            80%, 100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
         }
-
-        .portrait-caption strong,
-        .mini-card h3,
-        .timeline-item h3,
-        .signal-card h3,
-        .feature-panel h3,
-        .feature-content h3,
-        .legal-card h4,
-        #blogger-posts article h3,
-        #bibtex-publications h3 {
-            display: block;
-            margin: 0 0 8px;
-            font-size: 1rem;
-            line-height: 1.4;
-            color: var(--white-lines);
-        }
-
-        .signal-card .signal-value {
-            display: block;
-            margin-top: 8px;
-            font-size: 1.5rem;
-            color: var(--light-blue);
-            font-weight: 700;
-        }
-
-        .dimension-box {
-            margin-top: 14px;
-            padding: 12px;
-            border-radius: var(--radius);
-            border: 1px dashed var(--border-strong);
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .dimension-box svg {
-            display: block;
-            width: 100%;
-            height: auto;
-            color: var(--light-blue);
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 18px;
-            margin-bottom: 24px;
-        }
-
-        .section-heading h2 {
-            margin: 6px 0 0;
-            font-size: 1.5rem;
-            line-height: 1.2;
-            color: var(--white-lines);
-        }
-
-        .section-subtitle {
-            margin: 6px 0 0;
-            max-width: 72ch;
-            line-height: 1.6;
-        }
-
-        .signal-grid,
-        .experience-shell,
-        .publication-grid,
-        .work-grid,
-        .contact-grid,
-        .footer-grid,
-        .legal-grid,
-        .project-grid {
+        
+        .bento-grid {
             display: grid;
-            gap: 20px;
-        }
-
-        .signal-grid {
-            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-        }
-
-        .signal-stack,
-        .support-stack {
-            display: grid;
-            gap: 16px;
-        }
-
-        .signal-list,
-        .feature-list,
-        .list-block {
-            list-style: none;
-            padding: 0;
-            margin: 12px 0 0;
-            display: grid;
-            gap: 10px;
-        }
-
-        .signal-list li,
-        .feature-list li,
-        .list-block li {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-size: 0.875rem;
-        }
-
-        .list-code,
-        .bullet-dot,
-        .check-mark {
-            flex: 0 0 auto;
-            width: 20px;
-            height: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-strong);
-            color: var(--light-blue);
-            background: rgba(0, 0, 0, 0.2);
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 10px;
-        }
-
-        .stat-card {
-            padding: 16px 10px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-value {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--white-lines);
-        }
-
-        .stat-label {
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--light-blue);
-        }
-
-        .feature-stack {
-            display: grid;
-            gap: 20px;
-        }
-
-        .feature-row {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-            gap: 20px;
-            align-items: stretch;
-        }
-
-        .feature-row:nth-child(even) {
-            grid-template-columns: minmax(300px, 0.95fr) minmax(0, 1.05fr);
-        }
-
-        .feature-row:nth-child(even) .feature-content { order: 2; }
-        .feature-row:nth-child(even) .feature-panel { order: 1; }
-
-        .feature-title {
-            margin: 8px 0 10px;
-            font-size: 1.2rem;
-        }
-
-        .diag-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 8px;
-            margin-top: 14px;
-        }
-
-        .diag-cell {
-            padding: 12px 8px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-grid);
-            text-align: center;
-            background: rgba(0, 0, 0, 0.2);
-            color: var(--light-blue);
-            font-size: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .experience-shell {
-            grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-        }
-
-        .timeline {
-            display: grid;
-            gap: 14px;
-        }
-
-        .timeline-item {
-            padding-left: 20px;
-        }
-
-        .timeline-item::after {
-            content: "";
-            position: absolute;
-            left: 8px;
-            top: 14px;
-            bottom: 14px;
-            width: 2px;
-            background: var(--steel-blue);
-        }
-
-        .timeline-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 6px;
-        }
-
-        .subnote {
-            margin: 0 0 6px;
-            color: var(--light-blue);
-            font-size: 0.875rem;
-        }
-
-        .publication-grid {
-            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-        }
-
-        #bibtex-publications ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            gap: 14px;
-        }
-
-        #bibtex-publications li,
-        #blogger-posts article,
-        .project-grid .mini-card {
-            padding: 16px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-grid);
-            background: rgba(0, 0, 0, 0.15);
-        }
-
-        .icon-badge,
-        .icon-link,
-        .footer-social a {
-            width: 38px;
-            height: 38px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-strong);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--white-lines);
-        }
-
-        .icon-badge {
-            margin-bottom: 10px;
-            color: var(--light-blue);
-        }
-
-        .icon-link-row,
-        .footer-social {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .icon-link:hover,
-        .footer-social a:hover {
-            border-color: var(--white-lines);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .work-grid,
-        .contact-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .project-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .footer-grid {
-            grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
-        }
-
-        .footer-link-group a {
-            display: block;
-            margin-top: 8px;
-            text-decoration: none;
-            font-size: 0.875rem;
-        }
-
-        .footer-link-group a:hover {
-            color: var(--white-lines);
-        }
-
-        .legal-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
-
-        .loading-note,
-        .error-note {
-            padding: 16px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-grid);
-            background: rgba(0, 0, 0, 0.2);
-            font-size: 0.875rem;
+        .bento-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+        .bento-large {
+            grid-column: span 2;
+        }
+        .bento-item h4 {
+            margin-top: 0;
+            color: #323377;
         }
 
-        .error-note {
-            color: #ffb3b3;
-            border-color: rgba(255, 179, 179, 0.4);
+        /* CSS Tambahan untuk Badge Read More */
+        .badge-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            background-color: #f1f5f9; /* abu-abu sangat muda */
+            color: #475569; /* text slate */
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        @media (max-width: 1100px) {
-            .hero-card,
-            .signal-grid,
-            .experience-shell,
-            .publication-grid,
-            .work-grid,
-            .contact-grid,
-            .footer-grid,
-            .project-grid,
-            .feature-row {
-                grid-template-columns: 1fr;
-            }
-
-            .feature-row:nth-child(even) .feature-content,
-            .feature-row:nth-child(even) .feature-panel {
-                order: initial;
-            }
-
-            .hero-meta,
-            .stats-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 820px) {
-            .nav-card {
-                position: static;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .nav-links {
-                justify-content: center;
-            }
-
-            .section-heading {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .panel-grid,
-            .hero-meta,
-            .stats-grid,
-            .work-grid,
-            .contact-grid,
-            .legal-grid {
-                grid-template-columns: 1fr;
-            }
+        .badge-read-more:hover {
+            background-color: #e8f5e9; /* sentuhan hijau mint saat hover */
+            color: #065f46;
+            border-color: #a7f3d0;
         }
     </style>
 </head>
-<body>
-    <div class="page-shell">
-        <nav class="surface-card nav-card">
+<body class="bg-[#fcfcfc] antialiased py-12 px-4 sm:px-6">
+
+    <div class="max-w-5xl mx-auto bg-white p-8 sm:p-12 shadow-xs border border-slate-100 rounded-sm">
+        
+        <header class="relative border-b-2 border-slate-800 pb-8 mb-8 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-6 overflow-hidden">
+    
+            <!-- 1. Efek Lapisan Gradasi Abstrak (Aurora Glow di Sudut Kanan) -->
+            <div class="absolute right-0 top-0 w-[350px] h-[350px] opacity-20 pointer-events-none filter blur-3xl rounded-full translate-x-12 -translate-y-12 z-0"
+                 style="background: radial-gradient(circle at 70% 30%, #10b981 0%, #3b82f6 50%, transparent 70%);">
+            </div>
             
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#publications">Publications</a>
-                <a href="#projects">Projects</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
+            <!-- 2. Pattern Topografi Menyeluruh (Memudar Halus ke Arah Kiri) -->
+            <div class="absolute right-0 top-0 w-full h-full pointer-events-none z-0 opacity-[0.12] sm:opacity-[0.15]"
+                 style="mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="w-full h-full stroke-slate-400 fill-none" stroke-width="0.25" stroke-dasharray="1 0.7">
+                    <path d="M 30,-10 C 25,20 15,35 -5,55 C -25,75 -15,90 20,110" />
+                    <path d="M 60,-10 C 52,22 38,40 22,62 C 6,84 18,98 50,110" />
+                    <path d="M 90,-10 C 80,25 65,45 52,70 C 39,95 50,102 80,110" />
+                    <path d="M 120,-10 C 110,28 95,50 82,78 C 69,106 82,105 110,110" />
+                    <path d="M 150,-10 C 142,30 128,55 115,82 C 102,109 115,106 140,110" />
+                    <path d="M 180,-10 C 172,32 158,60 148,88 C 138,116 148,108 170,110" />
+                    <path d="M 210,-10 C 202,35 188,65 180,92 C 172,119 180,110 200,110" />
+                </svg>
             </div>
-            <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="primary-button">
-                <span class="inline-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 3v12"></path>
-                        <path d="m7 10 5 5 5-5"></path>
-                        <path d="M5 20h14"></path>
-                    </svg>
-                </span>
-                Download CV
-            </a>
-        </nav>
 
-        <header id="about" class="surface-card hero-card">
-            <div>
-                <span class="eyebrow">
-                    <span class="status-dot" aria-hidden="true"></span>
-                    Active line item: Gakkum Tools for forestry crime analysis with MaxEnt
-                </span>
-                <div class="kicker">Hello! I am</div>
-                <h1 class="hero-title">Arif K Wijayanto, PhD</h1>
-                <p class="hero-copy">
-                    A researcher and academician working at the intersection of spatial modeling,
-                    environmental remote sensing, and UAV-based analysis. 
+            <!-- 3. Konten Teks Biodata -->
+            <div class="relative flex-1 w-full text-center sm:text-left z-10">
+                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Dr. Arif Kurnia Wijayanto, M.Sc.</h1>
+                <p class="text-emerald-800 font-medium text-lg mt-1">Researcher & Academician</p>
+                <p class="text-sm text-slate-500 mt-4 leading-relaxed max-w-xl mx-auto sm:mx-0">
+                    Specializing in Spatial Modeling, Environmental Remote Sensing, and UAV (Unmanned Aerial Vehicle) technology applications for Precision Agriculture and Ecosystem Conservation.
                 </p>
-
-                <div class="hero-actions">
-                    <a href="#publications" class="primary-button">
-                        <span class="inline-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path>
-                            </svg>
-                        </span>
-                        Recent Publications
-                    </a>
-                    <a href="#contact" class="secondary-button">
-                        <span class="inline-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.33 1.76.63 2.59a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.49-1.29a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.59.63A2 2 0 0 1 22 16.92Z"></path>
-                            </svg>
-                        </span>
-                        Contact
-                    </a>
+                
+                <!-- Elemen Status Badge -->
+                <div class="status-badge">
+                    <span class="status-ping"></span>
+                    <span class="status-text">Currently working on: <strong>Gakkum Tools: Plugin QGIS untuk Forestry Crime dengan MaxEnt</strong></span>
                 </div>
-
-                <div class="hero-meta">
-                    <div class="meta-chip">
-                        <span class="meta-label">Academic Home</span>
-                        <strong>Faculty of Forestry and Environment, IPB University</strong>
+                
+                <!-- Baris Ikon & Tombol PDF -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 w-full">
+                    <div class="flex justify-center sm:justify-start gap-4 text-xl text-slate-600">
+                        <a href="https://github.com/bangkoor" target="_blank" class="hover:text-slate-900 transition-colors" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" class="hover:text-blue-700 transition-colors" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCcDv_Se-EST0_iVF6NdYsPA/" target="_blank" class="hover:text-red-600 transition-colors" title="YouTube Channel">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" class="hover:text-orange-500 transition-colors" title="Google Scholar">
+                            <i class="fa-brands fa-google"></i>
+                        </a>
+                        <a href="https://blog.akwijayanto.my.id" target="_blank" class="hover:text-orange-500 transition-colors" title="Blogger Blog">
+                            <i class="fa-brands fa-blogger"></i>
+                        </a>
                     </div>
-                    <div class="meta-chip">
-                        <span class="meta-label">Research Themes</span>
-                        <strong>Spatial modeling, remote sensing, UAV applications</strong>
-                    </div>
-                </div>
 
-                <div class="icon-link-row" style="margin-top:24px;">
-                    <a class="icon-link" href="https://github.com/bangkoor" target="_blank" rel="noreferrer" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.47 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.13 2.92.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.27-.45-1.33.1-2.78 0 0 .85-.28 2.78 1.06a9.4 9.4 0 0 1 5.06 0c1.93-1.34 2.78-1.06 2.78-1.06.55 1.45.2 2.51.1 2.78.64.72 1.03 1.64 1.03 2.77 0 3.97-2.35 4.83-4.59 5.08.36.32.69.94.69 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"></path></svg>
-                    </a>
-                    <a class="icon-link" href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56C7.15 3.89 6.34 3 5.26 3S3.36 3.89 3.36 4.94c0 1.04.8 1.94 1.87 1.94h.03c1.1 0 1.9-.9 1.9-1.94ZM20.64 13.02c0-3.36-1.79-4.92-4.17-4.92-1.92 0-2.78 1.07-3.25 1.82V8.5H9.84c.04.94 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.68.12-.92.27-.68.88-1.39 1.91-1.39 1.35 0 1.89 1.05 1.89 2.6V20H20.5l.14-6.98Z"></path></svg>
-                    </a>
-                    <a class="icon-link" href="https://www.youtube.com/channel/UCcDv_Se-EST0_iVF6NdYsPA/" target="_blank" rel="noreferrer" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.58 7.19a2.98 2.98 0 0 0-2.1-2.11C17.63 4.6 12 4.6 12 4.6s-5.63 0-7.48.48a2.98 2.98 0 0 0-2.1 2.11C2 9.05 2 12 2 12s0 2.95.42 4.81a2.98 2.98 0 0 0 2.1 2.11c1.85.48 7.48.48 7.48.48s5.63 0 7.48-.48a2.98 2.98 0 0 0 2.1-2.11C22 14.95 22 12 22 12s0-2.95-.42-4.81ZM10 15.5v-7l6 3.5-6 3.5Z"></path></svg>
-                    </a>
-                    <a class="icon-link" href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 3 2 9l10 6 10-6-10-6Z"></path>
-                            <path d="M4 10.5V15c0 2.8 3.58 5 8 5s8-2.2 8-5v-4.5"></path>
-                        </svg>
-                    </a>
-                    <a class="icon-link" href="https://blog.akwijayanto.my.id" target="_blank" rel="noreferrer" aria-label="Blog">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H20v14H6.5A2.5 2.5 0 0 0 4 20.5v-14Z"></path>
-                            <path d="M8 8h8"></path>
-                            <path d="M8 12h8"></path>
-                            <path d="M8 16h5"></path>
-                        </svg>
+                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 bg-white/80 backdrop-blur-xs rounded-md text-xs font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-2xs" title="Download CV as PDF">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download CV (PDF)
                     </a>
                 </div>
             </div>
 
-            <div class="hero-visual">
-                <div class="panel-grid">
-                    <div class="portrait-panel">
-                        <div class="profile-photo">
-                            <img src="img/profile-image.jpg" alt="Portrait of Dr. Arif Kurnia Wijayanto">
-                        </div>
-                        <div class="surface-card portrait-caption">
-                            <div class="panel-label">Field Profile</div>
-                            <strong>Environmental Remote Sensing</strong>
-                            <div class="muted-copy">Precision agriculture, conservation, and spatial decision support.</div>
-                            
-                        </div>
-                    </div>
-                    
-                </div>
+            <!-- 4. Profile Photo Container -->
+            <div class="relative w-32 h-32 shrink-0 border border-slate-200 p-1 bg-slate-50 rounded-full shadow-xs overflow-hidden z-10 sm:mr-8 md:mr-12">
+                <img src="img/profile-image.jpg" 
+                     alt="Dr. Arif Kurnia Wijayanto" 
+                     class="w-full h-full object-cover rounded-full">
             </div>
         </header>
 
-        <section class="surface-card section-card">
-            <div class="section-heading">
-                <div>
-                    <div class="section-index">Section 01 / Signal Board</div>
-                    <h2>Academic signal board and current operating context</h2>
-                    <p class="section-subtitle">The layout follows the blueprint brief with visible grid logic, technical labels, precise cards, and a compact readout of affiliation, contact, and live academic metrics.</p>
+        <!-- Contact & Academic Metrics Section -->
+        <section class="mb-10 text-sm grid grid-cols-1 lg:grid-cols-12 gap-6 bg-slate-50 p-6 rounded-sm border border-slate-100">
+            
+            <!-- Kolom Kiri: Informasi Kontak -->
+            <div class="space-y-3 text-slate-600 lg:col-span-5 flex flex-col justify-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-envelope text-slate-400 w-5"></i>
+                    <a href="mailto:akwijayanto@apps.ipb.ac.id" class="hover:text-emerald-700 transition">akwijayanto@apps.ipb.ac.id</a>
                 </div>
-                <a href="mailto:akwijayanto@apps.ipb.ac.id" class="badge-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M4 4h16v16H4z"></path>
-                        <path d="m22 6-10 7L2 6"></path>
-                    </svg>
-                    Direct Email
-                </a>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-building text-slate-400 w-5"></i>
+                    <span>Faculty of Forestry and Environment, IPB University</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-graduation-cap text-slate-400 w-5"></i>
+                    <a href="https://sinta.kemdikbud.go.id/authors/profile/6728108" target="_blank" class="hover:text-emerald-700 transition font-medium">SINTA Profile (ID: 6728108)</a>
+                </div>
             </div>
 
-            <div class="signal-grid">
-                <div class="signal-stack">
-                    <article class="signal-card">
-                        <div class="panel-label">Primary Contact Stack</div>
-                        <h3>Institution and profile links</h3>
-                        <ul class="signal-list">
-                            <li><span class="list-code">01</span><span>akwijayanto@apps.ipb.ac.id</span></li>
-                            <li><span class="list-code">02</span><span>Faculty of Forestry and Environment, IPB University</span></li>
-                            <li><span class="list-code">03</span><span>SINTA profile ID: 6728108</span></li>
-                        </ul>
-                    </article>
-                    <article class="signal-card">
-                        <div class="panel-label">Current Focus</div>
-                        <h3>Applied geospatial workflow development</h3>
-                        <p class="muted-copy">Developing Gakkum Tools for forestry crime workflows while continuing work in environmental monitoring, crop assessment, conservation planning, and UAV-driven analysis.</p>
-                    </article>
+            <!-- Kolom Kanan: Dua Dasbor Berdampingan -->
+            <div class="border-t lg:border-t-0 lg:border-l border-slate-200 pt-4 lg:pt-0 lg:pl-6 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:col-span-7">
+                
+                <!-- Sub-Grup 1: SCOPUS -->
+                <div>
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2 font-bold flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>Scopus Metrics
+                    </span>
+                    <div class="grid grid-cols-3 gap-1.5 text-center">
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
+                            <div id="scopus-citations" class="text-base font-bold text-emerald-800 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Citations</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
+                            <div id="scopus-documents" class="text-base font-bold text-slate-800 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Papers</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs">
+                            <div id="scopus-hindex" class="text-base font-bold text-blue-800 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">h-index</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span id="scopus-citations" class="stat-value">...</span>
-                        <span class="stat-label">Scopus Citations</span>
+                <!-- Sub-Grup 2: SINTA -->
+                <div>
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2 font-bold flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>SINTA Scores
+                    </span>
+                    <div class="grid grid-cols-2 gap-1.5 text-center">
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs flex flex-col justify-center">
+                            <div id="sinta-overall" class="text-base font-bold text-slate-900 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Score Overall</div>
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200/60 shadow-2xs flex flex-col justify-center">
+                            <div id="sinta-3yr" class="text-base font-bold text-amber-700 font-mono">...</div>
+                            <div class="text-[9px] text-slate-500 font-medium mt-0.5">Score 3Yr</div>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <span id="scopus-documents" class="stat-value">...</span>
-                        <span class="stat-label">Scopus Papers</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section: Research Experience -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Research Experience</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">SATREPS Project</h3>
+                        <span class="text-sm font-mono text-slate-500 whitespace-nowrap">2019 — 2022</span>
                     </div>
-                    <div class="stat-card">
-                        <span id="scopus-hindex" class="stat-value">...</span>
-                        <span class="stat-label">Scopus H-Index</span>
+                    <p class="text-xs text-emerald-800 font-medium italic mt-0.5">Damage Assessment Process in Agricultural Insurance as Adaptation to Climate Change for Food Security</p>
+                    <p class="text-xs text-slate-500 mt-1">Funding Source: JICA</p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">National Monitoring System for Forests Land Cover & Strategic Commodity</h3>
+                        <span class="text-sm font-mono text-slate-500 whitespace-nowrap">2019 — 2020</span>
                     </div>
-                    <div class="stat-card">
-                        <span id="sinta-overall" class="stat-value">...</span>
-                        <span class="stat-label">SINTA Overall</span>
+                    <p class="text-xs text-slate-400 italic mt-0.5">Sustainable Landscape Development Program</p>
+                    <p class="text-xs text-slate-500 mt-1">Funding Source: UNDP</p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">Development of Spatial-Based Recommender of Fertilizer for Oil Palm</h3>
+                        <span class="text-sm font-mono text-slate-500 whitespace-nowrap">2018 — 2020</span>
                     </div>
-                    <div class="stat-card">
-                        <span id="sinta-3yr" class="stat-value">...</span>
-                        <span class="stat-label">SINTA 3-Year</span>
+                    <p class="text-xs text-slate-500 mt-1">Funding Source: PT Pupuk Kaltim</p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">FORESTS 2020: Advancing Earth Observation Applications to Forests</h3>
+                        <span class="text-sm font-mono text-slate-500 whitespace-nowrap">2017 — 2020</span>
                     </div>
+                    <p class="text-xs text-slate-500 mt-1">Funding Source: UK Space Agency</p>
                 </div>
             </div>
         </section>
 
-        <section class="surface-card section-card" style="margin-top:24px;">
-            <div class="section-heading">
+        <!-- Section: Education -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Education</h2>
+            
+            <div class="space-y-6">
                 <div>
-                    <div class="section-index">Section 02 / Research Systems</div>
-                    <h2>Three research systems presented as alternating blueprint rows</h2>
-                    <p class="section-subtitle">The design brief rejects equal three-column feature blocks, so the core strengths are displayed as alternating text-plus-panel rows with engineering-style readouts.</p>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">Chiba University, Japan</h3>
+                        <span class="text-sm font-mono text-slate-500">2020 — 2025</span>
+                    </div>
+                    <p class="text-sm text-slate-600 italic">Doctor of Philosophy (Ph.D.) in Environmental Remote Sensing</p>
+                    <p class="text-xs text-slate-500 mt-1">Dissertation: <em>"Integrated Multidimensional UAV Imaging Analysis for Rice Bacterial Leaf Blight Disease Assessment"</em></p>
                 </div>
-            </div>
 
-            <div class="feature-stack">
-                <article class="feature-row">
-                    <div class="feature-content">
-                        <div class="panel-label">Module 01</div>
-                        <h3 class="feature-title">Spatial modeling for decisions across forestry, agriculture, and landscapes</h3>
-                        <p class="feature-copy">Research activities are structured around decision-focused spatial analysis, land suitability assessment, and environmental modeling that translate spatial data into operational recommendations.</p>
-                        <ul class="feature-list">
-                            <li><span class="bullet-dot">A</span><span>GIS workflow design for applied environmental systems</span></li>
-                            <li><span class="bullet-dot">B</span><span>Spatial recommender and decision support development</span></li>
-                            <li><span class="bullet-dot">C</span><span>Landscape-scale modeling for monitoring and planning</span></li>
-                        </ul>
-                    </div>
-                    <div class="feature-panel">
-                        <div class="panel-label">Drafting Grid</div>
-                        <h3>Operational sequence</h3>
-                        <div class="diag-grid">
-                            <div class="diag-cell">Acquire<br>spatial inputs</div>
-                            <div class="diag-cell">Model<br>relationships</div>
-                            <div class="diag-cell">Deliver<br>decision maps</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="feature-row">
-                    <div class="feature-content">
-                        <div class="panel-label">Module 02</div>
-                        <h3 class="feature-title">Environmental remote sensing for crop, land cover, and ecosystem diagnostics</h3>
-                        <p class="feature-copy">Satellite and UAV imagery are used to observe vegetation condition, detect crop disease, assess land cover dynamics, and monitor environmental change using reproducible image analysis pipelines.</p>
-                        <ul class="feature-list">
-                            <li><span class="bullet-dot">A</span><span>Vegetation health and crop disease assessment</span></li>
-                            <li><span class="bullet-dot">B</span><span>Land cover and ecosystem monitoring workflows</span></li>
-                            <li><span class="bullet-dot">C</span><span>Remote sensing methods integrated with field evidence</span></li>
-                        </ul>
-                    </div>
-                    <div class="feature-panel">
-                        <div class="panel-label">Sensor Matrix</div>
-                        <h3>Observation channels</h3>
-                        <div class="diag-grid">
-                            <div class="diag-cell">Satellite<br>imagery</div>
-                            <div class="diag-cell">UAV<br>imaging</div>
-                            <div class="diag-cell">Field<br>validation</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="feature-row">
-                    <div class="feature-content">
-                        <div class="panel-label">Module 03</div>
-                        <h3 class="feature-title">UAV deployment and field-ready acquisition systems</h3>
-                        <p class="feature-copy">Drone operations, multispectral sensing, and GNSS-supported acquisition are combined with analytical workflows so field data can move directly into research-grade interpretation and decision support.</p>
-                        <ul class="feature-list">
-                            <li><span class="bullet-dot">A</span><span>Drone piloting and mission design for applied studies</span></li>
-                            <li><span class="bullet-dot">B</span><span>Multispectral and optical image acquisition</span></li>
-                            <li><span class="bullet-dot">C</span><span>Integrated field-to-analysis workflow execution</span></li>
-                        </ul>
-                    </div>
-                    <div class="feature-panel">
-                        <div class="panel-label">Field Chain</div>
-                        <h3>Execution path</h3>
-                        <div class="diag-grid">
-                            <div class="diag-cell">Plan<br>mission</div>
-                            <div class="diag-cell">Capture<br>imagery</div>
-                            <div class="diag-cell">Analyze<br>outputs</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="experience" class="surface-card section-card" style="margin-top:24px;">
-            <div class="section-heading">
                 <div>
-                    <div class="section-index">Section 03 / Timeline</div>
-                    <h2>Experience timeline with education, licenses, and teaching support</h2>
-                    <p class="section-subtitle">The timeline keeps the original academic content but reframes it as a drafting sequence with compact annotations instead of decorative cards.</p>
-                </div>
-            </div>
-
-            <div class="experience-shell">
-                <div class="timeline">
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>SATREPS Project</h3>
-                            <span class="timeline-year">2019 - 2022</span>
-                        </div>
-                        <p class="subnote">Damage Assessment Process in Agricultural Insurance as Adaptation to Climate Change for Food Security</p>
-                        <p>Funding source: JICA.</p>
-                    </article>
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>National Monitoring System for Forests Land Cover and Strategic Commodity</h3>
-                            <span class="timeline-year">2019 - 2020</span>
-                        </div>
-                        <p class="subnote">Sustainable Landscape Development Program</p>
-                        <p>Funding source: UNDP.</p>
-                    </article>
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>Development of Spatial-Based Recommender of Fertilizer for Oil Palm</h3>
-                            <span class="timeline-year">2018 - 2020</span>
-                        </div>
-                        <p>Funding source: PT Pupuk Kaltim.</p>
-                    </article>
-                    <article class="timeline-item">
-                        <div class="timeline-top">
-                            <h3>FORESTS 2020: Advancing Earth Observation Applications to Forests</h3>
-                            <span class="timeline-year">2017 - 2020</span>
-                        </div>
-                        <p>Funding source: UK Space Agency.</p>
-                    </article>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">Institut Pertanian Bogor (IPB University), Indonesia</h3>
+                        <span class="text-sm font-mono text-slate-500">2013 — 2015</span>
+                    </div>
+                    <p class="text-sm text-slate-600 italic">Master of Science (M.Sc.) in Information Technology for Natural Resources Management</p>
+                    <p class="text-xs text-slate-500 mt-1">Thesis: <em>"Development of Spatial-based Expert System for Selecting Broiler Closed House Farm Location"</em></p>
                 </div>
 
-                <div class="support-stack">
-                    <article class="mini-card">
-                        <div class="panel-label">Education Path</div>
-                        <h3>Formal academic trajectory</h3>
-                        <ul class="list-block">
-                            <li><span class="bullet-dot">1</span><span>Chiba University, Japan. Ph.D. in Environmental Remote Sensing, 2020 - 2025.</span></li>
-                            <li><span class="bullet-dot">2</span><span>IPB University. M.Sc. in Information Technology for Natural Resources Management, 2013 - 2015.</span></li>
-                            <li><span class="bullet-dot">3</span><span>IPB University. B.Sc. in Agricultural Engineering, 2008 - 2012.</span></li>
-                        </ul>
-                    </article>
-                    <article class="mini-card">
-                        <div class="panel-label">Professional Credentials</div>
-                        <h3>Licenses and teaching</h3>
-                        <ul class="list-block">
-                            <li><span class="bullet-dot">A</span><span>Remote Pilot License, Directorate General of Civil Aviation, 2024.</span></li>
-                            <li><span class="bullet-dot">B</span><span>GIS Analyst Level 6, LSP Mapin, 2017.</span></li>
-                            <li><span class="bullet-dot">C</span><span>Teaching focus: Conservation Spatial Modeling and IoT for Conservation.</span></li>
-                        </ul>
-                    </article>
-                    <article class="mini-card">
-                        <div class="panel-label">Research Output Support</div>
-                        <h3>Books and intellectual property</h3>
-                        <ul class="list-block">
-                            <li><span class="bullet-dot">1</span><span>Copyright registration for integrated UAV imaging analysis model, 2025.</span></li>
-                            <li><span class="bullet-dot">2</span><span>Patent for vegetation cover change detection based on optical satellite imagery, 2022.</span></li>
-                            <li><span class="bullet-dot">3</span><span>Book on smart and precision agriculture in energy management, 2023.</span></li>
-                        </ul>
-                    </article>
+                <div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-base text-slate-900">Institut Pertanian Bogor (IPB University), Indonesia</h3>
+                        <span class="text-sm font-mono text-slate-500">2008 — 2012</span>
+                    </div>
+                    <p class="text-sm text-slate-600 italic">Bachelor of Science (B.Sc.) in Agricultural Engineering</p>
+                    <p class="text-xs text-slate-500 mt-1">Thesis: <em>"Studi Perilaku Ayam Broiler Berbasis Liputan Visual dalam Kandang Tertutup"</em></p>
                 </div>
             </div>
         </section>
 
-        <section id="publications" class="surface-card section-card" style="margin-top:24px;">
-            <div class="section-heading">
-                <div>
-                    <div class="section-index">Section 04 / Publications</div>
-                    <h2>Publication feed anchored by technical references and external profiles</h2>
-                    <p class="section-subtitle">The BibTeX source remains dynamic, but the presentation now sits inside a blueprint-style archive panel with adjacent academic reference blocks.</p>
-                </div>
-                <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer" class="badge-link">Google Scholar</a>
+        <!-- Section: Publications -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Recent Publications</h2>
+            <div id="bibtex-publications">Memuat publikasi dari Mendeley...</div>
+        </section>
+
+        <!-- Section: Intellectual Property & Books -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Intellectual Property & Books</h2>
+            <ul class="list-disc pl-5 space-y-3 text-sm text-slate-700">
+                <li>
+                    <strong>Copyright (2025):</strong> Integrated Multidimensional Analysis Model Based on UAV Imaging for Bacterial Leaf Blight Assessment in Rice Crops (Reg: EC002025120706).
+                </li>
+                <li>
+                    <strong>Patent (2022):</strong> Rapid Detection System for Vegetation Cover Changes Based on Optical Satellite Image Data (Reg: S00202211691).
+                </li>
+                <li>
+                    <strong>Patent (2021):</strong> Topographic Correction Method for Satellite Imagery Based on Optical Sensors (Reg: S00202106657).
+                </li>
+                <li>
+                    <strong>Book (2023):</strong> <em>Concepts and Approaches of Smart & Precision Agriculture in Energy Management for and From Agriculture</em>. IPB Press. (146 pages).
+                </li>
+            </ul>
+        </section>
+
+        <!-- Section: Certifications & Expertise -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-lg font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-3 text-slate-800">Professional Licenses</h2>
+                <ul class="space-y-2 text-xs text-slate-600">
+                    <li class="bg-slate-50 p-2.5 rounded-sm border border-slate-100">
+                        <strong class="text-slate-800 block text-sm">Remote Pilot License</strong>
+                        Issued by Directorate General of Civil Aviation, Ministry of Transportation (2024)
+                    </li>
+                    <li class="bg-slate-50 p-2.5 rounded-sm border border-slate-100">
+                        <strong class="text-slate-800 block text-sm">GIS Analyst (Level 6)</strong>
+                        Certified by LSP Mapin (2017)
+                    </li>
+                </ul>
             </div>
 
-            <div class="publication-grid">
-                <div id="bibtex-publications" class="loading-note">Loading publications from the BibTeX source...</div>
-                <div class="support-stack">
-                    <article class="mini-card">
-                        <div class="panel-label">Reference Channels</div>
-                        <h3>Academic endpoints</h3>
-                        <ul class="list-block">
-                            <li><span class="bullet-dot">A</span><span>Google Scholar for citation visibility and indexing.</span></li>
-                            <li><span class="bullet-dot">B</span><span>SINTA profile for national academic metrics.</span></li>
-                            <li><span class="bullet-dot">C</span><span>Local BibTeX archive for on-page publication rendering.</span></li>
-                        </ul>
-                    </article>
-                    <article class="mini-card">
-                        <div class="panel-label">Capability Stack</div>
-                        <h3>Supporting skills</h3>
-                        <ul class="list-block">
-                            <li><span class="bullet-dot">1</span><span>AI and deep learning for imagery analysis.</span></li>
-                            <li><span class="bullet-dot">2</span><span>GIS and remote sensing with QGIS, ArcGIS, GeoPandas, and R.</span></li>
-                            <li><span class="bullet-dot">3</span><span>Automation with Python, n8n, and workflow scripting.</span></li>
-                            <li><span class="bullet-dot">4</span><span>Field acquisition using DJI platforms, multispectral sensors, and GNSS RTK.</span></li>
-                        </ul>
-                    </article>
+            <div>
+                <h2 class="text-lg font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-3 text-slate-800">Teaching Focus</h2>
+                <ul class="space-y-1.5 text-sm text-slate-700 list-disc pl-4">
+                    <li>Conservation Spatial Modeling (2018 — 2025)</li>
+                    <li>Internet of Things (IoT) for Conservation (2022 — 2026)</li>
+                </ul>
+            </div>
+        </section>
+    
+        <hr class="border-slate-200 my-10" />
+        
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Skills</h2>
+            <div class="bento-grid">
+              <!-- Box 1: AI & Deep Learning -->
+              <div class="bento-item bento-large">
+                <h4>🤖 AI & Deep Learning</h4>
+                <p>DeepForest AI, LSTM, PyTorch, Model Training, Citra UAV.</p>
+              </div>
+              <!-- Box 2: GIS & Remote Sensing -->
+              <div class="bento-item">
+                <h4>🗺️ GIS & RS</h4>
+                <p>QGIS, ArcGIS, Geopandas, R</p>
+              </div>
+              <!-- Box 3: Automation -->
+              <div class="bento-item">
+                <h4>⚡ Automation</h4>
+                <p>n8n Workflow, Python Scripts, Telegram Bot Integration</p>
+              </div>
+              <!-- Box 4: Hardware / Field Gear -->
+              <div class="bento-item">
+                <h4>🛸 Field Acquisition</h4>
+                <p>DJI UAV/Drones piloting, Multispectral Sensors, GNSS RTK</p>
+              </div>
+            </div>
+        </section>
+		
+        <!-- Section: Featured Projects (Pinned Repos) -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 text-slate-800">Featured Projects</h2>
+            <div id="github-pinned" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <p class="text-slate-500 italic text-sm col-span-2">Loading pinned repositories...</p>
+            </div>
+        </section>
+        
+        <hr class="border-slate-200 my-10" />
+
+        <!-- Section: Recent Blog Posts -->
+        <section class="mb-10">
+            <div class="blog-section">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i class="fa-brands fa-blogger text-orange-500"></i> Recent Blog Posts
+                </h2>
+                <div id="blogger-posts" class="space-y-6">
+                    <p class="text-sm text-slate-500 italic">Memuat postingan terbaru...</p>
                 </div>
             </div>
         </section>
 
-        <section class="surface-card section-card" style="margin-top:24px;">
-            <div class="section-heading">
-                <div>
-                    <div class="section-index">Section 05 / Output Streams</div>
-                    <h2>Live repository feed and blog updates as asymmetric operational streams</h2>
-                    <p class="section-subtitle">Projects and writing are separated into two operational channels so the layout stays asymmetric and aligned with the engineering specification.</p>
-                </div>
-            </div>
-
-            <div class="work-grid">
-                <div id="projects" class="mini-card">
-                    <div class="section-heading" style="margin-bottom:18px;">
-                        <div>
-                            <div class="panel-label">Code Stream</div>
-                            <h3 style="margin:8px 0 0;">Featured projects</h3>
-                        </div>
-                        <a href="https://github.com/bangkoor" target="_blank" rel="noreferrer" class="badge-link">Visit GitHub</a>
-                    </div>
-                    <div id="github-pinned" class="project-grid">
-                        <p class="loading-note">Loading pinned repositories...</p>
-                    </div>
-                </div>
-
-                <div id="blog" class="mini-card">
-                    <div class="section-heading" style="margin-bottom:18px;">
-                        <div>
-                            <div class="panel-label">Writing Stream</div>
-                            <h3 style="margin:8px 0 0;">Recent blog posts</h3>
-                        </div>
-                        <a href="https://blog.akwijayanto.my.id" target="_blank" rel="noreferrer" class="badge-link">Open Blog</a>
-                    </div>
-                    <div id="blogger-posts">
-                        <p class="loading-note">Loading the latest blog posts...</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="surface-card section-card" style="margin-top:24px;">
-            <div class="section-heading">
-                <div>
-                    <div class="section-index">Section 06 / Contact</div>
-                    <h2>Research collaboration and public communication channels</h2>
-                    <p class="section-subtitle">The closing section preserves the same contact endpoints but presents them as a clean engineering handoff with direct actions and channel markers.</p>
-                </div>
-            </div>
-
-            <div class="contact-grid">
-                <article class="mini-card">
-                    <div class="panel-label">Primary Contact</div>
-                    <h3>Email and institutional line</h3>
-                    <p class="muted-copy">Use the direct academic contact for collaboration, invited talks, consultation, and interdisciplinary environmental modeling work.</p>
-                    <ul class="list-block">
-                        <li><span class="check-mark">1</span><span><a href="mailto:akwijayanto@apps.ipb.ac.id" class="resource-link" style="margin-top:0;">akwijayanto@apps.ipb.ac.id</a></span></li>
-                        <li><span class="check-mark">2</span><span>Faculty of Forestry and Environment, IPB University.</span></li>
-                        <li><span class="check-mark">3</span><span>SINTA profile ID: 6728108.</span></li>
-                    </ul>
-                </article>
-
-                <article class="mini-card">
-                    <div class="panel-label">Public Channels</div>
-                    <h3>Follow publications, code, and field updates</h3>
-                    <p class="muted-copy">External platforms remain available for publication tracking, source code, educational content, and continuing updates.</p>
-                    <div class="icon-link-row" style="margin-top:18px;">
-                        <a class="icon-link" href="https://github.com/bangkoor" target="_blank" rel="noreferrer" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.47 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.13 2.92.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.27-.45-1.33.1-2.78 0 0 .85-.28 2.78 1.06a9.4 9.4 0 0 1 5.06 0c1.93-1.34 2.78-1.06 2.78-1.06.55 1.45.2 2.51.1 2.78.64.72 1.03 1.64 1.03 2.77 0 3.97-2.35 4.83-4.59 5.08.36.32.69.94.69 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"></path></svg>
-                        </a>
-                        <a class="icon-link" href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56C7.15 3.89 6.34 3 5.26 3S3.36 3.89 3.36 4.94c0 1.04.8 1.94 1.87 1.94h.03c1.1 0 1.9-.9 1.9-1.94ZM20.64 13.02c0-3.36-1.79-4.92-4.17-4.92-1.92 0-2.78 1.07-3.25 1.82V8.5H9.84c.04.94 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.68.12-.92.27-.68.88-1.39 1.91-1.39 1.35 0 1.89 1.05 1.89 2.6V20H20.5l.14-6.98Z"></path></svg>
-                        </a>
-                        <a class="icon-link" href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M12 3 2 9l10 6 10-6-10-6Z"></path>
-                                <path d="M4 10.5V15c0 2.8 3.58 5 8 5s8-2.2 8-5v-4.5"></path>
-                            </svg>
-                        </a>
-                        <a class="icon-link" href="https://blog.akwijayanto.my.id" target="_blank" rel="noreferrer" aria-label="Blog">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H20v14H6.5A2.5 2.5 0 0 0 4 20.5v-14Z"></path>
-                                <path d="M8 8h8"></path>
-                                <path d="M8 12h8"></path>
-                                <path d="M8 16h5"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <footer class="surface-card footer-card" style="margin-top:24px;">
-            <div class="footer-grid">
-                <div>
-                    <div class="nav-brand" style="margin-bottom:16px;">
-                        <span class="brand-mark" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 20h18"></path>
-                                <path d="M6 20V8l6-4 6 4v12"></path>
-                                <path d="M10 20v-5h4v5"></path>
-                            </svg>
-                        </span>
-                        <div class="brand-copy">
-                            <strong>ARIF K. WIJAYANTO // LAB</strong>
-                            <span>Technical blueprint for research, publications, and active geospatial work.</span>
-                        </div>
-                    </div>
-                    <div class="footer-social">
-                        <a href="https://github.com/bangkoor" target="_blank" rel="noreferrer" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.47 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.35 1.13 2.92.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.05 1.03-2.77-.1-.27-.45-1.33.1-2.78 0 0 .85-.28 2.78 1.06a9.4 9.4 0 0 1 5.06 0c1.93-1.34 2.78-1.06 2.78-1.06.55 1.45.2 2.51.1 2.78.64.72 1.03 1.64 1.03 2.77 0 3.97-2.35 4.83-4.59 5.08.36.32.69.94.69 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z"></path></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56C7.15 3.89 6.34 3 5.26 3S3.36 3.89 3.36 4.94c0 1.04.8 1.94 1.87 1.94h.03c1.1 0 1.9-.9 1.9-1.94ZM20.64 13.02c0-3.36-1.79-4.92-4.17-4.92-1.92 0-2.78 1.07-3.25 1.82V8.5H9.84c.04.94 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.68.12-.92.27-.68.88-1.39 1.91-1.39 1.35 0 1.89 1.05 1.89 2.6V20H20.5l.14-6.98Z"></path></svg>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCcDv_Se-EST0_iVF6NdYsPA/" target="_blank" rel="noreferrer" aria-label="YouTube">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.58 7.19a2.98 2.98 0 0 0-2.1-2.11C17.63 4.6 12 4.6 12 4.6s-5.63 0-7.48.48a2.98 2.98 0 0 0-2.1 2.11C2 9.05 2 12 2 12s0 2.95.42 4.81a2.98 2.98 0 0 0 2.1 2.11c1.85.48 7.48.48 7.48.48s5.63 0 7.48-.48a2.98 2.98 0 0 0 2.1-2.11C22 14.95 22 12 22 12s0-2.95-.42-4.81ZM10 15.5v-7l6 3.5-6 3.5Z"></path></svg>
-                        </a>
-                        <a href="https://blog.akwijayanto.my.id" target="_blank" rel="noreferrer" aria-label="Blog">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H20v14H6.5A2.5 2.5 0 0 0 4 20.5v-14Z"></path>
-                                <path d="M8 8h8"></path>
-                                <path d="M8 12h8"></path>
-                                <path d="M8 16h5"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="legal-copy" style="margin-top:18px;">Copyright 2026. Last content update: <strong id="last-update">Loading...</strong></p>
-                </div>
-
-                <div class="footer-link-group">
-                    <h3>Navigation</h3>
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#publications">Publications</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#blog">Blog</a>
-                </div>
-
-                <div class="footer-link-group">
-                    <h3>Contact</h3>
-                    <a href="mailto:akwijayanto@apps.ipb.ac.id">Email Contact</a>
-                    <a href="cv/cv-arifkwijayanto-jul2026.pdf" download>Download CV</a>
-                    <a href="#privacy-policy">Privacy Policy</a>
-                    <a href="#terms-of-use">Terms of Use</a>
-                </div>
-
-                <div class="footer-link-group">
-                    <h3>Academic Links</h3>
-                    <a href="https://scholar.google.co.id/citations?user=xfQppT0AAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
-                    <a href="https://sinta.kemdikbud.go.id/authors/profile/6728108" target="_blank" rel="noreferrer">SINTA Profile</a>
-                    <a href="https://github.com/bangkoor" target="_blank" rel="noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/arifkwijayanto/" target="_blank" rel="noreferrer">LinkedIn</a>
-                </div>
-            </div>
-
-            <div class="legal-grid">
-                <article id="privacy-policy" class="legal-card">
-                    <h4>Privacy Policy</h4>
-                    <p class="legal-copy">This website presents a public academic profile, links to external platforms, and fetches content from publicly available sources for publications, repositories, and blog updates.</p>
-                </article>
-                <article id="terms-of-use" class="legal-card">
-                    <h4>Terms of Use</h4>
-                    <p class="legal-copy">Content is provided for informational and professional reference purposes. Please verify citation details directly through the linked publication or profile source when needed.</p>
-                </article>
-            </div>
+        <!-- Section: Footer -->
+        <footer class="text-center py-6 text-sm text-slate-500">
+            <p>© 2026 Arif Kurnia Wijayanto. All rights reserved.</p>
+            <p class="mt-1">Last Update: <span id="last-update" class="font-medium text-slate-700">Loading...</span></p>
         </footer>
+
     </div>
 
-    <script>
-        const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts";
+<!-- JavaScript Pemroses Dashboard Integrasi Data -->
+<script>
+    const VERCEL_WORKER_URL = "https://vercel-blogger-worker.vercel.app/api/posts"; 
 
-        const icons = {
-            arrow: `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M7 17 17 7"></path>
-                    <path d="M8 7h9v9"></path>
-                </svg>
-            `,
-            repo: `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 3v18"></path>
-                    <path d="M17 8v10"></path>
-                    <path d="M7 8v10"></path>
-                    <path d="M4 8h16"></path>
-                </svg>
-            `,
-            star: `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                </svg>
-            `,
-            post: `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H20v14H6.5A2.5 2.5 0 0 0 4 20.5v-14Z"></path>
-                    <path d="M8 8h8"></path>
-                    <path d="M8 12h8"></path>
-                    <path d="M8 16h5"></path>
-                </svg>
-            `
-        };
+    async function fetchAllDashboardData() {
+        const blogContainer = document.getElementById('blogger-posts');
+        const githubContainer = document.getElementById('github-pinned');
+        
+        const citationElem = document.getElementById('scopus-citations');
+        const docElem = document.getElementById('scopus-documents');
+        const hIndexElem = document.getElementById('scopus-hindex');
+        
+        const sintaOverallElem = document.getElementById('sinta-overall');
+        const sinta3yrElem = document.getElementById('sinta-3yr');
+        const lastUpdateElem = document.getElementById('last-update');
 
-        async function fetchAllDashboardData() {
-            const blogContainer = document.getElementById("blogger-posts");
-            const githubContainer = document.getElementById("github-pinned");
-            const citationElem = document.getElementById("scopus-citations");
-            const docElem = document.getElementById("scopus-documents");
-            const hIndexElem = document.getElementById("scopus-hindex");
-            const sintaOverallElem = document.getElementById("sinta-overall");
-            const sinta3yrElem = document.getElementById("sinta-3yr");
-            const lastUpdateElem = document.getElementById("last-update");
+        try {
+            const response = await fetch(VERCEL_WORKER_URL);
+            if (!response.ok) throw new Error(`Worker status: ${response.status}`);
+            
+            const data = await response.json();
 
-            try {
-                const response = await fetch(VERCEL_WORKER_URL);
-                if (!response.ok) {
-                    throw new Error(`Worker status: ${response.status}`);
-                }
+            // 1. RENDER STATISTIK SCOPUS
+            if (data.stats) {
+                if (citationElem) citationElem.innerText = data.stats.citationCount;
+                if (docElem) docElem.innerText = data.stats.documentCount;
+                if (hIndexElem) hIndexElem.innerText = data.stats.hIndex;
+            }
 
-                const data = await response.json();
+            // 2. RENDER STATISTIK SINTA
+            if (data.sinta) {
+                if (sintaOverallElem) sintaOverallElem.innerText = data.sinta.scoreOverall;
+                if (sinta3yrElem) sinta3yrElem.innerText = data.sinta.score3Yr;
+            }
 
-                if (data.stats) {
-                    if (citationElem) citationElem.textContent = data.stats.citationCount;
-                    if (docElem) docElem.textContent = data.stats.documentCount;
-                    if (hIndexElem) hIndexElem.textContent = data.stats.hIndex;
-                }
+            // 3. RENDER TANGGAL COMMIT TERAKHIR
+            if (data.lastUpdate && lastUpdateElem) {
+                const dateObj = new Date(data.lastUpdate);
+                const formattedDate = dateObj.toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+                lastUpdateElem.innerText = formattedDate;
+            }
 
-                if (data.sinta) {
-                    if (sintaOverallElem) sintaOverallElem.textContent = data.sinta.scoreOverall;
-                    if (sinta3yrElem) sinta3yrElem.textContent = data.sinta.score3Yr;
-                }
-
-                if (data.lastUpdate && lastUpdateElem) {
-                    const dateObj = new Date(data.lastUpdate);
-                    lastUpdateElem.textContent = dateObj.toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric"
-                    });
-                }
-
-                if (githubContainer) {
-                    const repos = data.pinned || [];
-                    if (repos.length === 0) {
-                        githubContainer.innerHTML = '<p class="loading-note">No pinned repositories were found.</p>';
-                    } else {
-                        githubContainer.innerHTML = "";
-                        repos.forEach((repo) => {
-                            const card = document.createElement("article");
-                            card.className = "mini-card";
-                            card.innerHTML = `
-                                <div class="flex items-center justify-between gap-4 mb-4">
-                                    <span class="icon-badge">${icons.repo}</span>
-                                    <a href="${repo.link}" target="_blank" rel="noreferrer" class="resource-link" style="margin-top:0">
-                                        Open
-                                        ${icons.arrow}
+            // 4. RENDER PINNED GITHUB REPOSITORIES
+            if (githubContainer) {
+                const repos = data.pinned || [];
+                if (repos.length === 0) {
+                    githubContainer.innerHTML = '<p class="text-slate-500 italic text-sm col-span-2">No pinned repositories found.</p>';
+                } else {
+                    githubContainer.innerHTML = '';
+                    repos.forEach(repo => {
+                        const card = document.createElement('div');
+                        card.className = "bg-white p-4 rounded border border-slate-200 shadow-2xs hover:border-emerald-600 transition flex flex-col justify-between";
+                        card.innerHTML = `
+                            <div>
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <i class="fa-regular fa-bookmark text-slate-400 text-xs"></i>
+                                    <a href="${repo.link}" target="_blank" class="font-bold text-slate-900 hover:text-emerald-800 hover:underline text-sm break-all">
+                                        ${repo.repo}
                                     </a>
                                 </div>
-                                <h3>${repo.repo}</h3>
-                                <p>${repo.description || "No description provided."}</p>
-                                <div class="flex flex-wrap items-center gap-4 mt-5 text-sm text-slate-200">
-                                    <span class="inline-flex items-center gap-2">
-                                        <span style="width:12px;height:12px;border-radius:999px;background:${repo.languageColor || "#94a3b8"};display:inline-block"></span>
-                                        ${repo.language || "Not specified"}
-                                    </span>
-                                    <span class="inline-flex items-center gap-2">
-                                        ${icons.star}
-                                        ${repo.stars}
-                                    </span>
+                                <p class="text-xs text-slate-600 line-clamp-2 mb-4">${repo.description || 'No description provided.'}</p>
+                            </div>
+                            <div class="flex items-center space-x-4 text-[11px] text-slate-500 font-medium">
+                                <div class="flex items-center space-x-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${repo.languageColor}"></span>
+                                    <span>${repo.language}</span>
                                 </div>
-                            `;
-                            githubContainer.appendChild(card);
-                        });
-                    }
-                }
-
-                if (blogContainer) {
-                    const posts = data.posts || [];
-                    if (posts.length === 0) {
-                        blogContainer.innerHTML = '<p class="loading-note">No recent blog posts were found.</p>';
-                    } else {
-                        blogContainer.innerHTML = "";
-                        posts.forEach((post) => {
-                            const excerpt = post.excerpt || "Open the full article to read the complete post on the official blog.";
-                            const postDate = post.date ? new Date(post.date).toLocaleDateString("en-GB", {
-                                day: "numeric",
-                                month: "long",
-                                year: "numeric"
-                            }) : "";
-
-                            const article = document.createElement("article");
-                            article.innerHTML = `
-                                <div class="flex items-center justify-between gap-4 mb-4">
-                                    <span class="icon-badge">${icons.post}</span>
-                                    ${postDate ? `<span class="meta-label" style="margin-bottom:0">${postDate}</span>` : ""}
+                                <div class="flex items-center space-x-1">
+                                    <i class="fa-regular fa-star"></i>
+                                    <span>${repo.stars}</span>
                                 </div>
-                                <h3 style="margin:0 0 12px;font-size:1rem;font-weight:700;line-height:1.6;">
-                                    <a href="${post.url}" target="_blank" rel="noreferrer" style="text-decoration:none;color:inherit;">${post.title}</a>
-                                </h3>
-                                <p>${excerpt}</p>
-                                <a href="${post.url}" target="_blank" rel="noreferrer" class="resource-link" style="margin-top:16px;">
-                                    Read article
-                                    ${icons.arrow}
-                                </a>
-                            `;
-                            blogContainer.appendChild(article);
-                        });
-                    }
+                            </div>
+                        `;
+                        githubContainer.appendChild(card);
+                    });
                 }
-            } catch (error) {
-                console.error("Error fetching dashboard data:", error);
-                if (citationElem) citationElem.textContent = "N/A";
-                if (docElem) docElem.textContent = "N/A";
-                if (hIndexElem) hIndexElem.textContent = "N/A";
-                if (sintaOverallElem) sintaOverallElem.textContent = "N/A";
-                if (sinta3yrElem) sinta3yrElem.textContent = "N/A";
-                if (lastUpdateElem) lastUpdateElem.textContent = "-";
-                if (blogContainer) blogContainer.innerHTML = '<p class="error-note">Failed to load the latest blog posts.</p>';
-                if (githubContainer) githubContainer.innerHTML = '<p class="error-note">Failed to load pinned GitHub repositories.</p>';
             }
+
+            // 5. RENDER POSTINGAN BLOGGER DENGAN EXCERPT DARI WORKER API
+            if (blogContainer) {
+                const posts = data.posts || [];
+                if (posts.length === 0) {
+                    blogContainer.innerHTML = '<p class="text-slate-500 italic text-sm">No recent posts found.</p>';
+                } else {
+                    blogContainer.innerHTML = '';
+                    posts.forEach(post => {
+                        // Menggunakan data excerpt yang sudah dibersihkan dari Vercel Worker. 
+                        // Jika kosong, sediakan fallback teks default.
+                        const excerpt = post.excerpt || "Klik baca selengkapnya untuk mengunjungi artikel lengkap di portal blog resmi kami.";
+
+                        // Formatisasi tanggal opsional apabila objek feed membawa data tanggal penerbitan
+                        const postDate = post.date ? new Date(post.date).toLocaleDateString('id-ID', {
+                            year: 'numeric', month: 'long', day: 'numeric'
+                        }) : "";
+
+                        const article = document.createElement('article');
+                        article.className = "border-l-2 border-emerald-600 pl-4 py-1 group";
+                        article.innerHTML = `
+                            <h3 class="font-semibold text-slate-900 group-hover:text-emerald-800 transition-colors">
+                                <a href="${post.url}" target="_blank">${post.title}</a>
+                            </h3>
+                            ${postDate ? `<span class="text-xs text-slate-400 block mt-1">${postDate}</span>` : ''}
+                            <p class="text-sm text-slate-600 mt-2 mb-3 leading-relaxed">
+                                ${excerpt}
+                            </p>
+                            <a href="${post.url}" target="_blank" class="badge-read-more">
+                                Read More 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        `;
+                        blogContainer.appendChild(article);
+                    });
+                }
+            }
+
+        } catch (error) {
+            console.error('Error fetching dashboard data:', error);
+            if (citationElem) citationElem.innerText = "N/A";
+            if (docElem) docElem.innerText = "N/A";
+            if (hIndexElem) hIndexElem.innerText = "N/A";
+            if (sintaOverallElem) sintaOverallElem.innerText = "N/A";
+            if (sinta3yrElem) sinta3yrElem.innerText = "N/A";
+            if (lastUpdateElem) lastUpdateElem.innerText = "-";
+            if (blogContainer) blogContainer.innerHTML = '<p class="text-red-500 italic text-sm">Gagal memuat postingan blog terbaru.</p>';
+            if (githubContainer) githubContainer.innerHTML = '<p class="text-red-500 italic text-sm col-span-2">Failed to load GitHub projects.</p>';
         }
+    }
 
-        async function loadBibTeX() {
-            try {
-                const response = await fetch("./publications.bib");
-                const bibtexData = await response.text();
+    document.addEventListener('DOMContentLoaded', fetchAllDashboardData);
 
-                const parser = new BibtexParser();
-                parser.setInput(bibtexData);
-                parser.bibtex();
-                const entries = parser.getEntries();
-                const keys = Object.keys(entries).slice(0, 5);
-
+    // Fungsi Parser BibTeX untuk Daftar Publikasi
+    async function loadBibTeX() {
+        try {
+            const response = await fetch('./publications.bib');
+            const bibtexData = await response.text();
+            
+            const parser = new BibtexParser();
+            parser.setInput(bibtexData);
+            parser.bibtex();
+            const entries = parser.getEntries();
+            
+            let html = '<ul style="list-style: none; padding: 0;">';
+            const keys = Object.keys(entries).slice(0, 5);
+            
+            keys.forEach(key => {
+                const entry = entries[key];
+                const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
+                
                 function formatAuthorName(authorString) {
                     if (!authorString) return "Unknown Author";
                     const authors = authorString.split(/\s+and\s+/i);
-                    return authors.map((author) => {
-                        const cleanAuthor = author.trim();
-                        if (cleanAuthor.includes(",")) {
-                            const parts = cleanAuthor.split(",");
+                    const formattedAuthors = authors.map(author => {
+                        let cleanAuthor = author.trim();
+                        if (cleanAuthor.includes(',')) {
+                            const parts = cleanAuthor.split(',');
                             return `${parts[1].trim()} ${parts[0].trim()}`;
                         }
                         return cleanAuthor;
-                    }).join(", ");
+                    });
+                    return formattedAuthors.join(', ');
+                }
+                
+                const authors = formatAuthorName(entry.AUTHOR);
+                const year = entry.YEAR ? entry.YEAR : "N/A";
+                const journal = entry.JOURNAL ? entry.JOURNAL.replace(/[{}]/g, "") : "Journal";
+                
+                let targetUrl = "#";
+                if (entry.DOI) {
+                    targetUrl = `https://dx.doi.org/${entry.DOI.replace(/[{}]/g, "").trim()}`;
+                } else if (entry.URL) {
+                    targetUrl = entry.URL.replace(/[{}]/g, "").trim();
                 }
 
-                let html = "<ul>";
-
-                keys.forEach((key) => {
-                    const entry = entries[key];
-                    const title = entry.TITLE ? entry.TITLE.replace(/[{}]/g, "") : "Untitled";
-                    const authors = formatAuthorName(entry.AUTHOR);
-                    const year = entry.YEAR ? entry.YEAR : "N/A";
-                    const journal = entry.JOURNAL ? entry.JOURNAL.replace(/[{}]/g, "") : "Journal";
-
-                    let targetUrl = "#";
-                    if (entry.DOI) {
-                        targetUrl = `https://dx.doi.org/${entry.DOI.replace(/[{}]/g, "").trim()}`;
-                    } else if (entry.URL) {
-                        targetUrl = entry.URL.replace(/[{}]/g, "").trim();
-                    }
-
-                    html += `
-                        <li>
-                            <div class="flex items-center justify-between gap-4 mb-3">
-                                <span class="icon-badge" style="margin-bottom:0">${icons.post}</span>
-                                <span class="meta-label" style="margin-bottom:0">${year}</span>
-                            </div>
-                            <h3 style="margin:0 0 10px;font-size:1rem;font-weight:700;line-height:1.6;">
-                                <a href="${targetUrl}" target="_blank" rel="noreferrer" style="text-decoration:none;color:inherit;">${title}</a>
-                            </h3>
-                            <p style="margin:0 0 8px;color:var(--ink-soft);">${authors}</p>
-                            <p style="margin:0;color:var(--light-blue);">${journal}</p>
-                        </li>
-                    `;
-                });
-
-                html += "</ul>";
-                document.getElementById("bibtex-publications").innerHTML = html;
-            } catch (error) {
-                console.error(error);
-                document.getElementById("bibtex-publications").innerHTML = '<p class="error-note">Failed to load publications automatically. Please check the <code>publications.bib</code> file.</p>';
-            }
+                html += `
+                    <li style="margin-bottom: 16px; border-left: 3px solid #10b981; padding-left: 12px; font-family: 'Open Sans', sans-serif;">
+                        <strong style="color: #1e293b; font-size: 0.95rem;">
+                            <a href="${targetUrl}" target="_blank" style="color: #1e293b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#1e293b'">
+                                ${title}
+                            </a>
+                        </strong><br>
+                        <span style="font-size: 0.85rem; color: #475569; display: block; margin-top: 4px;">${authors}</span>
+                        <span style="font-size: 0.8rem; color: #94a3b8; font-style: italic; display: block; margin-top: 2px;">${journal} (${year})</span>
+                    </li>
+                `;
+            });
+            
+            html += '</ul>';
+            document.getElementById('bibtex-publications').innerHTML = html;
+        } catch (error) {
+            console.error(error);
+            document.getElementById('bibtex-publications').innerHTML = `
+                <p style="font-size: 0.9rem; color: #64748b;">
+                    Gagal memuat publikasi secara otomatis. Silakan periksa file <code>publications.bib</code> Anda.
+                </p>`;
         }
+    }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            fetchAllDashboardData();
-            loadBibTeX();
-        });
-    </script>
+    document.addEventListener("DOMContentLoaded", loadBibTeX);
+</script>
 </body>
 </html>
